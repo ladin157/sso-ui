@@ -8,7 +8,7 @@ import {
   SelectVariant,
 } from "@patternfly/react-core";
 
-import { RequiredActionAlias } from "@keycloak/keycloak-admin-client/lib/defs/requiredActionProviderRepresentation";
+import { RequiredActionAlias } from "@sso/sso-admin-client/lib/defs/requiredActionProviderRepresentation";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 
 export const CredentialsResetActionMultiSelect = () => {

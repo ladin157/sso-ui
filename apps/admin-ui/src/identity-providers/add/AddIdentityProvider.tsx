@@ -9,7 +9,7 @@ import {
   PageSection,
 } from "@patternfly/react-core";
 
-import type IdentityProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation";
+import type IdentityProviderRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderRepresentation";
 import { ExtendedFieldsForm } from "../component/ExtendedFieldsForm";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
 import { toUpperCase } from "../../util";

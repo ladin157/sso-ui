@@ -3,8 +3,8 @@ import FileSaver from "file-saver";
 import type { IFormatter, IFormatterValueType } from "@patternfly/react-table";
 import { flatten } from "flat";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type { ProviderRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type { ProviderRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
 
 import {
   keyValueToArray,
@@ -159,7 +159,7 @@ export const alphaRegexPattern = /[^A-Za-z]/g;
 export const emailRegexPattern =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-export const KEY_PROVIDER_TYPE = "org.keycloak.keys.KeyProvider";
+export const KEY_PROVIDER_TYPE = "com.vinorsoft.sso.keys.KeyProvider";
 
 export const prettyPrintJSON = (value: any) => JSON.stringify(value, null, 2);
 

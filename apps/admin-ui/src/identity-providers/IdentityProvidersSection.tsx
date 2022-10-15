@@ -24,10 +24,10 @@ import {
   ToolbarItem,
 } from "@patternfly/react-core";
 
-import type IdentityProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation";
+import type IdentityProviderRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderRepresentation";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { useFetch, useAdminClient } from "../context/auth/AdminClient";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useAlerts } from "../components/alert/Alerts";
 import { useServerInfo } from "../context/server-info/ServerInfoProvider";
@@ -38,7 +38,7 @@ import { ManageOrderDialog } from "./ManageOrderDialog";
 import { toIdentityProvider } from "./routes/IdentityProvider";
 import { toIdentityProviderCreate } from "./routes/IdentityProviderCreate";
 import helpUrls from "../help-urls";
-import { ClickableCard } from "../components/keycloak-card/ClickableCard";
+import { ClickableCard } from "../components/sso-card/ClickableCard";
 
 export default function IdentityProvidersSection() {
   const { t } = useTranslation("identity-providers");
@@ -211,7 +211,7 @@ export default function IdentityProvidersSection() {
           </>
         )}
         {providers.length !== 0 && (
-          <KeycloakDataTable
+          <SsoDataTable
             loader={providers}
             ariaLabelKey="common:identityProviders"
             searchPlaceholderKey="identity-providers:searchForProvider"

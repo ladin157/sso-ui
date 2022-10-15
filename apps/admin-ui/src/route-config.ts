@@ -1,5 +1,5 @@
 import type { TFunction } from "i18next";
-import type { AccessType } from "@keycloak/keycloak-admin-client/lib/defs/whoAmIRepresentation";
+import type { AccessType } from "@sso/sso-admin-client/lib/defs/whoAmIRepresentation";
 import type { ComponentType, LazyExoticComponent } from "react";
 import type { MatchOptions } from "use-react-router-breadcrumbs";
 import authenticationRoutes from "./authentication/routes";

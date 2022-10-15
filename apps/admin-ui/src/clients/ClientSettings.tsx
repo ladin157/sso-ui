@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
 import { Form } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { ScrollForm } from "../components/scroll-form/ScrollForm";
 import { ClientDescription } from "./ClientDescription";
 import { CapabilityConfig } from "./add/CapabilityConfig";

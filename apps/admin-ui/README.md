@@ -1,6 +1,6 @@
-# Keycloak Admin UI
+# Sso Admin UI
 
-This project is the next generation of the Keycloak Administration UI. It is written with React and [PatternFly 4](https://www.patternfly.org/v4/).
+This project is the next generation of the Sso Administration UI. It is written with React and [PatternFly 4](https://www.patternfly.org/v4/).
 
 ## Development
 
@@ -14,9 +14,9 @@ You can find out which version of Node.js you are using by running the following
 node --version
 ```
 
-In order to run the Keycloak server you will also have to install the Java Development Kit (JDK). We recommend that you use the same version of the JDK as [required by the Keycloak server](https://github.com/keycloak/keycloak/blob/main/docs/building.md#building-from-source).
+In order to run the Sso server you will also have to install the Java Development Kit (JDK). We recommend that you use the same version of the JDK as [required by the Sso server](https://github.com/sso/sso/blob/main/docs/building.md#building-from-source).
 
-### Running the Keycloak server
+### Running the Sso server
 
 First, ensure that all dependencies are installed locally using NPM by running:
 
@@ -24,27 +24,27 @@ First, ensure that all dependencies are installed locally using NPM by running:
 npm install
 ```
 
-After the dependencies are installed we can start the Keycloak server by running the following command:
+After the dependencies are installed we can start the Sso server by running the following command:
 
 ```bash
 npm run server:start
 ```
 
-This will download the [Nightly version](https://github.com/keycloak/keycloak/releases/tag/nightly) of the Keycloak server and run it locally on port `8180`. If a previously downloaded version was found in the `server/` directory then that one will be used instead. If you want to download the latest Nightly version you can remove the server directory before running the command to start the server.
+This will download the [Nightly version](https://github.com/sso/sso/releases/tag/nightly) of the Sso server and run it locally on port `8180`. If a previously downloaded version was found in the `server/` directory then that one will be used instead. If you want to download the latest Nightly version you can remove the server directory before running the command to start the server.
 
-In order for the development version of the Admin UI to work you will have to import a custom client to the Keycloak server. This is only required during development as the development server for the Admin UI runs on a different port (more on that later).
+In order for the development version of the Admin UI to work you will have to import a custom client to the Sso server. This is only required during development as the development server for the Admin UI runs on a different port (more on that later).
 
-Wait for the Keycloak server to be up and running and run the following command in a new terminal:
+Wait for the Sso server to be up and running and run the following command in a new terminal:
 
 ```bash
 npm run server:import-client
 ```
 
-You'll only have to run this command once, unless you remove the server directory or Keycloak server data.
+You'll only have to run this command once, unless you remove the server directory or Sso server data.
 
 ### Running the development server
 
-Now that the Keycloak sever is running it's time to run the development server for the Admin UI. This server is used to build the Admin UI in a manner that it can be iterated on quickly in a browser, using features such as [Hot Module Replacement (HMR)](https://vitejs.dev/guide/features.html#hot-module-replacement) and [Fast Refresh](https://www.npmjs.com/package/react-refresh).
+Now that the Sso sever is running it's time to run the development server for the Admin UI. This server is used to build the Admin UI in a manner that it can be iterated on quickly in a browser, using features such as [Hot Module Replacement (HMR)](https://vitejs.dev/guide/features.html#hot-module-replacement) and [Fast Refresh](https://www.npmjs.com/package/react-refresh).
 
 To start the development server run the following command:
 
@@ -52,13 +52,13 @@ To start the development server run the following command:
 npm run dev
 ```
 
-Once the process of optimization is done your browser will automatically open your local host on port `8080`. From here you will be redirected to the Keycloak server to authenticate, which you can do with the default username and password (`admin`).
+Once the process of optimization is done your browser will automatically open your local host on port `8080`. From here you will be redirected to the Sso server to authenticate, which you can do with the default username and password (`admin`).
 
 You can now start making changes to the source code, and they will be reflected in your browser.
 
-## Building as a Keycloak theme
+## Building as a Sso theme
 
-If you want to build the application using Maven and produce a JAR that can be installed directly into Keycloak, check out the [Keycloak theme documentation](../../keycloak-theme/README.md).
+If you want to build the application using Maven and produce a JAR that can be installed directly into Sso, check out the [Sso theme documentation](../../sso-theme/README.md).
 
 ## Linting
 
@@ -73,7 +73,7 @@ This repository contains integration tests developed with the [Cypress framework
 
 ### Prerequisites
 
-Ensure the Keycloak and development server are running as [outlined previously](#running-the-keycloak-server) in this document.
+Ensure the Sso and development server are running as [outlined previously](#running-the-sso-server) in this document.
 
 ### Running the tests
 

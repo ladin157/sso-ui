@@ -1,4 +1,4 @@
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { FunctionComponent, useState } from "react";
 import { createNamedContext } from "../utils/createNamedContext";
 import useRequiredContext from "../utils/useRequiredContext";

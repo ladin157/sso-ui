@@ -4,7 +4,7 @@ import SessionsPage from "../support/pages/admin_console/manage/sessions/Session
 import CommonPage from "../support/pages/CommonPage";
 import ListingPage from "../support/pages/admin_console/ListingPage";
 import GroupPage from "../support/pages/admin_console/manage/groups/GroupPage";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 
 const loginPage = new LoginPage();
 const sidebarPage = new SidebarPage();
@@ -17,7 +17,7 @@ describe("Sessions test", () => {
   const admin = "admin";
   const client = "security-admin-console";
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToSessions();
   });

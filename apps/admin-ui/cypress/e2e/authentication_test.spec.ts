@@ -1,4 +1,4 @@
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import LoginPage from "../support/pages/LoginPage";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import Masthead from "../support/pages/admin_console/Masthead";
@@ -25,7 +25,7 @@ describe("Authentication test", () => {
 
   before(() => {
     cy.wrap(adminClient.createRealm("test"));
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToRealm("Test");
   });
@@ -192,7 +192,7 @@ describe("Required actions", () => {
 
   before(() => {
     cy.wrap(adminClient.createRealm("Test"));
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToRealm("Test");
   });
@@ -236,7 +236,7 @@ describe("Password policies tab", () => {
   const passwordPoliciesPage = new PasswordPolicies();
 
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToAuthentication();
     passwordPoliciesPage.goToTab();

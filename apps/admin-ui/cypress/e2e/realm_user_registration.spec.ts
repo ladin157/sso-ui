@@ -6,7 +6,7 @@ import Masthead from "../support/pages/admin_console/Masthead";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
 import adminClient from "../support/util/AdminClient";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import ModalUtils from "../support/util/ModalUtils";
 
 describe("Realm settings - User registration tab", () => {
@@ -23,7 +23,7 @@ describe("Realm settings - User registration tab", () => {
 
   before(() => {
     adminClient.createGroup(groupName);
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
   });
 

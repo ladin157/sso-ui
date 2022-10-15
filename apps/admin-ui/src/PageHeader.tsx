@@ -24,14 +24,14 @@ import environment from "./environment";
 
 export const Header = () => {
   const { realm } = useRealm();
-  const { keycloak } = useAdminClient();
+  const { sso } = useAdminClient();
   const { t } = useTranslation();
 
   const ManageAccountDropdownItem = () => (
     <DropdownItem
       key="manage account"
       id="manage-account"
-      onClick={() => keycloak.accountManagement()}
+      onClick={() => sso.accountManagement()}
     >
       {t("manageAccount")}
     </DropdownItem>
@@ -41,7 +41,7 @@ export const Header = () => {
     <DropdownItem
       id="sign-out"
       key="sign out"
-      onClick={() => keycloak.logout({ redirectUri: "" })}
+      onClick={() => sso.logout({ redirectUri: "" })}
     >
       {t("signOut")}
     </DropdownItem>
@@ -90,7 +90,7 @@ export const Header = () => {
 
   const headerTools = () => {
     const adminClient = useAdminClient();
-    const picture = adminClient.keycloak.tokenParsed?.picture;
+    const picture = adminClient.sso.tokenParsed?.picture;
     return (
       <PageHeaderTools>
         <PageHeaderToolsGroup
@@ -173,7 +173,7 @@ export const Header = () => {
             src={environment.resourceUrl + "/logo.svg"}
             id="masthead-logo"
             alt="Logo"
-            className="keycloak__pageheader_brand"
+            className="sso__pageheader_brand"
           />
         </Link>
       }

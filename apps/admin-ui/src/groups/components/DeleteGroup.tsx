@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { ButtonVariant } from "@patternfly/react-core";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { ConfirmDialogModal } from "../../components/confirm-dialog/ConfirmDialog";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useAlerts } from "../../components/alert/Alerts";

@@ -35,8 +35,8 @@ export default class FlowDetails {
 
   changeRequirement(execution: string, requirement: RequirementType) {
     this.getExecution(execution)
-      .parentsUntil(".keycloak__authentication__flow-row")
-      .find(".keycloak__authentication__requirement-dropdown")
+      .parentsUntil(".sso__authentication__flow-row")
+      .find(".sso__authentication__requirement-dropdown")
       .click()
       .contains(requirement)
       .click();

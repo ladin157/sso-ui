@@ -21,7 +21,7 @@ import { getAuthorizationHeaders } from "../../utils/getAuthorizationHeaders";
 import { ConfirmDialogModal } from "../confirm-dialog/ConfirmDialog";
 import { useHelp } from "../help-enabler/HelpHeader";
 import { HelpItem } from "../help-enabler/HelpItem";
-import { KeycloakTextArea } from "../keycloak-text-area/KeycloakTextArea";
+import { SsoTextArea } from "../sso-text-area/SsoTextArea";
 
 type DownloadDialogProps = {
   id: string;
@@ -176,7 +176,7 @@ export const DownloadDialog = ({
                   />
                 }
               >
-                <KeycloakTextArea
+                <SsoTextArea
                   id="details"
                   readOnly
                   rows={12}

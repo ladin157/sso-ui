@@ -16,9 +16,9 @@ import {
 } from "@patternfly/react-core";
 import { SearchIcon } from "@patternfly/react-icons";
 
-import type { KeyMetadataRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/keyMetadataRepresentation";
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
-import type ComponentTypeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentTypeRepresentation";
+import type { KeyMetadataRepresentation } from "@sso/sso-admin-client/lib/defs/keyMetadataRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
+import type ComponentTypeRepresentation from "@sso/sso-admin-client/lib/defs/componentTypeRepresentation";
 
 import type { ProviderType } from "../routes/KeyProvider";
 import { useServerInfo } from "../../context/server-info/ServerInfoProvider";

@@ -3,8 +3,8 @@ import { useFormContext } from "react-hook-form";
 import { FormGroup, ValidatedOptions } from "@patternfly/react-core";
 
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
-import { KeycloakTextArea } from "../../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
+import { SsoTextArea } from "../../components/sso-text-area/SsoTextArea";
 
 export const NameDescription = () => {
   const { t } = useTranslation("authentication");
@@ -27,7 +27,7 @@ export const NameDescription = () => {
           <HelpItem helpText="authentication-help:name" fieldLabelId="name" />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           id="kc-name"
           name="alias"
@@ -52,7 +52,7 @@ export const NameDescription = () => {
         }
         helperTextInvalid={errors.description?.message}
       >
-        <KeycloakTextArea
+        <SsoTextArea
           ref={register({
             maxLength: {
               value: 255,

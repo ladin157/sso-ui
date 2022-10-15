@@ -20,7 +20,7 @@ import { ViewHeader } from "../../components/view-header/ViewHeader";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import type { IdentityProviderAddMapperParams } from "../routes/AddMapper";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
 import { useAlerts } from "../../components/alert/Alerts";
 import {
   IdentityProviderEditMapperParams,
@@ -28,13 +28,13 @@ import {
 } from "../routes/EditMapper";
 import { convertFormValuesToObject, convertToFormValues } from "../../util";
 import { toIdentityProvider } from "../routes/IdentityProvider";
-import type IdentityProviderMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderMapperRepresentation";
-import type { IdentityProviderMapperTypeRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/identityProviderMapperTypeRepresentation";
+import type IdentityProviderMapperRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderMapperRepresentation";
+import type { IdentityProviderMapperTypeRepresentation } from "@sso/sso-admin-client/lib/defs/identityProviderMapperTypeRepresentation";
 import { AddMapperForm } from "./AddMapperForm";
 import { DynamicComponents } from "../../components/dynamic/DynamicComponents";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import type { AttributeForm } from "../../components/key-value-form/AttributeForm";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";
 import useLocaleSort, { mapByKey } from "../../utils/useLocaleSort";
 
@@ -173,7 +173,7 @@ export default function AddMapper() {
   };
 
   if (!mapperTypes || !currentMapper) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
@@ -218,7 +218,7 @@ export default function AddMapper() {
             }
             helperTextInvalid={t("common:required")}
           >
-            <KeycloakTextInput
+            <SsoTextInput
               ref={register()}
               type="text"
               value={currentMapper.id}

@@ -3,7 +3,7 @@
   width: 120%;
 }
 
-.keycloak__permission__permission-table.pf-c-card {
+.sso__permission__permission-table.pf-c-card {
   border-top: 0;
   border-bottom: 0;
 }

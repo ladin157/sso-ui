@@ -1,6 +1,6 @@
 import type { RouteDef } from "../route-config";
 import { IdentityProviderRoute } from "./routes/IdentityProvider";
-import { IdentityProviderKeycloakOidcRoute } from "./routes/IdentityProviderKeycloakOidc";
+import { IdentityProviderSsoOidcRoute } from "./routes/IdentityProviderSsoOidc";
 import { IdentityProviderOidcRoute } from "./routes/IdentityProviderOidc";
 import { IdentityProviderSamlRoute } from "./routes/IdentityProviderSaml";
 import { IdentityProvidersRoute } from "./routes/IdentityProviders";
@@ -14,7 +14,7 @@ const routes: RouteDef[] = [
   IdentityProvidersRoute,
   IdentityProviderOidcRoute,
   IdentityProviderSamlRoute,
-  IdentityProviderKeycloakOidcRoute,
+  IdentityProviderSsoOidcRoute,
   IdentityProviderCreateRoute,
   IdentityProviderRoute,
 ];

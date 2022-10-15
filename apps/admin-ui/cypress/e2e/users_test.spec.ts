@@ -6,7 +6,7 @@ import ListingPage from "../support/pages/admin_console/ListingPage";
 import UserDetailsPage from "../support/pages/admin_console/manage/users/user_details/UserDetailsPage";
 import AttributesTab from "../support/pages/admin_console/manage/AttributesTab";
 import ModalUtils from "../support/util/ModalUtils";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import UserGroupsPage from "../support/pages/admin_console/manage/users/UserGroupsPage";
 import adminClient from "../support/util/AdminClient";
 import CredentialsPage from "../support/pages/admin_console/manage/users/CredentialsPage";
@@ -41,7 +41,7 @@ describe("User creation", () => {
       adminClient.createGroup(groupName);
       groupsList = [...groupsList, groupName];
     }
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
   });
 
@@ -216,9 +216,9 @@ describe("User creation", () => {
       { testName: "Bitbucket", displayName: "BitBucket", alias: "bitbucket" },
       { testName: "Facebook", displayName: "Facebook", alias: "facebook" },
       {
-        testName: "Keycloak-oidc",
-        displayName: "Keycloak OpenID Connect",
-        alias: "keycloak-oidc",
+        testName: "Sso-oidc",
+        displayName: "Sso OpenID Connect",
+        alias: "sso-oidc",
       },
     ];
 

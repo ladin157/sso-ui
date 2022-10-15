@@ -2,12 +2,12 @@ import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
 import { FormGroup } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import type { ClientSettingsProps } from "../ClientSettings";
 import { MultiLineInput } from "../../components/multi-line-input/MultiLineInput";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { SaveReset } from "../advanced/SaveReset";
 import environment from "../../environment";
 import { useRealm } from "../../context/realm-context/RealmContext";
@@ -49,7 +49,7 @@ export const AccessSettings = ({
               />
             }
           >
-            <KeycloakTextInput
+            <SsoTextInput
               type="text"
               id="kc-root-url"
               name="rootUrl"
@@ -66,7 +66,7 @@ export const AccessSettings = ({
               />
             }
           >
-            <KeycloakTextInput
+            <SsoTextInput
               type="text"
               id="kc-home-url"
               name="baseUrl"
@@ -125,7 +125,7 @@ export const AccessSettings = ({
                   })
                 }
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   type="text"
                   id="idpInitiatedSsoUrlName"
                   name="attributes.saml_idp_initiated_sso_url_name"
@@ -142,7 +142,7 @@ export const AccessSettings = ({
                   />
                 }
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   type="text"
                   id="idpInitiatedSsoRelayState"
                   name="attributes.saml_idp_initiated_sso_relay_state"
@@ -159,7 +159,7 @@ export const AccessSettings = ({
                   />
                 }
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   type="text"
                   id="masterSamlProcessingUrl"
                   name="adminUrl"
@@ -199,7 +199,7 @@ export const AccessSettings = ({
             />
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="text"
             id="kc-admin-url"
             name="adminUrl"
@@ -209,7 +209,7 @@ export const AccessSettings = ({
       )}
       {client.bearerOnly && (
         <SaveReset
-          className="keycloak__form_actions"
+          className="sso__form_actions"
           name="settings"
           save={save}
           reset={reset}

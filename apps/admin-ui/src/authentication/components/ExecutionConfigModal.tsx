@@ -15,14 +15,14 @@ import {
 } from "@patternfly/react-core";
 import { CogIcon, TrashIcon } from "@patternfly/react-icons";
 
-import type AuthenticatorConfigRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigRepresentation";
-import type AuthenticatorConfigInfoRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigInfoRepresentation";
+import type AuthenticatorConfigRepresentation from "@sso/sso-admin-client/lib/defs/authenticatorConfigRepresentation";
+import type AuthenticatorConfigInfoRepresentation from "@sso/sso-admin-client/lib/defs/authenticatorConfigInfoRepresentation";
 import type { ExpandableExecution } from "../execution-model";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useAlerts } from "../../components/alert/Alerts";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { DynamicComponents } from "../../components/dynamic/DynamicComponents";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { convertToFormValues } from "../../util";
 
 type ExecutionConfigModalForm = {
@@ -144,7 +144,7 @@ export const ExecutionConfigModal = ({
                 />
               }
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 isReadOnly={!!config}
                 type="text"
                 id="alias"

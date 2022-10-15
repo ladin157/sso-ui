@@ -19,7 +19,7 @@ const SubFlowNodeInner = ({
     <>
       <Handle position={Position.Right} type="source" />
       <div
-        className={`react-flow__node-default keycloak__authentication__subflow_node ${
+        className={`react-flow__node-default sso__authentication__subflow_node ${
           selected ? "selected" : ""
         }`}
       >

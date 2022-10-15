@@ -19,9 +19,9 @@ import { HelpItem } from "../components/help-enabler/HelpItem";
 import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom-v5-compat";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
-import type ComponentTypeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentTypeRepresentation";
-import type { ConfigPropertyRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigInfoRepresentation";
-import type ClientProfileRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientProfileRepresentation";
+import type ComponentTypeRepresentation from "@sso/sso-admin-client/lib/defs/componentTypeRepresentation";
+import type { ConfigPropertyRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigInfoRepresentation";
+import type ClientProfileRepresentation from "@sso/sso-admin-client/lib/defs/clientProfileRepresentation";
 import { ClientProfileParams, toClientProfile } from "./routes/ClientProfile";
 import { DynamicComponents } from "../components/dynamic/DynamicComponents";
 import type { ExecutorParams } from "./routes/Executor";
@@ -47,7 +47,7 @@ export default function ExecutorForm() {
   const { adminClient } = useAdminClient();
   const executorTypes =
     serverInfo.componentTypes?.[
-      "org.keycloak.services.clientpolicy.executor.ClientPolicyExecutorProvider"
+      "com.vinorsoft.sso.services.clientpolicy.executor.ClientPolicyExecutorProvider"
     ];
   const [executors, setExecutors] = useState<ComponentTypeRepresentation[]>([]);
   const [executorProperties, setExecutorProperties] = useState<

@@ -1,10 +1,10 @@
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type UserSessionRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userSessionRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type UserSessionRepresentation from "@sso/sso-admin-client/lib/defs/userSessionRepresentation";
 import { PageSection } from "@patternfly/react-core";
 
 import { useTranslation } from "react-i18next";
 
-import type { LoaderFunction } from "../components/table-toolbar/KeycloakDataTable";
+import type { LoaderFunction } from "../components/table-toolbar/SsoDataTable";
 import { useAdminClient } from "../context/auth/AdminClient";
 import SessionsTable from "../sessions/SessionsTable";
 

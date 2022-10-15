@@ -8,13 +8,13 @@ import {
   Switch,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useAlerts } from "../../components/alert/Alerts";
 import { RoleMapping, Row } from "../../components/role-mapping/RoleMapping";
-import type { RoleMappingPayload } from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
+import type { RoleMappingPayload } from "@sso/sso-admin-client/lib/defs/roleRepresentation";
 import { useAccess } from "../../context/access/Access";
 
 type DedicatedScopeProps = {

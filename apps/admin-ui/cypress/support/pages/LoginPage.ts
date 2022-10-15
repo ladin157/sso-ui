@@ -6,7 +6,7 @@ export default class LoginPage {
 
   private errorText = ".kc-feedback-text";
   private oldLoadContainer = "#loading";
-  private loadContainer = "div.keycloak__loading-container";
+  private loadContainer = "div.sso__loading-container";
 
   isLogInPage() {
     cy.get(this.userNameInput).should("exist");

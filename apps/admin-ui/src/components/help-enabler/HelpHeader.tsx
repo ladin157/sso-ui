@@ -72,12 +72,12 @@ export const HelpHeader = () => {
             aria-label={t("common:enableHelp")}
             isChecked={help.enabled}
             label=""
-            className="keycloak_help-header-switch"
+            className="sso_help-header-switch"
             onChange={() => help.toggleHelp()}
           />
         </SplitItem>
       </Split>
-      <TextContent className="keycloak_help-header-description">
+      <TextContent className="sso_help-header-description">
         {t("common-help:helpToggleInfo")}
       </TextContent>
     </DropdownItem>,

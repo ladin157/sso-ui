@@ -1,7 +1,7 @@
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
 import RealmSettingsPage from "../support/pages/admin_console/manage/realm_settings/RealmSettingsPage";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import adminClient from "../support/util/AdminClient";
 import ModalUtils from "../support/util/ModalUtils";
 import Masthead from "../support/pages/admin_console/Masthead";
@@ -23,7 +23,7 @@ describe("Realm settings client profiles tab tests", () => {
   });
 
   before(() => {
-    keycloakBefore();
+    ssoBefore();
     adminClient.createRealm(realmName);
     loginPage.logIn();
   });

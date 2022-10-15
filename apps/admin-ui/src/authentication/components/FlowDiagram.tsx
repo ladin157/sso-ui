@@ -20,7 +20,7 @@ import ReactFlow, {
   isNode,
 } from "react-flow-renderer";
 
-import type AuthenticationExecutionInfoRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticationExecutionInfoRepresentation";
+import type AuthenticationExecutionInfoRepresentation from "@sso/sso-admin-client/lib/defs/authenticationExecutionInfoRepresentation";
 import type { ExecutionList, ExpandableExecution } from "../execution-model";
 import { EndSubFlowNode, StartSubFlowNode } from "./diagram/SubFlowNode";
 import { ConditionalNode } from "./diagram/ConditionalNode";
@@ -193,7 +193,7 @@ export const FlowDiagram = ({
       type: "input",
       data: { label: "Start" },
       position: { x: 0, y: 0 },
-      className: "keycloak__authentication__input_node",
+      className: "sso__authentication__input_node",
     },
     {
       id: "end",
@@ -201,7 +201,7 @@ export const FlowDiagram = ({
       type: "output",
       data: { label: "End" },
       position: { x: 0, y: 0 },
-      className: "keycloak__authentication__output_node",
+      className: "sso__authentication__output_node",
     },
   ];
 

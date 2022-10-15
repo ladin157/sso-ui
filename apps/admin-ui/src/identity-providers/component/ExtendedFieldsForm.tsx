@@ -2,7 +2,7 @@ import { FormGroup, Switch, ValidatedOptions } from "@patternfly/react-core";
 import { Controller, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 type ExtendedFieldsFormProps = {
   providerId: string;
@@ -43,7 +43,7 @@ const FacebookFields = () => {
       }
       fieldId="facebookFetchedFields"
     >
-      <KeycloakTextInput
+      <SsoTextInput
         id="facebookFetchedFields"
         name="config.fetchedFields"
         ref={register()}
@@ -68,7 +68,7 @@ const GithubFields = () => {
         }
         fieldId="baseUrl"
       >
-        <KeycloakTextInput
+        <SsoTextInput
           id="baseUrl"
           name="config.baseUrl"
           ref={register()}
@@ -84,7 +84,7 @@ const GithubFields = () => {
         }
         fieldId="apiUrl"
       >
-        <KeycloakTextInput id="apiUrl" name="config.apiUrl" ref={register()} />
+        <SsoTextInput id="apiUrl" name="config.apiUrl" ref={register()} />
       </FormGroup>
     </>
   );
@@ -106,7 +106,7 @@ const GoogleFields = () => {
         }
         fieldId="googleHostedDomain"
       >
-        <KeycloakTextInput
+        <SsoTextInput
           id="googleHostedDomain"
           name="config.hostedDomain"
           ref={register()}
@@ -193,7 +193,7 @@ const OpenshiftFields = () => {
       }
       helperTextInvalid={t("common:required")}
     >
-      <KeycloakTextInput
+      <SsoTextInput
         id="baseUrl"
         name="config.baseUrl"
         ref={register({ required: true })}
@@ -260,7 +260,7 @@ const StackoverflowFields = () => {
       }
       helperTextInvalid={t("common:required")}
     >
-      <KeycloakTextInput
+      <SsoTextInput
         id="stackoverflowKey"
         name="config.key"
         ref={register({ required: true })}

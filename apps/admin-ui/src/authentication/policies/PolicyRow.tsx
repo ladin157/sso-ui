@@ -10,9 +10,9 @@ import {
   ValidatedOptions,
 } from "@patternfly/react-core";
 import { MinusCircleIcon } from "@patternfly/react-icons";
-import type PasswordPolicyTypeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/passwordPolicyTypeRepresentation";
+import type PasswordPolicyTypeRepresentation from "@sso/sso-admin-client/lib/defs/passwordPolicyTypeRepresentation";
 
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 
 import "./policy-row.css";
@@ -51,7 +51,7 @@ export const PolicyRow = ({
       <Split>
         <SplitItem isFilled>
           {configType && configType !== "int" && (
-            <KeycloakTextInput
+            <SsoTextInput
               id={id}
               data-testid={id}
               ref={register({ required: true })}
@@ -83,7 +83,7 @@ export const PolicyRow = ({
                       const newValue = Number(event.currentTarget.value);
                       setValue(!isNaN(newValue) ? newValue : 0);
                     }}
-                    className="keycloak__policies_authentication__number-field"
+                    className="sso__policies_authentication__number-field"
                   />
                 );
               }}
@@ -104,7 +104,7 @@ export const PolicyRow = ({
           <Button
             data-testid={`remove-${id}`}
             variant="link"
-            className="keycloak__policies_authentication__minus-icon"
+            className="sso__policies_authentication__minus-icon"
             onClick={() => onRemove(id)}
             aria-label={t("common:remove")}
           >

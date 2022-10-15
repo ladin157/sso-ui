@@ -1,7 +1,7 @@
 import Masthead from "../support/pages/admin_console/Masthead";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import ListingPage from "../support/pages/admin_console/ListingPage";
 
 import CreateProviderPage from "../support/pages/admin_console/manage/identity_providers/CreateProviderPage";
@@ -41,7 +41,7 @@ describe("Identity provider test", () => {
   const deleteSuccessMsg = "Provider successfully deleted.";
 
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToIdentityProviders();
   });

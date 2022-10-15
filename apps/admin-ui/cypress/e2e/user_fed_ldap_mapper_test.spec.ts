@@ -4,7 +4,7 @@ import ListingPage from "../support/pages/admin_console/ListingPage";
 import ProviderPage from "../support/pages/admin_console/manage/providers/ProviderPage";
 import Masthead from "../support/pages/admin_console/Masthead";
 import ModalUtils from "../support/util/ModalUtils";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 
 const loginPage = new LoginPage();
 const masthead = new Masthead();
@@ -77,7 +77,7 @@ const MsadAccountControlsMapper = "MSAD account controls";
 
 describe("User Fed LDAP mapper tests", () => {
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToUserFederation();
   });

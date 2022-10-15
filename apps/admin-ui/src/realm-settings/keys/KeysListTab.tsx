@@ -12,15 +12,15 @@ import {
 import { cellWidth } from "@patternfly/react-table";
 import { FilterIcon } from "@patternfly/react-icons";
 
-import type { KeyMetadataRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/keyMetadataRepresentation";
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
+import type { KeyMetadataRepresentation } from "@sso/sso-admin-client/lib/defs/keyMetadataRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";
 import { emptyFormatter } from "../../util";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { toKeysTab } from "../routes/KeysTab";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import useToggle from "../../utils/useToggle";
 
@@ -168,14 +168,14 @@ export const KeysListTab = ({ realmComponents }: KeysListTabProps) => {
   };
 
   if (!keyData) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
     <PageSection variant="light" padding={{ default: "noPadding" }}>
       <PublicKeyDialog />
       <CertificateDialog />
-      <KeycloakDataTable
+      <SsoDataTable
         isNotCompact
         className="kc-keys-list"
         loader={filteredKeyData || keyData}

@@ -9,8 +9,8 @@ import {
   SelectProps,
 } from "@patternfly/react-core";
 
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
+import type SsoAdminClient from "@sso/sso-admin-client";
 import { toUpperCase } from "../../util";
 
 export enum ClientScope {
@@ -70,7 +70,7 @@ export const CellDropdown = ({
 
   return (
     <Select
-      className={`keycloak__client-scope__${type}`}
+      className={`sso__client-scope__${type}`}
       key={clientScope.id}
       onToggle={() => setOpen(!open)}
       isOpen={open}
@@ -96,7 +96,7 @@ export type ClientScopeDefaultOptionalType = ClientScopeRepresentation & {
 };
 
 export const changeScope = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   clientScope: ClientScopeDefaultOptionalType,
   changeTo: AllClientScopeType
 ) => {
@@ -104,13 +104,13 @@ export const changeScope = async (
   await addScope(adminClient, clientScope, changeTo);
 };
 
-const castAdminClient = (adminClient: KeycloakAdminClient) =>
+const castAdminClient = (adminClient: SsoAdminClient) =>
   adminClient.clientScopes as unknown as {
     [index: string]: Function;
   };
 
 export const removeScope = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   clientScope: ClientScopeDefaultOptionalType
 ) => {
   if (clientScope.type !== AllClientScopes.none)
@@ -124,7 +124,7 @@ export const removeScope = async (
 };
 
 const addScope = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   clientScope: ClientScopeDefaultOptionalType,
   type: AllClientScopeType
 ) => {
@@ -137,7 +137,7 @@ const addScope = async (
 };
 
 export const changeClientScope = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   clientId: string,
   clientScope: ClientScopeRepresentation,
   type: AllClientScopeType,
@@ -150,7 +150,7 @@ export const changeClientScope = async (
 };
 
 export const removeClientScope = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   clientId: string,
   clientScope: ClientScopeRepresentation,
   type: ClientScope
@@ -164,7 +164,7 @@ export const removeClientScope = async (
 };
 
 export const addClientScope = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   clientId: string,
   clientScope: ClientScopeRepresentation,
   type: ClientScopeType

@@ -1,6 +1,6 @@
-# Keycloak UI
+# SSO UI
 
-This repository contains the UIs and related libraries of the Keycloak project.
+This repository contains the UIs and related libraries of the SSO project.
 
 ## Data processing
 

@@ -10,7 +10,7 @@ import {
 } from "@patternfly/react-core";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useAlerts } from "../../components/alert/Alerts";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 type Host = {
   node: string;
@@ -74,7 +74,7 @@ export const AddHostDialog = ({
     >
       <Form isHorizontal>
         <FormGroup label={t("nodeHost")} fieldId="nodeHost">
-          <KeycloakTextInput id="nodeHost" ref={register} name="node" />
+          <SsoTextInput id="nodeHost" ref={register} name="node" />
         </FormGroup>
       </Form>
     </Modal>

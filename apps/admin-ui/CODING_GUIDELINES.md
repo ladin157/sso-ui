@@ -2,7 +2,7 @@
 
 ## Package managers
 
-The default package manager for the Keycloak UI projects is NPM. There are several reasons why NPM is used over other package managers (such as Yarn and PNPM):
+The default package manager for the Sso UI projects is NPM. There are several reasons why NPM is used over other package managers (such as Yarn and PNPM):
 
 - It comes included with NodeJS by default, meaning it does not have to be installed manually.
 - Most contributors are familiar with the NPM ecosystem and tooling.
@@ -12,13 +12,13 @@ If you submit a pull request that changes the dependencies, make sure that you a
 
 ## Typescript
 
-The Keycloak UI projects uses best practices based off the official [React TypeScript Cheat sheet](https://react-typescript-cheatsheet.netlify.app/), with modifications for this project. The React TypeScript Cheat sheet is maintained and used by developers through out the world, and is a place where developers can bring together lessons learned using TypeScript and React.
+The Sso UI projects uses best practices based off the official [React TypeScript Cheat sheet](https://react-typescript-cheatsheet.netlify.app/), with modifications for this project. The React TypeScript Cheat sheet is maintained and used by developers through out the world, and is a place where developers can bring together lessons learned using TypeScript and React.
 
 ### Non-null assertion operator
 
 In the project you will sometimes see the [non-null assertion operator](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator) (`!`) used to tell the TypeScript compiler that you guarantee that a value is not `null` or `undefined`. Because this might possibly introduce errors at run-time if you have not checked this value yourself it should be used sparingly.
 
-The only place where it is valid to use the non-null assertion operator is on the types that are provided by the [Admin API client](https://github.com/keycloak/keycloak-nodejs-admin-client). The reason for this is that the types are generated from Java code, which does not explicitly provide information about the nullability of fields (more on that [here](https://github.com/keycloak/keycloak-nodejs-admin-client/issues/187)). 
+The only place where it is valid to use the non-null assertion operator is on the types that are provided by the [Admin API client](https://github.com/sso/sso-nodejs-admin-client). The reason for this is that the types are generated from Java code, which does not explicitly provide information about the nullability of fields (more on that [here](https://github.com/sso/sso-nodejs-admin-client/issues/187)). 
 
 
 ### State management
@@ -118,35 +118,35 @@ We will use one global CSS file to surface customization variables. Styles parti
 
 PatternFly reference https://pf4.patternfly.org/guidelines#variables
 
-For the Keycloak admin console, we modify the PatternFly convention to namespace the classes and variables to the Keycloak packages.
+For the Sso admin console, we modify the PatternFly convention to namespace the classes and variables to the Sso packages.
 
 **Class name**
 ```css
-.keycloak-admin--block[__element][--modifier][--state][--breakpoint][--pseudo-element]
+.sso-admin--block[__element][--modifier][--state][--breakpoint][--pseudo-element]
 ```
 
 **Examples of custom CSS classes**
 ```css
-// Modification to all data tables throughout Keycloak admin 
-.keycloak-admin--data-table {
+// Modification to all data tables throughout Sso admin 
+.sso-admin--data-table {
 ...
 }
 
-// Data tables throughout keycloak that are marked as compact 
-.keycloak-admin--data-table--compact {
+// Data tables throughout sso that are marked as compact 
+.sso-admin--data-table--compact {
 ...
 }
 
 // Child elements of a compact data-table
 // Don’t increase specificity with a selector like this: 
-// .keycloak-admin--data-table--compact .data-table-item
+// .sso-admin--data-table--compact .data-table-item
 // Instead, follow the pattern for a single class on the child
-.keycloak-admin--data-table__data-table-item--compact {
+.sso-admin--data-table__data-table-item--compact {
 ...
 }
 
 // Compact data table just in the management console at the lg or higher breakpoint
-.keycloak-admin--data-table--compact--lg {
+.sso-admin--data-table--compact--lg {
 ...
 }
 ```
@@ -158,30 +158,30 @@ However, there are other times when modifications must be made to the styling pr
 
 These values can be seen in the [PatternFly design guidelines](https://www.patternfly.org/v4/design-guidelines/styles/colors) and a [full listing of variables](https://www.patternfly.org/v4/documentation/overview/global-css-variables) can be found in the documentation section.
 
-For the Keycloak admin console, we modify the PatternFly convention to namespace the classes and variables to the Keycloak packages.
+For the Sso admin console, we modify the PatternFly convention to namespace the classes and variables to the Sso packages.
 
 **Custom property**
 ```css
---keycloak-admin--block[__element][--modifier][--state][--breakpoint][--pseudo-element]--PropertyCamelCase
+--sso-admin--block[__element][--modifier][--state][--breakpoint][--pseudo-element]--PropertyCamelCase
 ```
 
 **Example of a CSS custom property**
 ```css
 // Modify the height of the brand image
---keycloak-admin--brand--Height: var(--pf-global--spacer--xl); 
+--sso-admin--brand--Height: var(--pf-global--spacer--xl); 
 ```
 
 **Example**
 ```css
 // Don’t increase specificity
 // Don’t use pixel values
-.keycloak-admin--manage-columns__modal .pf-c-dropdown {
+.sso-admin--manage-columns__modal .pf-c-dropdown {
    margin-bottom: 24px
 }
 
 // Do use a new class
 // Do use a PatternFly global spacer variable
-.keycloak-admin--manage-columns__dropdown {
+.sso-admin--manage-columns__dropdown {
    margin-bottom: var(--pf-global--spacer--xl);
 }
 ```
@@ -189,7 +189,7 @@ For the Keycloak admin console, we modify the PatternFly convention to namespace
 
 Utility classes can be used to add specific styling to a component, such as margin-bottom or padding. However, their use should be limited to one-off styling needs.  
 
-For example, instead of using the utility class for margin-right multiple times, we should define a new Keycloak admin console class that adds this *margin-right: var(--pf-global--spacer--sm);* and in this example, the new class can set the color appropriately as well.
+For example, instead of using the utility class for margin-right multiple times, we should define a new Sso admin console class that adds this *margin-right: var(--pf-global--spacer--sm);* and in this example, the new class can set the color appropriately as well.
 
 **Using a utility class **
 ```css
@@ -223,7 +223,7 @@ switch (titleStatus) {
      return (
        <>
          <InfoCircleIcon
-           className="keycloak-admin--icon--info" // use a new keycloak class 
+           className="sso-admin--icon--info" // use a new sso class 
          />{" "}
          {titleText}{" "}
        </>
@@ -232,7 +232,7 @@ switch (titleStatus) {
      return (
        <>
          <InfoCircleIcon
-           className="keycloak-admin--icon--info"
+           className="sso-admin--icon--info"
          />{" "}
          {titleText}{" "}
        </>

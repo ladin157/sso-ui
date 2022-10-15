@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Controller, useFormContext } from "react-hook-form";
 import { FormGroup, Switch, ValidatedOptions } from "@patternfly/react-core";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { convertAttributeNameToForm } from "../../util";
 
 export const X509 = () => {
@@ -60,7 +60,7 @@ export const X509 = () => {
         }
         isRequired
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register({ required: true })}
           type="text"
           id="kc-subject"

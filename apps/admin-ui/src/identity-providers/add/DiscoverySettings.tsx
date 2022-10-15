@@ -12,7 +12,7 @@ import {
 
 import { SwitchField } from "../component/SwitchField";
 import { TextField } from "../component/TextField";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 
 import "./discovery-settings.css";
@@ -58,7 +58,7 @@ const Fields = ({ readOnly }: DiscoverySettingsProps) => {
         }
         helperTextInvalid={t("common:required")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           data-testid="authorizationUrl"
           id="kc-authorization-url"
@@ -84,7 +84,7 @@ const Fields = ({ readOnly }: DiscoverySettingsProps) => {
         }
         helperTextInvalid={t("common:required")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           id="tokenUrl"
           name="config.tokenUrl"
@@ -191,7 +191,7 @@ export const DiscoverySettings = ({ readOnly }: DiscoverySettingsProps) => {
     <>
       {readOnly && (
         <ExpandableSection
-          className="keycloak__discovery-settings__metadata"
+          className="sso__discovery-settings__metadata"
           toggleText={isExpanded ? t("hideMetaData") : t("showMetaData")}
           onToggle={() => setIsExpanded(!isExpanded)}
           isExpanded={isExpanded}

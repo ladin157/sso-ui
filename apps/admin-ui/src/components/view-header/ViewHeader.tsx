@@ -187,7 +187,7 @@ export const ViewHeader = ({
         )}
         {lowerDropdownItems && (
           <Dropdown
-            className="keycloak__user-federation__dropdown"
+            className="sso__user-federation__dropdown"
             toggle={
               <DropdownToggle
                 onToggle={() => onLowerDropdownToggle()}

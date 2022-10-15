@@ -14,7 +14,7 @@
   "storeTokens": "Habilita/desabilita se os tokens deve ser guardados depois de autenticar os usuários.",
   "storedTokensReadable": "Habilita/desabilita se novos usuários podem ler quaisquer tokens salvo. Isto irá adicionar o role broker.read-token.",
   "trustEmail": "Se habilitado então o e-mail provido por este provedor não será verificado mesmo que a verificação esteja habilitada para este realm.",
-  "firstBrokerLoginFlowAlias": "Alias do fluxo de autenticação que será invocado depois do primeiro login com este provedor de identificação. O termo 'Primeiro Login' significa que ainda não existe uma conta no Keycloak ligada a esta conta autenticada neste provedor.",
+  "firstBrokerLoginFlowAlias": "Alias do fluxo de autenticação que será invocado depois do primeiro login com este provedor de identificação. O termo 'Primeiro Login' significa que ainda não existe uma conta no Sso ligada a esta conta autenticada neste provedor.",
   "useEntityDescriptor": "Importar metadata de um descritor de entidade IDP SAML remoto.",
   "samlEntityDescriptor": "Permite que vocÊ carregue metadata de IDP externos de um arquivo de configuração ou baixando a partir de uma URL.",
   "ssoServiceUrl": "A Url que deve ser utilizada para enviar solicitações de autenticação (SAML AuthnRequest).",

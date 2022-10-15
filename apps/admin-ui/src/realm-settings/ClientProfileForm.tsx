@@ -23,17 +23,17 @@ import {
   ValidatedOptions,
 } from "@patternfly/react-core";
 
-import type ClientProfileRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientProfileRepresentation";
-import type ClientProfilesRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientProfilesRepresentation";
-import type ClientPolicyExecutorRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientPolicyExecutorRepresentation";
+import type ClientProfileRepresentation from "@sso/sso-admin-client/lib/defs/clientProfileRepresentation";
+import type ClientProfilesRepresentation from "@sso/sso-admin-client/lib/defs/clientProfilesRepresentation";
+import type ClientPolicyExecutorRepresentation from "@sso/sso-admin-client/lib/defs/clientPolicyExecutorRepresentation";
 import { FormAccess } from "../components/form-access/FormAccess";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { Link, useNavigate } from "react-router-dom-v5-compat";
 import { useAlerts } from "../components/alert/Alerts";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { HelpItem } from "../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
-import { KeycloakTextArea } from "../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
+import { SsoTextArea } from "../components/sso-text-area/SsoTextArea";
 import { PlusCircleIcon, TrashIcon } from "@patternfly/react-icons";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { toAddExecutor } from "./routes/AddExecutor";
@@ -41,7 +41,7 @@ import { useServerInfo } from "../context/server-info/ServerInfoProvider";
 import { ClientProfileParams, toClientProfile } from "./routes/ClientProfile";
 import { toExecutor } from "./routes/Executor";
 import { toClientPolicies } from "./routes/ClientPolicies";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 
 import "./realm-settings-section.css";
 
@@ -83,7 +83,7 @@ export default function ClientProfileForm() {
   const executorTypes = useMemo(
     () =>
       serverInfo.componentTypes?.[
-        "org.keycloak.services.clientpolicy.executor.ClientPolicyExecutorProvider"
+        "com.vinorsoft.sso.services.clientpolicy.executor.ClientPolicyExecutorProvider"
       ],
     []
   );
@@ -185,7 +185,7 @@ export default function ClientProfileForm() {
   });
 
   if (!profiles) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
@@ -227,7 +227,7 @@ export default function ClientProfileForm() {
               errors.name ? ValidatedOptions.error : ValidatedOptions.default
             }
           >
-            <KeycloakTextInput
+            <SsoTextInput
               ref={register({ required: true })}
               name="name"
               type="text"
@@ -238,7 +238,7 @@ export default function ClientProfileForm() {
             />
           </FormGroup>
           <FormGroup label={t("common:description")} fieldId="kc-description">
-            <KeycloakTextArea
+            <SsoTextArea
               ref={register()}
               name="description"
               type="text"

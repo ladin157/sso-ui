@@ -8,8 +8,8 @@ import {
   SelectVariant,
 } from "@patternfly/react-core";
 
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
-import type { UserQuery } from "@keycloak/keycloak-admin-client/lib/resources/users";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
+import type { UserQuery } from "@sso/sso-admin-client/lib/resources/users";
 import type { ComponentProps } from "../dynamic/components";
 
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";

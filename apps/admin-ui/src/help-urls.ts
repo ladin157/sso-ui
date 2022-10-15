@@ -1,5 +1,5 @@
 const adminGuide =
-  "https://www.keycloak.org/docs/latest/server_admin/index.html";
+  "https://www.sso.org/docs/latest/server_admin/index.html";
 
 export default {
   documentationUrl: `${adminGuide}`,

@@ -24,14 +24,14 @@ import {
   TableVariant,
 } from "@patternfly/react-table";
 import { CodeEditor, Language } from "@patternfly/react-code-editor";
-import type AdminEventRepresentation from "@keycloak/keycloak-admin-client/lib/defs/adminEventRepresentation";
+import type AdminEventRepresentation from "@sso/sso-admin-client/lib/defs/adminEventRepresentation";
 import { FunctionComponent, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { pickBy } from "lodash-es";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useServerInfo } from "../context/server-info/ServerInfoProvider";
@@ -205,7 +205,7 @@ export const AdminEvents = () => {
               <DropdownToggle
                 data-testid="adminEventsSearchSelectorToggle"
                 onToggle={(isOpen) => setSearchDropdownOpen(isOpen)}
-                className="keycloak__events_search_selector_dropdown__toggle"
+                className="sso__events_search_selector_dropdown__toggle"
               >
                 {t("searchForAdminEvent")}
               </DropdownToggle>
@@ -214,13 +214,13 @@ export const AdminEvents = () => {
           >
             <Form
               isHorizontal
-              className="keycloak__events_search__form"
+              className="sso__events_search__form"
               data-testid="searchForm"
             >
               <FormGroup
                 label={t("resourceTypes")}
                 fieldId="kc-resourceTypes"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
                 <Controller
                   name="resourceTypes"
@@ -233,7 +233,7 @@ export const AdminEvents = () => {
                     value: string[];
                   }) => (
                     <Select
-                      className="keycloak__events_search__type_select"
+                      className="sso__events_search__type_select"
                       name="resourceTypes"
                       data-testid="resource-types-searchField"
                       chipGroupProps={{
@@ -285,7 +285,7 @@ export const AdminEvents = () => {
               <FormGroup
                 label={t("operationTypes")}
                 fieldId="kc-operationTypes"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
                 <Controller
                   name="operationTypes"
@@ -298,7 +298,7 @@ export const AdminEvents = () => {
                     value: string[];
                   }) => (
                     <Select
-                      className="keycloak__events_search__type_select"
+                      className="sso__events_search__type_select"
                       name="operationTypes"
                       data-testid="operation-types-searchField"
                       chipGroupProps={{
@@ -350,9 +350,9 @@ export const AdminEvents = () => {
               <FormGroup
                 label={t("resourcePath")}
                 fieldId="kc-resourcePath"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   ref={register()}
                   type="text"
                   id="kc-resourcePath"
@@ -363,9 +363,9 @@ export const AdminEvents = () => {
               <FormGroup
                 label={t("realm")}
                 fieldId="kc-realm"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   ref={register()}
                   type="text"
                   id="kc-realm"
@@ -376,9 +376,9 @@ export const AdminEvents = () => {
               <FormGroup
                 label={t("client")}
                 fieldId="kc-client"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   ref={register()}
                   type="text"
                   id="kc-client"
@@ -389,9 +389,9 @@ export const AdminEvents = () => {
               <FormGroup
                 label={t("user")}
                 fieldId="kc-user"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   ref={register()}
                   type="text"
                   id="kc-user"
@@ -402,9 +402,9 @@ export const AdminEvents = () => {
               <FormGroup
                 label={t("ipAddress")}
                 fieldId="kc-ipAddress"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   ref={register()}
                   type="text"
                   id="kc-ipAddress"
@@ -415,7 +415,7 @@ export const AdminEvents = () => {
               <FormGroup
                 label={t("dateFrom")}
                 fieldId="kc-dateFrom"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
                 <Controller
                   name="dateFrom"
@@ -433,7 +433,7 @@ export const AdminEvents = () => {
               <FormGroup
                 label={t("dateTo")}
                 fieldId="kc-dateTo"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
                 <Controller
                   name="dateTo"
@@ -477,7 +477,7 @@ export const AdminEvents = () => {
         </FlexItem>
         <FlexItem>
           {Object.entries(activeFilters).length > 0 && (
-            <div className="keycloak__searchChips pf-u-ml-md">
+            <div className="sso__searchChips pf-u-ml-md">
               {Object.entries(activeFilters).map((filter) => {
                 const [key, value] = filter as [
                   keyof AdminEventSearchForm,
@@ -560,7 +560,7 @@ export const AdminEvents = () => {
           />
         </DisplayDialog>
       )}
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         loader={loader}
         isPaginated

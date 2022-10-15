@@ -8,9 +8,9 @@ import {
 } from "@patternfly/react-core";
 import { Tbody, Tr, Td, ExpandableRowContent } from "@patternfly/react-table";
 import { useTranslation } from "react-i18next";
-import type PolicyResultRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyResultRepresentation";
-import type EvaluationResultRepresentation from "@keycloak/keycloak-admin-client/lib/defs/evaluationResultRepresentation";
-import { DecisionEffect } from "@keycloak/keycloak-admin-client/lib/defs/policyRepresentation";
+import type PolicyResultRepresentation from "@sso/sso-admin-client/lib/defs/policyResultRepresentation";
+import type EvaluationResultRepresentation from "@sso/sso-admin-client/lib/defs/evaluationResultRepresentation";
+import { DecisionEffect } from "@sso/sso-admin-client/lib/defs/policyRepresentation";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom-v5-compat";
 import { toPermissionDetails } from "../routes/PermissionDetails";
@@ -81,7 +81,7 @@ export const AuthorizationEvaluateResourcePolicies = ({
             <ExpandableRowContent>
               <DescriptionList
                 isHorizontal
-                className="keycloak_resource_details"
+                className="sso_resource_details"
               >
                 <TextContent>
                   <TextList>

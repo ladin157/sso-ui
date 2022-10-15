@@ -1,7 +1,7 @@
 import i18n, { InitOptions, TOptions } from "i18next";
 import HttpBackend, { LoadPathOption } from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import type SsoAdminClient from "@sso/sso-admin-client";
 
 import environment from "./environment";
 import { getAuthorizationHeaders } from "./utils/getAuthorizationHeaders";
@@ -9,13 +9,13 @@ import { addTrailingSlash } from "./util";
 
 export const DEFAULT_LOCALE = "en";
 
-export async function initI18n(adminClient: KeycloakAdminClient) {
+export async function initI18n(adminClient: SsoAdminClient) {
   const options = await initOptions(adminClient);
   await i18n.init(options);
 }
 
 const initOptions = async (
-  adminClient: KeycloakAdminClient
+  adminClient: SsoAdminClient
 ): Promise<InitOptions> => {
   const constructLoadPath: LoadPathOption = (_, namespaces) => {
     if (namespaces[0] === "overrides") {

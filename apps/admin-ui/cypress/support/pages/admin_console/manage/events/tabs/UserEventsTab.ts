@@ -23,7 +23,7 @@ export default class UserEventsTab extends PageObject {
   private searchUserEventDrpDwnToggle = "userEventsSearchSelectorToggle";
   private searchUserIdInput = "#kc-userId";
   private searchEventTypeSelectToggle =
-    ".pf-c-select.keycloak__events_search__type_select";
+    ".pf-c-select.sso__events_search__type_select";
   private searchClientInput = "#kc-client";
   private searchDateFromInput = "#kc-dateFrom";
   private searchDateToInput = "#kc-dateTo";

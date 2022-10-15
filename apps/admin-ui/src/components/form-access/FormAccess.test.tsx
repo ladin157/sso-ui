@@ -1,7 +1,7 @@
 /**
  * @vitest-environment jsdom
  */
-import type WhoAmIRepresentation from "@keycloak/keycloak-admin-client/lib/defs/whoAmIRepresentation";
+import type WhoAmIRepresentation from "@sso/sso-admin-client/lib/defs/whoAmIRepresentation";
 import { FormGroup, Switch } from "@patternfly/react-core";
 import { render, screen } from "@testing-library/react";
 import { Controller, useForm } from "react-hook-form";
@@ -10,7 +10,7 @@ import { AccessContextProvider } from "../../context/access/Access";
 import { RealmContext } from "../../context/realm-context/RealmContext";
 import { WhoAmI, WhoAmIContext } from "../../context/whoami/WhoAmI";
 import whoami from "../../context/whoami/__tests__/mock-whoami.json";
-import { KeycloakTextInput } from "../keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../sso-text-input/SsoTextInput";
 import { FormAccess } from "./FormAccess";
 
 describe("FormAccess", () => {
@@ -27,7 +27,7 @@ describe("FormAccess", () => {
           <AccessContextProvider>
             <FormAccess role="manage-clients">
               <FormGroup label="test" fieldId="field">
-                <KeycloakTextInput
+                <SsoTextInput
                   type="text"
                   id="field"
                   data-testid="field"

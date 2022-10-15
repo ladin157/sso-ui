@@ -11,11 +11,11 @@ import {
   PageSection,
 } from "@patternfly/react-core";
 
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
 import type { ProviderRouteParams } from "../routes/NewProvider";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { FormAccess } from "../../components/form-access/FormAccess";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { toUserFederation } from "../routes/UserFederation";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
@@ -51,7 +51,7 @@ export default function CustomProviderSettings() {
 
   const provider = (
     useServerInfo().componentTypes?.[
-      "org.keycloak.storage.UserStorageProvider"
+      "com.vinorsoft.sso.storage.UserStorageProvider"
     ] || []
   ).find((p) => p.id === providerId);
 
@@ -91,7 +91,7 @@ export default function CustomProviderSettings() {
         ])
       ),
       providerId,
-      providerType: "org.keycloak.storage.UserStorageProvider",
+      providerType: "com.vinorsoft.sso.storage.UserStorageProvider",
       parentId,
     });
 
@@ -116,7 +116,7 @@ export default function CustomProviderSettings() {
         <FormAccess
           role="manage-realm"
           isHorizontal
-          className="keycloak__user-federation__custom-form"
+          className="sso__user-federation__custom-form"
           onSubmit={handleSubmit(save)}
         >
           <FormGroup
@@ -132,7 +132,7 @@ export default function CustomProviderSettings() {
             fieldId="kc-console-display-name"
             isRequired
           >
-            <KeycloakTextInput
+            <SsoTextInput
               isRequired
               type="text"
               id="kc-console-display-name"

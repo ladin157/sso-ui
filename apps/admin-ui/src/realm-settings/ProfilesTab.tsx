@@ -12,7 +12,7 @@ import {
 } from "@patternfly/react-core";
 import { Divider, Flex, FlexItem, Radio, Title } from "@patternfly/react-core";
 import { CodeEditor, Language } from "@patternfly/react-code-editor";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
 import { useTranslation } from "react-i18next";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
@@ -22,9 +22,9 @@ import { useAlerts } from "../components/alert/Alerts";
 import { prettyPrintJSON } from "../util";
 import { Link } from "react-router-dom-v5-compat";
 import { toAddClientProfile } from "./routes/AddClientProfile";
-import type ClientProfileRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientProfileRepresentation";
+import type ClientProfileRepresentation from "@sso/sso-admin-client/lib/defs/clientProfileRepresentation";
 import { toClientProfile } from "./routes/ClientProfile";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 
 import "./realm-settings-section.css";
 
@@ -120,7 +120,7 @@ export default function ProfilesTab() {
   );
 
   if (!tableProfiles) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const save = async () => {
@@ -192,7 +192,7 @@ export default function ProfilesTab() {
       </PageSection>
       <Divider />
       {!show ? (
-        <KeycloakDataTable
+        <SsoDataTable
           key={tableProfiles.length}
           ariaLabelKey="realm-settings:profiles"
           searchPlaceholderKey="realm-settings:clientProfileSearch"

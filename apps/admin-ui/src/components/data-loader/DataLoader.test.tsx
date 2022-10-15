@@ -1,10 +1,10 @@
 /**
  * @vitest-environment jsdom
  */
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
-import type { ServerInfoRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
+import type SsoAdminClient from "@sso/sso-admin-client";
+import type { ServerInfoRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
 import { render, waitFor } from "@testing-library/react";
-import type Keycloak from "keycloak-js";
+import type Sso from "sso-js";
 import { FunctionComponent } from "react";
 import { HashRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
@@ -18,20 +18,20 @@ import whoamiMock from "../../context/whoami/__tests__/mock-whoami.json";
 import { DataLoader } from "./DataLoader";
 
 const MockAdminClient: FunctionComponent = ({ children }) => {
-  const keycloak = {
+  const sso = {
     init: () => Promise.resolve(),
-  } as unknown as Keycloak;
+  } as unknown as Sso;
   const adminClient = {
     whoAmI: { find: () => Promise.resolve(whoamiMock) },
     setConfig: () => {},
-  } as unknown as KeycloakAdminClient;
+  } as unknown as SsoAdminClient;
 
   return (
     <HashRouter>
       <ServerInfoContext.Provider
         value={serverInfo as unknown as ServerInfoRepresentation}
       >
-        <AdminClientContext.Provider value={{ keycloak, adminClient }}>
+        <AdminClientContext.Provider value={{ sso, adminClient }}>
           <WhoAmIContextProvider>
             <RealmContext.Provider value={{ realm: "master" }}>
               <AccessContextProvider>{children}</AccessContextProvider>

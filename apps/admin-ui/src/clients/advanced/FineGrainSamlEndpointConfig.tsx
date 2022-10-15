@@ -4,7 +4,7 @@ import { ActionGroup, Button, FormGroup } from "@patternfly/react-core";
 
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { ApplicationUrls } from "./ApplicationUrls";
 
 type FineGrainSamlEndpointConfigProps = {
@@ -32,7 +32,7 @@ export const FineGrainSamlEndpointConfig = ({
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           type="text"
           id="assertionConsumerServicePostBindingURL"
@@ -49,7 +49,7 @@ export const FineGrainSamlEndpointConfig = ({
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           type="text"
           id="assertionConsumerServiceRedirectBindingURL"
@@ -66,7 +66,7 @@ export const FineGrainSamlEndpointConfig = ({
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           type="text"
           id="logoutServicePostBindingURL"
@@ -83,7 +83,7 @@ export const FineGrainSamlEndpointConfig = ({
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           type="text"
           id="logoutServiceRedirectBindingURL"
@@ -100,7 +100,7 @@ export const FineGrainSamlEndpointConfig = ({
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           type="text"
           id="logoutServiceArtifactBindingUrl"
@@ -117,7 +117,7 @@ export const FineGrainSamlEndpointConfig = ({
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           type="text"
           id="artifactBindingUrl"
@@ -134,7 +134,7 @@ export const FineGrainSamlEndpointConfig = ({
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           type="text"
           id="artifactResolutionService"

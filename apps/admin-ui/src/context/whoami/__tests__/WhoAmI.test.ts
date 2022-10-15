@@ -1,7 +1,7 @@
 /**
  * @vitest-environment jsdom
  */
-import type WhoAmIRepresentation from "@keycloak/keycloak-admin-client/lib/defs/whoAmIRepresentation";
+import type WhoAmIRepresentation from "@sso/sso-admin-client/lib/defs/whoAmIRepresentation";
 import { expect, test } from "vitest";
 import { WhoAmI } from "../WhoAmI";
 import whoamiMock from "./mock-whoami.json";

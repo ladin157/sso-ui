@@ -11,8 +11,8 @@ import {
 import { DescriptionList } from "@patternfly/react-core/dist/esm/components";
 import { useTranslation } from "react-i18next";
 import { AuthorizationEvaluateResourcePolicies } from "./AuthorizationEvaluateResourcePolicies";
-import type EvaluationResultRepresentation from "@keycloak/keycloak-admin-client/lib/defs/evaluationResultRepresentation";
-import type PolicyResultRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyResultRepresentation";
+import type EvaluationResultRepresentation from "@sso/sso-admin-client/lib/defs/evaluationResultRepresentation";
+import type PolicyResultRepresentation from "@sso/sso-admin-client/lib/defs/policyResultRepresentation";
 
 type Props = {
   rowIndex: number;
@@ -57,7 +57,7 @@ export const AuthorizationEvaluateResource = ({
             {expanded && (
               <DescriptionList
                 isHorizontal
-                className="keycloak_resource_details"
+                className="sso_resource_details"
               >
                 <TableComposable aria-label={t("evaluationResults")}>
                   <Thead>

@@ -32,8 +32,8 @@ async function startServer() {
     ],
     {
       env: {
-        KEYCLOAK_ADMIN: "admin",
-        KEYCLOAK_ADMIN_PASSWORD: "admin",
+        SSO_ADMIN: "admin",
+        SSO_ADMIN_PASSWORD: "admin",
         ...process.env,
       },
     }
@@ -62,13 +62,13 @@ async function downloadServer() {
 async function getNightlyAsset() {
   const api = new Octokit();
   const release = await api.repos.getReleaseByTag({
-    owner: "keycloak",
-    repo: "keycloak",
+    owner: "sso",
+    repo: "sso",
     tag: "nightly",
   });
 
   return release.data.assets.find(
-    ({ name }) => name === "keycloak-999-SNAPSHOT.tar.gz"
+    ({ name }) => name === "sso-999-SNAPSHOT.tar.gz"
   );
 }
 

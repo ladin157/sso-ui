@@ -1,9 +1,9 @@
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import type SsoAdminClient from "@sso/sso-admin-client";
 import { fetchAdminUI } from "../../context/auth/admin-ui-endpoint";
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 
 type BaseQuery = {
-  adminClient: KeycloakAdminClient;
+  adminClient: SsoAdminClient;
 };
 
 type IDQuery = BaseQuery & {
@@ -20,7 +20,7 @@ type PaginatingQuery = IDQuery & {
 type EffectiveClientRolesQuery = IDQuery;
 
 type Query = Partial<Omit<PaginatingQuery, "adminClient">> & {
-  adminClient: KeycloakAdminClient;
+  adminClient: SsoAdminClient;
   endpoint: string;
 };
 

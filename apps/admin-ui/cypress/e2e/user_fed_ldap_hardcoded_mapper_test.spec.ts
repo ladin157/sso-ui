@@ -6,7 +6,7 @@ import ProviderPage from "../support/pages/admin_console/manage/providers/Provid
 import CreateClientPage from "../support/pages/admin_console/manage/clients/CreateClientPage";
 import Masthead from "../support/pages/admin_console/Masthead";
 import ModalUtils from "../support/util/ModalUtils";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import GroupPage from "../support/pages/admin_console/manage/groups/GroupPage";
 
 const loginPage = new LoginPage();
@@ -74,7 +74,7 @@ const modifyDateMapper = "modify date";
 
 describe("User Fed LDAP mapper tests", () => {
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToUserFederation();
   });

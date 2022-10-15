@@ -11,14 +11,14 @@ import {
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useAlerts } from "../components/alert/Alerts";
 import { capitalize } from "lodash-es";
 import { useParams } from "react-router-dom";
-import type FederatedIdentityRepresentation from "@keycloak/keycloak-admin-client/lib/defs/federatedIdentityRepresentation";
+import type FederatedIdentityRepresentation from "@sso/sso-admin-client/lib/defs/federatedIdentityRepresentation";
 import type { UserParams } from "./routes/User";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
 
 type UserIdpModalProps = {
   federatedId?: string;
@@ -103,7 +103,7 @@ export const UserIdpModal = ({
               : ValidatedOptions.default
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             data-testid="idpNameInput"
             aria-label="Identity provider name input"
             ref={register({ required: true })}
@@ -131,7 +131,7 @@ export const UserIdpModal = ({
           }
           isRequired
         >
-          <KeycloakTextInput
+          <SsoTextInput
             data-testid="userIdInput"
             aria-label="user ID input"
             ref={register({ required: true })}
@@ -155,7 +155,7 @@ export const UserIdpModal = ({
           }
           isRequired
         >
-          <KeycloakTextInput
+          <SsoTextInput
             data-testid="usernameInput"
             aria-label="username input"
             ref={register({ required: true })}

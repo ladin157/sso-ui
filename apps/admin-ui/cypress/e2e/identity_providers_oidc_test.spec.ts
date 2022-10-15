@@ -1,7 +1,7 @@
 import Masthead from "../support/pages/admin_console/Masthead";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import ListingPage from "../support/pages/admin_console/ListingPage";
 import CreateProviderPage from "../support/pages/admin_console/manage/identity_providers/CreateProviderPage";
 import ModalUtils from "../support/util/ModalUtils";
@@ -21,16 +21,16 @@ describe("OIDC identity provider test", () => {
   const deletePrompt = "Delete provider?";
   const deleteSuccessMsg = "Provider successfully deleted.";
 
-  const keycloakServer = Cypress.env("KEYCLOAK_SERVER");
-  const discoveryUrl = `${keycloakServer}/realms/master/.well-known/openid-configuration`;
-  const authorizationUrl = `${keycloakServer}/realms/master/protocol/openid-connect/auth`;
+  const ssoServer = Cypress.env("SSO_SERVER");
+  const discoveryUrl = `${ssoServer}/realms/master/.well-known/openid-configuration`;
+  const authorizationUrl = `${ssoServer}/realms/master/protocol/openid-connect/auth`;
 
   describe("OIDC Identity provider creation", () => {
     const oidcProviderName = "oidc";
     const secret = "123";
 
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToIdentityProviders();
     });

@@ -14,9 +14,9 @@ import {
   ToolbarItem,
 } from "@patternfly/react-core";
 
-import type AuthenticationFlowRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticationFlowRepresentation";
+import type AuthenticationFlowRepresentation from "@sso/sso-admin-client/lib/defs/authenticationFlowRepresentation";
 import { useAdminClient } from "../context/auth/AdminClient";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { useRealm } from "../context/realm-context/RealmContext";
@@ -178,7 +178,7 @@ export default function AuthenticationSection() {
             title={<TabTitleText>{t("flows")}</TabTitleText>}
             {...route("flows")}
           >
-            <KeycloakDataTable
+            <SsoDataTable
               key={key}
               loader={loader}
               ariaLabelKey="authentication:title"

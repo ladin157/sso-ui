@@ -21,14 +21,14 @@ import {
   Thead,
   Tr,
 } from "@patternfly/react-table";
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 import { useTranslation } from "react-i18next";
 import { useAlerts } from "../components/alert/Alerts";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { HelpItem } from "../components/help-enabler/HelpItem";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
-import type CredentialRepresentation from "@keycloak/keycloak-admin-client/lib/defs/credentialRepresentation";
+import type CredentialRepresentation from "@sso/sso-admin-client/lib/defs/credentialRepresentation";
 import { ResetPasswordDialog } from "./user-credentials/ResetPasswordDialog";
 import { ResetCredentialDialog } from "./user-credentials/ResetCredentialDialog";
 import { InlineLabelEdit } from "./user-credentials/InlineLabelEdit";

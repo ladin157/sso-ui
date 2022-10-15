@@ -16,8 +16,8 @@ import { PencilAltIcon } from "@patternfly/react-icons";
 import type { ExpandableExecution } from "../execution-model";
 import useToggle from "../../utils/useToggle";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
-import { KeycloakTextArea } from "../../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
+import { SsoTextArea } from "../../components/sso-text-area/SsoTextArea";
 
 type EditFlowProps = {
   execution: ExpandableExecution;
@@ -95,7 +95,7 @@ export const EditFlow = ({ execution, onRowChange }: EditFlowProps) => {
                 />
               }
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 type="text"
                 id="name"
                 name="displayName"
@@ -124,7 +124,7 @@ export const EditFlow = ({ execution, onRowChange }: EditFlowProps) => {
               }
               helperTextInvalid={errors.description?.message}
             >
-              <KeycloakTextArea
+              <SsoTextArea
                 ref={register({
                   maxLength: {
                     value: 255,

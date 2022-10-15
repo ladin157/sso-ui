@@ -23,7 +23,7 @@ import {
 } from "@patternfly/react-core";
 import { QuestionCircleIcon } from "@patternfly/react-icons";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { convertFormValuesToObject, convertToFormValues } from "../../util";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
@@ -33,7 +33,7 @@ import { useHelp } from "../../components/help-enabler/HelpHeader";
 import { useAlerts } from "../../components/alert/Alerts";
 import { TimeSelector } from "../../components/time-selector/TimeSelector";
 import { MultiLineInput } from "../../components/multi-line-input/MultiLineInput";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 import "./webauthn-policy.css";
 
@@ -196,7 +196,7 @@ export const WebauthnPolicy = ({
     <PageSection variant="light">
       {enabled && (
         <Popover bodyContent={t(`authentication-help:${namePrefix}FormHelp`)}>
-          <TextContent className="keycloak__section_intro__help">
+          <TextContent className="sso__section_intro__help">
             <Text>
               <QuestionCircleIcon /> {t("authentication-help:webauthnIntro")}
             </Text>
@@ -208,7 +208,7 @@ export const WebauthnPolicy = ({
         role="manage-realm"
         isHorizontal
         onSubmit={handleSubmit(save)}
-        className="keycloak__webauthn_policies_authentication__form"
+        className="sso__webauthn_policies_authentication__form"
       >
         <FormGroup
           label={t("webAuthnPolicyRpEntityName")}
@@ -223,7 +223,7 @@ export const WebauthnPolicy = ({
             />
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             ref={register({ required: true })}
             name={`${namePrefix}RpEntityName`}
             id="webAuthnPolicyRpEntityName"
@@ -248,7 +248,7 @@ export const WebauthnPolicy = ({
             }
             fieldId="webAuthnPolicyRpId"
           >
-            <KeycloakTextInput
+            <SsoTextInput
               id="webAuthnPolicyRpId"
               name={`${namePrefix}RpId`}
               ref={register()}

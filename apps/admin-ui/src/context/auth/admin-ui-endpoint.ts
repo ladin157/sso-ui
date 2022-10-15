@@ -1,10 +1,10 @@
-import KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import SsoAdminClient from "@sso/sso-admin-client";
 
 import { getAuthorizationHeaders } from "../../utils/getAuthorizationHeaders";
 import { joinPath } from "../../utils/joinPath";
 
 export async function fetchAdminUI(
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   endpoint: string,
   query?: Record<string, string>
 ) {

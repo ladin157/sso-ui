@@ -11,10 +11,10 @@ import {
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useAlerts } from "../components/alert/Alerts";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
 
 type GroupsModalProps = {
   id?: string;
@@ -103,7 +103,7 @@ export const GroupsModal = ({
           }
           isRequired
         >
-          <KeycloakTextInput
+          <SsoTextInput
             data-testid="groupNameInput"
             aria-label="group name input"
             ref={register({ required: true })}

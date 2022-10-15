@@ -20,15 +20,15 @@ import {
   Title,
 } from "@patternfly/react-core";
 
-import type CertificateRepresentation from "@keycloak/keycloak-admin-client/lib/defs/certificateRepresentation";
-import type KeyStoreConfig from "@keycloak/keycloak-admin-client/lib/defs/keystoreConfig";
+import type CertificateRepresentation from "@sso/sso-admin-client/lib/defs/certificateRepresentation";
+import type KeyStoreConfig from "@sso/sso-admin-client/lib/defs/keystoreConfig";
 import type { KeyTypes } from "./SamlKeys";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useAlerts } from "../../components/alert/Alerts";
 import { KeyForm } from "./GenerateKeyDialog";
 import { Certificate } from "./Certificate";
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import type SsoAdminClient from "@sso/sso-admin-client";
 
 type SamlKeysDialogProps = {
   id: string;
@@ -45,7 +45,7 @@ export const submitForm = async (
   form: SamlKeysDialogForm,
   id: string,
   attr: KeyTypes,
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   callback: (error?: unknown) => void
 ) => {
   try {

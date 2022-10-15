@@ -12,7 +12,7 @@ import { FormAccess } from "../../components/form-access/FormAccess";
 import { useRealm } from "../../context/realm-context/RealmContext";
 
 import { WizardSectionHeader } from "../../components/wizard-section-header/WizardSectionHeader";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 
 export type LdapSettingsGeneralProps = {
@@ -117,7 +117,7 @@ export const LdapSettingsGeneral = ({
           helperTextInvalid={form.errors.name?.message}
         >
           {/* These hidden fields are required so data object written back matches data retrieved */}
-          <KeycloakTextInput
+          <SsoTextInput
             hidden
             type="text"
             id="kc-console-provider-id"
@@ -125,15 +125,15 @@ export const LdapSettingsGeneral = ({
             defaultValue="ldap"
             ref={form.register}
           />
-          <KeycloakTextInput
+          <SsoTextInput
             hidden
             type="text"
             id="kc-console-provider-type"
             name="providerType"
-            defaultValue="org.keycloak.storage.UserStorageProvider"
+            defaultValue="com.vinorsoft.sso.storage.UserStorageProvider"
             ref={form.register}
           />
-          <KeycloakTextInput
+          <SsoTextInput
             hidden
             type="text"
             id="kc-console-parentId"
@@ -141,7 +141,7 @@ export const LdapSettingsGeneral = ({
             defaultValue={realm}
             ref={form.register}
           />
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             id="kc-console-display-name"

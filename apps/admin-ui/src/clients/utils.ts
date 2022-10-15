@@ -1,4 +1,4 @@
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import type { TFunction } from "react-i18next";
 
 /**

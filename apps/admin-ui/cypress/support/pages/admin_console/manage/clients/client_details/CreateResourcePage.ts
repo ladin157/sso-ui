@@ -1,5 +1,5 @@
 import CommonPage from "../../../../CommonPage";
-import type ResourceRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceRepresentation";
+import type ResourceRepresentation from "@sso/sso-admin-client/lib/defs/resourceRepresentation";
 
 export default class CreateResourcePage extends CommonPage {
   fillResourceForm(resource: ResourceRepresentation) {

@@ -1,10 +1,10 @@
 {
-  "name": "keycloak-js",
+  "name": "sso-js",
   "version": "999.0.0-dev",
-  "description": "Keycloak Adapter",
-  "main": "./dist/keycloak.js",
-  "module": "./dist/keycloak.mjs",
-  "types": "./dist/keycloak.d.ts",
+  "description": "Sso Adapter",
+  "main": "./dist/sso.js",
+  "module": "./dist/sso.mjs",
+  "types": "./dist/sso.d.ts",
   "files": [
     "dist"
   ],
@@ -21,13 +21,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/keycloak/keycloak-ui"
+    "url": "https://github.com/sso/sso-ui"
   },
-  "author": "Keycloak",
+  "author": "Sso",
   "license": "Apache-2.0",
-  "homepage": "https://www.keycloak.org",
+  "homepage": "https://www.sso.org",
   "keywords": [
-    "keycloak",
+    "sso",
     "sso",
     "oauth",
     "oauth2",

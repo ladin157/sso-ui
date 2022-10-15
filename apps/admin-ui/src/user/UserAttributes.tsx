@@ -7,7 +7,7 @@ import {
   PageSectionVariants,
 } from "@patternfly/react-core";
 
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 
 import { useAlerts } from "../components/alert/Alerts";
 import {

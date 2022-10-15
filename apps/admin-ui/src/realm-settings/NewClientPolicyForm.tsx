@@ -29,11 +29,11 @@ import { useRealm } from "../context/realm-context/RealmContext";
 import { useAlerts } from "../components/alert/Alerts";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { HelpItem } from "../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
-import { KeycloakTextArea } from "../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
+import { SsoTextArea } from "../components/sso-text-area/SsoTextArea";
 import { PlusCircleIcon, TrashIcon } from "@patternfly/react-icons";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
-import type ClientPolicyRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientPolicyRepresentation";
+import type ClientPolicyRepresentation from "@sso/sso-admin-client/lib/defs/clientPolicyRepresentation";
 import { toNewClientPolicyCondition } from "./routes/AddCondition";
 import { useServerInfo } from "../context/server-info/ServerInfoProvider";
 import { toEditClientPolicyCondition } from "./routes/EditCondition";
@@ -44,9 +44,9 @@ import {
   toEditClientPolicy,
 } from "./routes/EditClientPolicy";
 import { AddClientProfileModal } from "./AddClientProfileModal";
-import type ClientProfileRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientProfileRepresentation";
+import type ClientProfileRepresentation from "@sso/sso-admin-client/lib/defs/clientProfileRepresentation";
 import { toClientPolicies } from "./routes/ClientPolicies";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 
 import "./realm-settings-section.css";
 
@@ -129,7 +129,7 @@ export default function NewClientPolicyForm() {
     });
 
     if (!policies) {
-      return <KeycloakSpinner />;
+      return <SsoSpinner />;
     }
 
     return (
@@ -222,7 +222,7 @@ export default function NewClientPolicyForm() {
 
   const conditionTypes =
     serverInfo.componentTypes?.[
-      "org.keycloak.services.clientpolicy.condition.ClientPolicyConditionProvider"
+      "com.vinorsoft.sso.services.clientpolicy.condition.ClientPolicyConditionProvider"
     ];
 
   const save = async () => {
@@ -470,7 +470,7 @@ export default function NewClientPolicyForm() {
               errors.name ? ValidatedOptions.error : ValidatedOptions.default
             }
           >
-            <KeycloakTextInput
+            <SsoTextInput
               ref={form.register({ required: true })}
               type="text"
               id="kc-client-profile-name"
@@ -479,7 +479,7 @@ export default function NewClientPolicyForm() {
             />
           </FormGroup>
           <FormGroup label={t("common:description")} fieldId="kc-description">
-            <KeycloakTextArea
+            <SsoTextArea
               name="description"
               aria-label={t("description")}
               ref={form.register()}

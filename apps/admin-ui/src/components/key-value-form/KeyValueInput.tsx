@@ -11,7 +11,7 @@ import {
 import { MinusCircleIcon, PlusCircleIcon } from "@patternfly/react-icons";
 
 import type { KeyValueType } from "./key-value-convert";
-import { KeycloakTextInput } from "../keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../sso-text-input/SsoTextInput";
 
 type KeyValueInputProps = {
   name: string;
@@ -58,7 +58,7 @@ export const KeyValueInput = ({ name }: KeyValueInputProps) => {
         {fields.map((attribute, index) => (
           <Flex key={attribute.id} data-testid="row">
             <FlexItem grow={{ default: "grow" }}>
-              <KeycloakTextInput
+              <SsoTextInput
                 name={`${name}[${index}].key`}
                 ref={register()}
                 placeholder={t("keyPlaceholder")}
@@ -71,7 +71,7 @@ export const KeyValueInput = ({ name }: KeyValueInputProps) => {
               grow={{ default: "grow" }}
               spacer={{ default: "spacerNone" }}
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 name={`${name}[${index}].value`}
                 ref={register()}
                 placeholder={t("valuePlaceholder")}

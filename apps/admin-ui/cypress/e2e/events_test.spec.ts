@@ -6,7 +6,7 @@ import UserEventsTab, {
 import AdminEventsTab from "../support/pages/admin_console/manage/events/tabs/AdminEventsTab";
 import RealmSettingsPage from "../support/pages/admin_console/manage/realm_settings/RealmSettingsPage";
 import Masthead from "../support/pages/admin_console/Masthead";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import EventsPage, {
   EventsTab,
 } from "../support/pages/admin_console/manage/events/EventsPage";
@@ -53,7 +53,7 @@ describe("Events tests", () => {
 
   describe("User events list", () => {
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToEvents();
     });
@@ -89,7 +89,7 @@ describe("Events tests", () => {
     ];
 
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToEvents();
     });
@@ -250,7 +250,7 @@ describe("Events tests", () => {
 
   describe("Admin events list", () => {
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToEvents();
       eventsPage.goToAdminEventsTab();
@@ -290,7 +290,7 @@ describe("Events tests", () => {
     const operationTypes = ["UPDATE"];
 
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToEvents();
       eventsPage.goToAdminEventsTab();
@@ -363,7 +363,7 @@ describe("Events tests", () => {
 
   describe("Search admin events", () => {
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToEvents();
       eventsPage.goToAdminEventsTab();
@@ -415,7 +415,7 @@ describe("Events tests", () => {
 
   describe("Check more button opens auth and representation dialogs", () => {
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToEvents();
       eventsPage.goToAdminEventsTab();

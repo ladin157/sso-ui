@@ -18,16 +18,16 @@ import {
   TextContent,
 } from "@patternfly/react-core";
 import { QuestionCircleIcon } from "@patternfly/react-icons";
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
-import type ProtocolMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/protocolMapperRepresentation";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
-import type { ProtocolMapperTypeRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
+import type ProtocolMapperRepresentation from "@sso/sso-admin-client/lib/defs/protocolMapperRepresentation";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
+import type { ProtocolMapperTypeRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useHelp } from "../../components/help-enabler/HelpHeader";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { useServerInfo } from "../../context/server-info/ServerInfoProvider";
@@ -51,7 +51,7 @@ const ProtocolMappers = ({
     setKey(key + 1);
   }, [protocolMappers]);
   return (
-    <KeycloakDataTable
+    <SsoDataTable
       key={key}
       loader={() => Promise.resolve(protocolMappers)}
       ariaLabelKey="clients:effectiveProtocolMappers"
@@ -89,7 +89,7 @@ const EffectiveRoles = ({
   }, [effectiveRoles]);
 
   return (
-    <KeycloakDataTable
+    <SsoDataTable
       key={key}
       loader={() => Promise.resolve(effectiveRoles)}
       ariaLabelKey="client:effectiveRoleScopeMappings"
@@ -250,7 +250,7 @@ export const EvaluateScopes = ({ clientId, protocol }: EvaluateScopesProps) => {
     <>
       <PageSection variant="light">
         {enabled && (
-          <TextContent className="keycloak__section_intro__help">
+          <TextContent className="sso__section_intro__help">
             <Text>
               <QuestionCircleIcon /> {t("clients-help:evaluateExplain")}
             </Text>
@@ -295,7 +295,7 @@ export const EvaluateScopes = ({ clientId, protocol }: EvaluateScopesProps) => {
                 </Select>
               </SplitItem>
               <SplitItem>
-                <ClipboardCopy className="keycloak__scopes_evaluate__clipboard-copy">
+                <ClipboardCopy className="sso__scopes_evaluate__clipboard-copy">
                   {selected.join(" ")}
                 </ClipboardCopy>
               </SplitItem>
@@ -337,7 +337,7 @@ export const EvaluateScopes = ({ clientId, protocol }: EvaluateScopesProps) => {
         </Form>
       </PageSection>
 
-      <Grid hasGutter className="keycloak__scopes_evaluate__tabs">
+      <Grid hasGutter className="sso__scopes_evaluate__tabs">
         <GridItem span={8}>
           <TabContent
             aria-labelledby="pf-tab-0-effectiveProtocolMappers"

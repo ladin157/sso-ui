@@ -8,8 +8,8 @@ import {
   TitleSizes,
 } from "@patternfly/react-core";
 
-import type AuthenticationFlowRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticationFlowRepresentation";
-import type { AuthenticationProviderRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigRepresentation";
+import type AuthenticationFlowRepresentation from "@sso/sso-admin-client/lib/defs/authenticationFlowRepresentation";
+import type { AuthenticationProviderRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigRepresentation";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
 import { AddStepModal } from "./components/modals/AddStepModal";
 import { AddSubFlowModal, Flow } from "./components/modals/AddSubFlowModal";
@@ -62,9 +62,9 @@ export const EmptyExecutionState = ({
         instructions={t("emptyExecutionInstructions")}
       />
 
-      <div className="keycloak__empty-execution-state__block">
+      <div className="sso__empty-execution-state__block">
         {SECTIONS.map((section) => (
-          <Flex key={section} className="keycloak__empty-execution-state__help">
+          <Flex key={section} className="sso__empty-execution-state__help">
             <FlexItem flex={{ default: "flex_1" }}>
               <Title headingLevel="h3" size={TitleSizes.md}>
                 {t(`${section}Title`)}

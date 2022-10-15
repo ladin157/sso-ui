@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import type { RealmSettingsParams } from "./routes/RealmSettings";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { RealmSettingsTabs } from "./RealmSettingsTabs";
 import { useParams } from "react-router-dom";
@@ -23,7 +23,7 @@ export default function RealmSettingsSection() {
   ]);
 
   if (!realm) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
   return <RealmSettingsTabs realm={realm} refresh={refresh} />;
 }

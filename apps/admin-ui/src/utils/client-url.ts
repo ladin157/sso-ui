@@ -1,4 +1,4 @@
-import ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { joinPath } from "./joinPath";
 
 export const convertClientToUrl = (

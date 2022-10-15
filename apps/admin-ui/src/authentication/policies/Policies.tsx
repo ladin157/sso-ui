@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Tab, Tabs, TabTitleText } from "@patternfly/react-core";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { PasswordPolicy } from "./PasswordPolicy";
 import { OtpPolicy } from "./OtpPolicy";
 import { WebauthnPolicy } from "./WebauthnPolicy";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 
 export const Policies = () => {
   const { t } = useTranslation("authentication");
@@ -32,7 +32,7 @@ export const Policies = () => {
   );
 
   if (!realm) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (

@@ -6,7 +6,7 @@ import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { RedirectUrl } from "../component/RedirectUrl";
 import { TextField } from "../component/TextField";
 import { DisplayOrder } from "../component/DisplayOrder";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import type { IdentityProviderParams } from "../routes/IdentityProvider";
 import { useParams } from "react-router-dom";
 
@@ -38,7 +38,7 @@ export const OIDCGeneralSettings = ({ id }: { id: string }) => {
         }
         helperTextInvalid={t("common:required")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           isReadOnly={tab === "settings"}
           isRequired
           type="text"

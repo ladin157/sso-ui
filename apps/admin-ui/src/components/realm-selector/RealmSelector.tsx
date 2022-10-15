@@ -58,7 +58,7 @@ export const RealmSelector = () => {
   }, [search, all]);
 
   const RealmText = ({ value }: { value: string }) => (
-    <Split className="keycloak__realm_selector__list-item-split">
+    <Split className="sso__realm_selector__list-item-split">
       <SplitItem isFilled>{toUpperCase(value)}</SplitItem>
       <SplitItem>{value === realm && <CheckIcon />}</SplitItem>
     </Split>
@@ -130,7 +130,7 @@ export const RealmSelector = () => {
           }}
           searchInputValue={search}
           onSearchInputChange={(value) => setSearch(value)}
-          className="keycloak__realm_selector__context_selector"
+          className="sso__realm_selector__context_selector"
           footer={
             whoAmI.canCreateRealm() && (
               <ContextSelectorItem key="add">
@@ -151,13 +151,13 @@ export const RealmSelector = () => {
         <Dropdown
           id="realm-select"
           data-testid="realmSelector"
-          className="keycloak__realm_selector__dropdown"
+          className="sso__realm_selector__dropdown"
           isOpen={open}
           toggle={
             <DropdownToggle
               data-testid="realmSelectorToggle"
               onToggle={() => setOpen(!open)}
-              className="keycloak__realm_selector_dropdown__toggle"
+              className="sso__realm_selector_dropdown__toggle"
             >
               {toUpperCase(realm)}
             </DropdownToggle>

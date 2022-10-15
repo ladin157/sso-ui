@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import { AlertVariant, Button, Form, FormGroup } from "@patternfly/react-core";
 import { CheckIcon, PencilAltIcon, TimesIcon } from "@patternfly/react-icons";
 
-import type CredentialRepresentation from "@keycloak/keycloak-admin-client/lib/defs/credentialRepresentation";
+import type CredentialRepresentation from "@sso/sso-admin-client/lib/defs/credentialRepresentation";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useAlerts } from "../../components/alert/Alerts";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 type UserLabelForm = {
   userLabel: string;
@@ -57,7 +57,7 @@ export const InlineLabelEdit = ({
         <div className="kc-form-group-userLabel">
           {isEditable ? (
             <>
-              <KeycloakTextInput
+              <SsoTextInput
                 name="userLabel"
                 data-testid="userLabelFld"
                 defaultValue={credential.userLabel}

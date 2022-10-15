@@ -4,7 +4,7 @@ import AttributesTab from "../support/pages/admin_console/manage//AttributesTab"
 import { SearchGroupPage } from "../support/pages/admin_console/manage/groups/SearchGroupPage";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import GroupPage from "../support/pages/admin_console/manage/groups/GroupPage";
 import ChildGroupsTab from "../support/pages/admin_console/manage/groups/group_details/tabs/ChildGroupsTab";
 import MembersTab from "../support/pages/admin_console/manage/groups/group_details/tabs/MembersTab";
@@ -52,7 +52,7 @@ describe("Group test", () => {
   after(() => adminClient.deleteGroups());
 
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToGroups();
     groupName = groupNamePrefix + (Math.random() + 1).toString(36).substring(7);
@@ -260,7 +260,7 @@ describe("Group test", () => {
         .assertNotificationCouldNotCreateGroupWithEmptyName();
     });
 
-    // https://github.com/keycloak/keycloak-admin-ui/issues/2726
+    // https://github.com/sso/sso-admin-ui/issues/2726
     it.skip("Fail to create group with duplicated name", () => {
       childGroupsTab
         .createGroup(predefinedGroups[2], false)

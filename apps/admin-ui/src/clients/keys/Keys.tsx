@@ -16,12 +16,12 @@ import {
   TextContent,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type CertificateRepresentation from "@keycloak/keycloak-admin-client/lib/defs/certificateRepresentation";
-import type KeyStoreConfig from "@keycloak/keycloak-admin-client/lib/defs/keystoreConfig";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type CertificateRepresentation from "@sso/sso-admin-client/lib/defs/certificateRepresentation";
+import type KeyStoreConfig from "@sso/sso-admin-client/lib/defs/keystoreConfig";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { FormAccess } from "../../components/form-access/FormAccess";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { Controller, useFormContext, useWatch } from "react-hook-form";
 import { GenerateKeyDialog } from "./GenerateKeyDialog";
 import { useFetch, useAdminClient } from "../../context/auth/AdminClient";
@@ -106,7 +106,7 @@ export const Keys = ({ clientId, save, hasConfigureAccess }: KeysProps) => {
   };
 
   return (
-    <PageSection variant="light" className="keycloak__form">
+    <PageSection variant="light" className="sso__form">
       {openGenerateKeys && (
         <GenerateKeyDialog
           clientId={getValues("clientId")!}
@@ -177,7 +177,7 @@ export const Keys = ({ clientId, save, hasConfigureAccess }: KeysProps) => {
                   />
                 }
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   type="text"
                   id="jwksUrl"
                   name={convertAttributeNameToForm("attributes.jwks.url")}

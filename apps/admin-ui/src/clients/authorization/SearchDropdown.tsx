@@ -13,9 +13,9 @@ import {
   SelectVariant,
 } from "@patternfly/react-core";
 
-import type PolicyProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyProviderRepresentation";
+import type PolicyProviderRepresentation from "@sso/sso-admin-client/lib/defs/policyProviderRepresentation";
 import useToggle from "../../utils/useToggle";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 import "./search-dropdown.css";
 
@@ -80,7 +80,7 @@ export const SearchDropdown = ({
       toggle={
         <DropdownToggle
           onToggle={toggle}
-          className="keycloak__client_authentication__searchdropdown"
+          className="sso__client_authentication__searchdropdown"
         >
           {t("searchForPermission")}
         </DropdownToggle>
@@ -89,11 +89,11 @@ export const SearchDropdown = ({
     >
       <Form
         isHorizontal
-        className="keycloak__client_authentication__searchdropdown_form"
+        className="sso__client_authentication__searchdropdown_form"
         onSubmit={handleSubmit(submit)}
       >
         <FormGroup label={t("common:name")} fieldId="name">
-          <KeycloakTextInput
+          <SsoTextInput
             ref={register}
             type="text"
             id="name"
@@ -104,7 +104,7 @@ export const SearchDropdown = ({
         {isResource && (
           <>
             <FormGroup label={t("common:type")} fieldId="type">
-              <KeycloakTextInput
+              <SsoTextInput
                 ref={register}
                 type="text"
                 id="type"
@@ -113,7 +113,7 @@ export const SearchDropdown = ({
               />
             </FormGroup>
             <FormGroup label={t("uris")} fieldId="uri">
-              <KeycloakTextInput
+              <SsoTextInput
                 ref={register}
                 type="text"
                 id="uri"
@@ -122,7 +122,7 @@ export const SearchDropdown = ({
               />
             </FormGroup>
             <FormGroup label={t("owner")} fieldId="owner">
-              <KeycloakTextInput
+              <SsoTextInput
                 ref={register}
                 type="text"
                 id="owner"
@@ -134,7 +134,7 @@ export const SearchDropdown = ({
         )}
         {!isResource && (
           <FormGroup label={t("resource")} fieldId="resource">
-            <KeycloakTextInput
+            <SsoTextInput
               ref={register}
               type="text"
               id="resource"
@@ -144,7 +144,7 @@ export const SearchDropdown = ({
           </FormGroup>
         )}
         <FormGroup label={t("scope")} fieldId="scope">
-          <KeycloakTextInput
+          <SsoTextInput
             ref={register}
             type="text"
             id="scope"

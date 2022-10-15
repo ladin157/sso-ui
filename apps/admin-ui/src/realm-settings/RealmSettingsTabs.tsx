@@ -14,7 +14,7 @@ import {
   Tooltip,
 } from "@patternfly/react-core";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import {

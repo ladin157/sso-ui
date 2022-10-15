@@ -15,7 +15,7 @@ import {
   Tr,
 } from "@patternfly/react-table";
 
-import type PolicyProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyProviderRepresentation";
+import type PolicyProviderRepresentation from "@sso/sso-admin-client/lib/defs/policyProviderRepresentation";
 import { isValidComponentType } from "./policy/PolicyDetails";
 
 type NewPolicyDialogProps = {

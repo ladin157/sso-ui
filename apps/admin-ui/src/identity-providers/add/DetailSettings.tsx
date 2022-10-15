@@ -17,18 +17,18 @@ import {
   ToolbarItem,
 } from "@patternfly/react-core";
 
-import type IdentityProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation";
+import type IdentityProviderRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderRepresentation";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { ScrollForm } from "../../components/scroll-form/ScrollForm";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { useFetch, useAdminClient } from "../../context/auth/AdminClient";
 import { GeneralSettings } from "./GeneralSettings";
 import { AdvancedSettings } from "./AdvancedSettings";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";
 import { useAlerts } from "../../components/alert/Alerts";
 import { useRealm } from "../../context/realm-context/RealmContext";
-import { KeycloakTabs } from "../../components/keycloak-tabs/KeycloakTabs";
+import { SsoTabs } from "../../components/sso-tabs/SsoTabs";
 import { ExtendedNonDiscoverySettings } from "./ExtendedNonDiscoverySettings";
 import { DiscoverySettings } from "./DiscoverySettings";
 import { DescriptorSettings } from "./DescriptorSettings";
@@ -36,9 +36,9 @@ import { OIDCGeneralSettings } from "./OIDCGeneralSettings";
 import { SamlGeneralSettings } from "./SamlGeneralSettings";
 import { OIDCAuthentication } from "./OIDCAuthentication";
 import { ReqAuthnConstraints } from "./ReqAuthnConstraintsSettings";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
-import type IdentityProviderMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderMapperRepresentation";
+import type IdentityProviderMapperRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderMapperRepresentation";
 import { toIdentityProviderAddMapper } from "../routes/AddMapper";
 import { toIdentityProviderEditMapper } from "../routes/EditMapper";
 import { toIdentityProviders } from "../routes/IdentityProviders";
@@ -224,7 +224,7 @@ export default function DetailSettings() {
   });
 
   if (!provider) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const isOIDC = provider.providerId!.includes("oidc");
@@ -317,7 +317,7 @@ export default function DetailSettings() {
         >
           <AdvancedSettings isOIDC={isOIDC!} isSAML={isSAML!} />
 
-          <ActionGroup className="keycloak__form_actions">
+          <ActionGroup className="sso__form_actions">
             <Button data-testid={"save"} type="submit">
               {t("common:save")}
             </Button>
@@ -355,7 +355,7 @@ export default function DetailSettings() {
       />
 
       <PageSection variant="light" className="pf-u-p-0">
-        <KeycloakTabs isBox>
+        <SsoTabs isBox>
           <Tab
             id="settings"
             eventKey="settings"
@@ -369,7 +369,7 @@ export default function DetailSettings() {
             eventKey="mappers"
             title={<TabTitleText>{t("common:mappers")}</TabTitleText>}
           >
-            <KeycloakDataTable
+            <SsoDataTable
               emptyState={
                 <ListEmptyState
                   message={t("identity-providers:noMappers")}
@@ -446,7 +446,7 @@ export default function DetailSettings() {
           >
             <PermissionsTab id={alias} type="identityProviders" />
           </Tab>
-        </KeycloakTabs>
+        </SsoTabs>
       </PageSection>
     </FormProvider>
   );

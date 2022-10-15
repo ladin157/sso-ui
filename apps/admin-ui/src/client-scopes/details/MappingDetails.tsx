@@ -14,8 +14,8 @@ import {
   PageSection,
   ValidatedOptions,
 } from "@patternfly/react-core";
-import type ProtocolMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/protocolMapperRepresentation";
-import type { ProtocolMapperTypeRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
+import type ProtocolMapperRepresentation from "@sso/sso-admin-client/lib/defs/protocolMapperRepresentation";
+import type { ProtocolMapperTypeRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
 
 import { ViewHeader } from "../../components/view-header/ViewHeader";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
@@ -29,7 +29,7 @@ import { useRealm } from "../../context/realm-context/RealmContext";
 import { MapperParams, MapperRoute } from "../routes/Mapper";
 import { toClientScope } from "../routes/ClientScope";
 import { DynamicComponents } from "../../components/dynamic/DynamicComponents";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 import "./mapping-details.css";
 
@@ -201,10 +201,10 @@ export default function MappingDetails() {
           isHorizontal
           onSubmit={handleSubmit(save)}
           role="manage-clients"
-          className="keycloak__client-scope-mapping-details__form"
+          className="sso__client-scope-mapping-details__form"
         >
           <FormGroup label={t("common:mapperType")} fieldId="mapperType">
-            <KeycloakTextInput
+            <SsoTextInput
               type="text"
               id="mapperType"
               name="mapperType"
@@ -227,7 +227,7 @@ export default function MappingDetails() {
             }
             helperTextInvalid={t("common:required")}
           >
-            <KeycloakTextInput
+            <SsoTextInput
               ref={register({ required: true })}
               type="text"
               id="name"

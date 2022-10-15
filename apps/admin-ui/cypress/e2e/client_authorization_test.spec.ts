@@ -1,4 +1,4 @@
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import adminClient from "../support/util/AdminClient";
 import LoginPage from "../support/pages/LoginPage";
 import ListingPage from "../support/pages/admin_console/ListingPage";
@@ -23,7 +23,7 @@ describe("Client authentication subtab", () => {
     "client-authentication-" + (Math.random() + 1).toString(36).substring(7);
 
   before(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToClients();
     listingPage.searchItem(clientId).goToItemDetails(clientId);

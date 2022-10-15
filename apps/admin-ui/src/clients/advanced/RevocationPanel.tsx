@@ -15,7 +15,7 @@ import { AdvancedProps, parseResult } from "../AdvancedTab";
 import { useAlerts } from "../../components/alert/Alerts";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { toClient } from "../routes/Client";
@@ -88,7 +88,7 @@ export const RevocationPanel = ({
           }
         >
           <InputGroup>
-            <KeycloakTextInput
+            <SsoTextInput
               type="text"
               id="kc-not-before"
               name="notBefore"

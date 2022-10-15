@@ -10,11 +10,11 @@ import {
 } from "@patternfly/react-core";
 import { cellWidth } from "@patternfly/react-table";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
+import type SsoAdminClient from "@sso/sso-admin-client";
 import { AddRoleMappingModal } from "./AddRoleMappingModal";
-import { KeycloakDataTable } from "../table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../table-toolbar/SsoDataTable";
 import { emptyFormatter, upperCaseFormatter } from "../../util";
 import { useAlerts } from "../alert/Alerts";
 import { useConfirmDialog } from "../confirm-dialog/ConfirmDialog";
@@ -61,7 +61,7 @@ export const mapRoles = (
 export const ServiceRole = ({ role, client }: Row) => (
   <>
     {client?.clientId && (
-      <Badge isRead className="keycloak-admin--role-mapping__client-name">
+      <Badge isRead className="sso-admin--role-mapping__client-name">
         {client.clientId}
       </Badge>
     )}
@@ -69,7 +69,7 @@ export const ServiceRole = ({ role, client }: Row) => (
   </>
 );
 
-export type ResourcesKey = keyof KeycloakAdminClient;
+export type ResourcesKey = keyof SsoAdminClient;
 
 type RoleMappingProps = {
   name: string;
@@ -193,7 +193,7 @@ export const RoleMapping = ({
         />
       )}
       <DeleteConfirm />
-      <KeycloakDataTable
+      <SsoDataTable
         data-testid="assigned-roles"
         key={key}
         loader={loader}

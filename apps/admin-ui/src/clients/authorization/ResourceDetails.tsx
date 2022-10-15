@@ -16,11 +16,11 @@ import {
   ValidatedOptions,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type ResourceRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceRepresentation";
-import type ResourceServerRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceServerRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type ResourceRepresentation from "@sso/sso-admin-client/lib/defs/resourceRepresentation";
+import type ResourceServerRepresentation from "@sso/sso-admin-client/lib/defs/resourceServerRepresentation";
 import { ResourceDetailsParams, toResourceDetails } from "../routes/Resource";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
@@ -33,7 +33,7 @@ import { MultiLineInput } from "../../components/multi-line-input/MultiLineInput
 import { toAuthorizationTab } from "../routes/AuthenticationTab";
 import { ScopePicker } from "./ScopePicker";
 import { KeyValueInput } from "../../components/key-value-form/KeyValueInput";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 import "./resource-details.css";
 
@@ -152,7 +152,7 @@ export default function ResourceDetails() {
   });
 
   if (!client) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
@@ -179,7 +179,7 @@ export default function ResourceDetails() {
           <FormAccess
             isHorizontal
             role="view-clients"
-            className="keycloak__resource-details__form"
+            className="sso__resource-details__form"
             onSubmit={handleSubmit(save)}
           >
             <FormGroup
@@ -192,7 +192,7 @@ export default function ResourceDetails() {
                 />
               }
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 id="owner"
                 value={client.clientId}
                 isReadOnly
@@ -213,7 +213,7 @@ export default function ResourceDetails() {
               }
               isRequired
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 id="name"
                 name="name"
                 ref={register({ required: true })}
@@ -234,7 +234,7 @@ export default function ResourceDetails() {
                 />
               }
             >
-              <KeycloakTextInput id="displayName" name="name" ref={register} />
+              <SsoTextInput id="displayName" name="name" ref={register} />
             </FormGroup>
             <FormGroup
               label={t("type")}
@@ -243,7 +243,7 @@ export default function ResourceDetails() {
                 <HelpItem helpText="clients-help:type" fieldLabelId="type" />
               }
             >
-              <KeycloakTextInput id="type" name="type" ref={register} />
+              <SsoTextInput id="type" name="type" ref={register} />
             </FormGroup>
             <FormGroup
               label={t("uris")}
@@ -272,7 +272,7 @@ export default function ResourceDetails() {
                 />
               }
             >
-              <KeycloakTextInput id="iconUri" name="icon_uri" ref={register} />
+              <SsoTextInput id="iconUri" name="icon_uri" ref={register} />
             </FormGroup>
             <FormGroup
               hasNoPaddingTop

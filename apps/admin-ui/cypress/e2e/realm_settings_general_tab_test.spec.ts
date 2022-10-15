@@ -2,7 +2,7 @@ import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
 import RealmSettingsPage from "../support/pages/admin_console/manage/realm_settings/RealmSettingsPage";
 import Masthead from "../support/pages/admin_console/Masthead";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import adminClient from "../support/util/AdminClient";
 
 const loginPage = new LoginPage();
@@ -14,7 +14,7 @@ describe("Realm settings general tab tests", () => {
   const realmName = "Realm_" + (Math.random() + 1).toString(36).substring(7);
 
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToRealm(realmName);
   });
@@ -126,7 +126,7 @@ describe("Realm settings general tab tests", () => {
         "have.attr",
         "href",
         `${Cypress.env(
-          "KEYCLOAK_SERVER"
+          "SSO_SERVER"
         )}/realms/${realmName}/.well-known/openid-configuration`
       )
       .should("have.attr", "target", "_blank")
@@ -151,7 +151,7 @@ describe("Realm settings general tab tests", () => {
         "have.attr",
         "href",
         `${Cypress.env(
-          "KEYCLOAK_SERVER"
+          "SSO_SERVER"
         )}/realms/${realmName}/protocol/saml/descriptor`
       )
       .should("have.attr", "target", "_blank")

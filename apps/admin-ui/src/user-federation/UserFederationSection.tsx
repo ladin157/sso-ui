@@ -13,21 +13,21 @@ import {
   TextVariants,
 } from "@patternfly/react-core";
 import { DatabaseIcon } from "@patternfly/react-icons";
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom-v5-compat";
 import { useAlerts } from "../components/alert/Alerts";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { ManagePriorityDialog } from "./ManagePriorityDialog";
-import { KeycloakCard } from "../components/keycloak-card/KeycloakCard";
+import { SsoCard } from "../components/sso-card/SsoCard";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useServerInfo } from "../context/server-info/ServerInfoProvider";
 import { toUpperCase } from "../util";
 import { toProvider } from "./routes/NewProvider";
-import { ClickableCard } from "../components/keycloak-card/ClickableCard";
+import { ClickableCard } from "../components/sso-card/ClickableCard";
 import helpUrls from "../help-urls";
 
 import "./user-federation.css";
@@ -48,7 +48,7 @@ export default function UserFederationSection() {
 
   const providers =
     useServerInfo().componentTypes?.[
-      "org.keycloak.storage.UserStorageProvider"
+      "com.vinorsoft.sso.storage.UserStorageProvider"
     ] || [];
 
   useFetch(
@@ -56,7 +56,7 @@ export default function UserFederationSection() {
       const realmModel = await adminClient.realms.findOne({ realm });
       const testParams: { [name: string]: string | number } = {
         parentId: realmModel!.id!,
-        type: "org.keycloak.storage.UserStorageProvider",
+        type: "com.vinorsoft.sso.storage.UserStorageProvider",
       };
       return adminClient.components.find(testParams);
     },
@@ -123,9 +123,9 @@ export default function UserFederationSection() {
     cards = userFederations.sort(cardSorter).map((userFederation, index) => (
       <GalleryItem
         key={index}
-        className="keycloak-admin--user-federation__gallery-item"
+        className="sso-admin--user-federation__gallery-item"
       >
-        <KeycloakCard
+        <SsoCard
           id={userFederation.id!}
           dropdownItems={[
             <DropdownItem

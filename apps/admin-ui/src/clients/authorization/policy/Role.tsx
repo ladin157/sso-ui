@@ -146,7 +146,7 @@ export const Role = () => {
                 <Td>
                   <Button
                     variant="link"
-                    className="keycloak__client-authorization__policy-row-remove"
+                    className="sso__client-authorization__policy-row-remove"
                     icon={<MinusCircleIcon />}
                     onClick={() => {
                       setValue("roles", [

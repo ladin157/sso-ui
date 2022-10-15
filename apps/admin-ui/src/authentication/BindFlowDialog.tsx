@@ -12,7 +12,7 @@ import {
   AlertVariant,
 } from "@patternfly/react-core";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import useToggle from "../utils/useToggle";
 import { REALM_FLOWS } from "./AuthenticationSection";
 import { useRealm } from "../context/realm-context/RealmContext";

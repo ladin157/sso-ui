@@ -11,7 +11,7 @@ import {
   Button,
 } from "@patternfly/react-core";
 
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
 import type { KeyProviderParams, ProviderType } from "../../routes/KeyProvider";
 import { useAlerts } from "../../../components/alert/Alerts";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
@@ -20,7 +20,7 @@ import { HelpItem } from "../../../components/help-enabler/HelpItem";
 import { KEY_PROVIDER_TYPE } from "../../../util";
 import { ViewHeader } from "../../../components/view-header/ViewHeader";
 import { DynamicComponents } from "../../../components/dynamic/DynamicComponents";
-import { KeycloakTextInput } from "../../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../../components/sso-text-input/SsoTextInput";
 import { useServerInfo } from "../../../context/server-info/ServerInfoProvider";
 
 type KeyProviderFormProps = {
@@ -105,7 +105,7 @@ export const KeyProviderForm = ({
           fieldId="providerId"
           isRequired
         >
-          <KeycloakTextInput
+          <SsoTextInput
             ref={register}
             id="id"
             type="text"

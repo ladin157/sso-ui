@@ -3,12 +3,12 @@ import { useTranslation } from "react-i18next";
 import { Controller, useFormContext } from "react-hook-form";
 import { Select, SelectOption, SelectVariant } from "@patternfly/react-core";
 
-import type ResourceRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceRepresentation";
-import type PolicyRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyRepresentation";
+import type ResourceRepresentation from "@sso/sso-admin-client/lib/defs/resourceRepresentation";
+import type PolicyRepresentation from "@sso/sso-admin-client/lib/defs/policyRepresentation";
 import type {
   Clients,
   PolicyQuery,
-} from "@keycloak/keycloak-admin-client/lib/resources/clients";
+} from "@sso/sso-admin-client/lib/resources/clients";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 
 type Type = "resources" | "policies";

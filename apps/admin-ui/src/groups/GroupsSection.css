@@ -1,9 +1,9 @@
-.keycloak-admin--groups__member-count {
+.sso-admin--groups__member-count {
   display: flex;
   align-items: center;
 }
 
-.keycloak-admin--groups__member-count svg {
+.sso-admin--groups__member-count svg {
   color: var(--pf-global--Color--200);
   font-size: var(--pf-global--FontSize--md);
   margin-right: var(--pf-global--spacer--sm);

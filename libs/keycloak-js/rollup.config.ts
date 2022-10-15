@@ -69,13 +69,13 @@ function defineOptions({
 
 export default defineConfig([
   ...defineOptions({
-    file: "keycloak",
-    name: "Keycloak",
-    amdId: "keycloak",
+    file: "sso",
+    name: "Sso",
+    amdId: "sso",
   }),
   ...defineOptions({
-    file: "keycloak-authz",
-    name: "KeycloakAuthorization",
-    amdId: "keycloak-authorization",
+    file: "sso-authz",
+    name: "SsoAuthorization",
+    amdId: "sso-authorization",
   }),
 ]);

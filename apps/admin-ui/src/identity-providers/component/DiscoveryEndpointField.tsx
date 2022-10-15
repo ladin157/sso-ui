@@ -5,7 +5,7 @@ import { FormGroup, Switch } from "@patternfly/react-core";
 
 import environment from "../../environment";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useAdminClient } from "../../context/auth/AdminClient";
 
 type DiscoveryEndpointFieldProps = {
@@ -128,7 +128,7 @@ export const DiscoveryEndpointField = ({
           }
           isRequired
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="text"
             name="discoveryEndpoint"
             data-testid="discoveryEndpoint"

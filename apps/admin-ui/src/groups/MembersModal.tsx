@@ -7,10 +7,10 @@ import {
   ModalVariant,
 } from "@patternfly/react-core";
 
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useAlerts } from "../components/alert/Alerts";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
 import { emptyFormatter } from "../util";
 import { differenceBy } from "lodash-es";
@@ -83,7 +83,7 @@ export const MemberModal = ({ groupId, onClose }: MemberModalProps) => {
         </Button>,
       ]}
     >
-      <KeycloakDataTable
+      <SsoDataTable
         loader={loader}
         isPaginated
         ariaLabelKey="users:title"

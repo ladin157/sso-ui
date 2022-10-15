@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button, ToolbarItem } from "@patternfly/react-core";
 import type { IFormatterValueType } from "@patternfly/react-table";
 
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
 
 export type EventType = {
@@ -32,7 +32,7 @@ export function EventsTypeTable({
   );
 
   return (
-    <KeycloakDataTable
+    <SsoDataTable
       ariaLabelKey="userEventsRegistered"
       searchPlaceholderKey="realm-settings:searchEventType"
       loader={loader}

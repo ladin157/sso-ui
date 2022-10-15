@@ -19,13 +19,13 @@ import {
   CaretUpIcon,
   FilterIcon,
 } from "@patternfly/react-icons";
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
 
 import {
   ClientScopeType,
   clientScopeTypesDropdown,
 } from "../../components/client-scope/ClientScopeTypes";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
 import { getProtocolName } from "../utils";
 import useToggle from "../../utils/useToggle";
@@ -169,7 +169,7 @@ export const AddScopeDialog = ({
             ]
           : [
               <Dropdown
-                className="keycloak__client-scopes-add__add-dropdown"
+                className="sso__client-scopes-add__add-dropdown"
                 id="add-dropdown"
                 key="add-dropdown"
                 direction={DropdownDirection.up}
@@ -201,7 +201,7 @@ export const AddScopeDialog = ({
             ]
       }
     >
-      <KeycloakDataTable
+      <SsoDataTable
         loader={clientScopes}
         ariaLabelKey="client-scopes:chooseAMapperType"
         searchPlaceholderKey={

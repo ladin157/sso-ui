@@ -8,12 +8,12 @@ import {
   ChipGroup,
 } from "@patternfly/react-core";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { emptyFormatter } from "../util";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { cellWidth } from "@patternfly/react-table";
 import { sortBy } from "lodash-es";
-import type UserConsentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userConsentRepresentation";
+import type UserConsentRepresentation from "@sso/sso-admin-client/lib/defs/userConsentRepresentation";
 import { CubesIcon } from "@patternfly/react-icons";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { useAlerts } from "../components/alert/Alerts";
@@ -86,7 +86,7 @@ export const UserConsents = () => {
   return (
     <>
       <DeleteConfirm />
-      <KeycloakDataTable
+      <SsoDataTable
         loader={loader}
         key={key}
         ariaLabelKey="roles:roleList"

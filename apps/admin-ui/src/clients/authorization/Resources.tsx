@@ -18,9 +18,9 @@ import {
   Tr,
 } from "@patternfly/react-table";
 
-import type ResourceServerRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceServerRepresentation";
-import type ResourceRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceRepresentation";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import type ResourceServerRepresentation from "@sso/sso-admin-client/lib/defs/resourceServerRepresentation";
+import type ResourceRepresentation from "@sso/sso-admin-client/lib/defs/resourceRepresentation";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";
 import { PaginatingTableToolbar } from "../../components/table-toolbar/PaginatingTableToolbar";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
@@ -136,7 +136,7 @@ export const AuthorizationResources = ({ clientId }: ResourcesProps) => {
   });
 
   if (!resources) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const noData = resources.length === 0;

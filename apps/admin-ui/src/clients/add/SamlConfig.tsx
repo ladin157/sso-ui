@@ -9,7 +9,7 @@ import {
   Switch,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { convertAttributeNameToForm } from "../../util";
@@ -59,7 +59,7 @@ export const SamlConfig = () => {
     <FormAccess
       isHorizontal
       role="manage-clients"
-      className="keycloak__capability-config__form"
+      className="sso__capability-config__form"
     >
       <FormGroup
         label={t("nameIdFormat")}

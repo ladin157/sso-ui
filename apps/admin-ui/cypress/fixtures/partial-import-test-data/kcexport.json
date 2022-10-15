@@ -2138,9 +2138,9 @@
   "adminEventsEnabled" : true,
   "adminEventsDetailsEnabled" : true,
   "identityProviders" : [ {
-    "alias" : "keycloak-oidc",
+    "alias" : "sso-oidc",
     "internalId" : "721b5dae-5b98-4284-bcd1-f872ce2ac174",
-    "providerId" : "keycloak-oidc",
+    "providerId" : "sso-oidc",
     "enabled" : true,
     "updateProfileFirstLoginMode" : "on",
     "trustEmail" : false,
@@ -4214,9 +4214,9 @@
   "adminEventsEnabled" : true,
   "adminEventsDetailsEnabled" : true,
   "identityProviders" : [ {
-    "alias" : "keycloak-oidc",
+    "alias" : "sso-oidc",
     "internalId" : "1cd4f1db-a891-42fc-967f-651b4c5d5ac1",
-    "providerId" : "keycloak-oidc",
+    "providerId" : "sso-oidc",
     "enabled" : true,
     "updateProfileFirstLoginMode" : "on",
     "trustEmail" : false,

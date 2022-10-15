@@ -9,8 +9,8 @@ import {
   ToolbarItem,
 } from "@patternfly/react-core";
 
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
-import { KeycloakDataTable } from "../../../components/table-toolbar/KeycloakDataTable";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
+import { SsoDataTable } from "../../../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../../../components/list-empty-state/ListEmptyState";
 import { useAlerts } from "../../../components/alert/Alerts";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
@@ -38,7 +38,7 @@ export const LdapMapperList = () => {
     () =>
       adminClient.components.find({
         parent: id,
-        type: "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
+        type: "com.vinorsoft.sso.storage.ldap.mappers.LDAPStorageMapper",
       }),
     (mapper) => {
       setMappers(
@@ -88,7 +88,7 @@ export const LdapMapperList = () => {
   return (
     <>
       <DeleteConfirm />
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         loader={mappers}
         ariaLabelKey="ldapMappersList"

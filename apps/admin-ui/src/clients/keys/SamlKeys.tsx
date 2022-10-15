@@ -16,8 +16,8 @@ import {
   AlertVariant,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type CertificateRepresentation from "@keycloak/keycloak-admin-client/lib/defs/certificateRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type CertificateRepresentation from "@sso/sso-admin-client/lib/defs/certificateRepresentation";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
@@ -216,7 +216,7 @@ export const SamlKeys = ({ clientId, save }: SamlKeysProps) => {
   });
 
   return (
-    <PageSection variant="light" className="keycloak__form">
+    <PageSection variant="light" className="sso__form">
       {isChanged && (
         <SamlKeysDialog
           id={clientId}

@@ -248,7 +248,7 @@ export default class CreateClientPage extends CommonPage {
 
     cy.get(this.loginThemeDrpDwn).click();
     cy.get(this.loginThemeList).findByText("base").should("exist");
-    cy.get(this.loginThemeList).findByText("keycloak").should("exist");
+    cy.get(this.loginThemeList).findByText("sso").should("exist");
     cy.get(this.loginThemeDrpDwn).click();
 
     cy.get(this.consentRequiredSwitch).click();

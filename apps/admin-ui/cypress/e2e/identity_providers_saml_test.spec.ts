@@ -1,7 +1,7 @@
 import Masthead from "../support/pages/admin_console/Masthead";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import ListingPage from "../support/pages/admin_console/ListingPage";
 import CreateProviderPage from "../support/pages/admin_console/manage/identity_providers/CreateProviderPage";
 import ModalUtils from "../support/util/ModalUtils";
@@ -27,14 +27,14 @@ describe("SAML identity provider test", () => {
   const classRefName = "acClassRef-1";
   const declRefName = "acDeclRef-1";
 
-  const keycloakServer = Cypress.env("KEYCLOAK_SERVER");
-  const samlDiscoveryUrl = `${keycloakServer}/realms/master/protocol/saml/descriptor`;
+  const ssoServer = Cypress.env("SSO_SERVER");
+  const samlDiscoveryUrl = `${ssoServer}/realms/master/protocol/saml/descriptor`;
 
   describe("SAML identity provider creation", () => {
     const samlProviderName = "saml";
 
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToIdentityProviders();
     });

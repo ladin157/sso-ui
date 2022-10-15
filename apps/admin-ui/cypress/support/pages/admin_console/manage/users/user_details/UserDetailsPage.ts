@@ -1,4 +1,4 @@
-import { RequiredActionAlias } from "@keycloak/keycloak-admin-client/lib/defs/requiredActionProviderRepresentation";
+import { RequiredActionAlias } from "@sso/sso-admin-client/lib/defs/requiredActionProviderRepresentation";
 import PageObject from "../../../components/PageObject";
 
 export default class UserDetailsPage extends PageObject {

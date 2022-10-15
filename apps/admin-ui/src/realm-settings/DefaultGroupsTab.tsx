@@ -15,8 +15,8 @@ import {
 } from "@patternfly/react-core";
 import { QuestionCircleIcon } from "@patternfly/react-icons";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
 import useToggle from "../utils/useToggle";
@@ -25,7 +25,7 @@ import { useAlerts } from "../components/alert/Alerts";
 import { toUserFederation } from "../user-federation/routes/UserFederation";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { GroupPickerDialog } from "../components/group/GroupPickerDialog";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 import { useHelp } from "../components/help-enabler/HelpHeader";
 
 export const DefaultsGroupsTab = () => {
@@ -106,7 +106,7 @@ export const DefaultsGroupsTab = () => {
   });
 
   if (!defaultGroups) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
@@ -136,7 +136,7 @@ export const DefaultsGroupsTab = () => {
           }
         >
           <TextContent
-            className="keycloak__section_intro__help"
+            className="sso__section_intro__help"
             style={{
               paddingLeft: "var(--pf-c-page__main-section--PaddingLeft)",
             }}
@@ -147,7 +147,7 @@ export const DefaultsGroupsTab = () => {
           </TextContent>
         </Popover>
       )}
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         canSelectAll
         onSelect={(rows) => setSelectedRows([...rows])}

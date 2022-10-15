@@ -41,9 +41,9 @@
     ],
     "identityProviders": [
       {
-        "alias": "keycloak-oidc",
+        "alias": "sso-oidc",
         "internalId": "721b5dae-5b98-4284-bcd1-f872ce2ac174",
-        "providerId": "keycloak-oidc",
+        "providerId": "sso-oidc",
         "enabled": true,
         "updateProfileFirstLoginMode": "on",
         "trustEmail": false,

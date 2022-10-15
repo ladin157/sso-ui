@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
 import { AlertVariant, PageSection, Text } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type GlobalRequestResult from "@keycloak/keycloak-admin-client/lib/defs/globalRequestResult";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type GlobalRequestResult from "@sso/sso-admin-client/lib/defs/globalRequestResult";
 
 import type { AddAlertFunction } from "../components/alert/Alerts";
 import { ScrollForm } from "../components/scroll-form/ScrollForm";

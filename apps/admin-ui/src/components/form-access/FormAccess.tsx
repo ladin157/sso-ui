@@ -19,7 +19,7 @@ import {
   StackItem,
   TextArea,
 } from "@patternfly/react-core";
-import type { AccessType } from "@keycloak/keycloak-admin-client/lib/defs/whoAmIRepresentation";
+import type { AccessType } from "@sso/sso-admin-client/lib/defs/whoAmIRepresentation";
 
 import { useAccess } from "../../context/access/Access";
 
@@ -118,7 +118,7 @@ export const FormAccess: FunctionComponent<FormAccessProps> = ({
   return (
     <>
       {!unWrap && (
-        <Form {...rest} className={"keycloak__form " + (rest.className || "")}>
+        <Form {...rest} className={"sso__form " + (rest.className || "")}>
           {recursiveCloneChildren(children, isDisabled ? { isDisabled } : {})}
         </Form>
       )}

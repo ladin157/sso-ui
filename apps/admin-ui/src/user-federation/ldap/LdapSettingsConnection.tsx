@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { get, isEqual } from "lodash-es";
 
-import type TestLdapConnectionRepresentation from "@keycloak/keycloak-admin-client/lib/defs/testLdapConnection";
+import type TestLdapConnectionRepresentation from "@sso/sso-admin-client/lib/defs/testLdapConnection";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { Controller, UseFormMethods, useWatch } from "react-hook-form";
 import { FormAccess } from "../../components/form-access/FormAccess";
@@ -21,7 +21,7 @@ import { PasswordInput } from "../../components/password-input/PasswordInput";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { useAlerts } from "../../components/alert/Alerts";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 export type LdapSettingsConnectionProps = {
   form: UseFormMethods;
@@ -117,7 +117,7 @@ export const LdapSettingsConnection = ({
           }
           helperTextInvalid={form.errors.config?.connectionUrl?.[0].message}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             id="kc-console-connection-url"
@@ -237,7 +237,7 @@ export const LdapSettingsConnection = ({
           }
           fieldId="kc-console-connection-timeout"
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="number"
             min={0}
             id="kc-console-connection-timeout"
@@ -313,7 +313,7 @@ export const LdapSettingsConnection = ({
               }
               isRequired
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 type="text"
                 id="kc-console-bind-dn"
                 data-testid="ldap-bind-dn"

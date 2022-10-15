@@ -1,4 +1,4 @@
-import type UserSessionRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userSessionRepresentation";
+import type UserSessionRepresentation from "@sso/sso-admin-client/lib/defs/userSessionRepresentation";
 import {
   Button,
   List,
@@ -17,9 +17,9 @@ import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
 import {
   Field,
-  KeycloakDataTable,
+  SsoDataTable,
   LoaderFunction,
-} from "../components/table-toolbar/KeycloakDataTable";
+} from "../components/table-toolbar/SsoDataTable";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useWhoAmI } from "../context/whoami/WhoAmI";
@@ -44,7 +44,7 @@ export default function SessionsTable({
   const { realm } = useRealm();
   const { whoAmI } = useWhoAmI();
   const { t } = useTranslation("sessions");
-  const { keycloak, adminClient } = useAdminClient();
+  const { sso, adminClient } = useAdminClient();
   const { addError } = useAlerts();
   const formatDate = useFormatDate();
   const [key, setKey] = useState(0);
@@ -119,7 +119,7 @@ export default function SessionsTable({
     await adminClient.realms.deleteSession({ realm, session: session.id! });
 
     if (session.userId === whoAmI.getUserId()) {
-      await keycloak.logout({ redirectUri: "" });
+      await sso.logout({ redirectUri: "" });
     } else {
       refresh();
     }
@@ -128,7 +128,7 @@ export default function SessionsTable({
   return (
     <>
       <LogoutConfirm />
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         loader={loader}
         ariaLabelKey="sessions:title"

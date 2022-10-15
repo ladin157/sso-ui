@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
+import type SsoAdminClient from "@sso/sso-admin-client";
 import { useAlerts } from "../../components/alert/Alerts";
 import { GroupPickerDialog } from "../../components/group/GroupPickerDialog";
 import { useAdminClient } from "../../context/auth/AdminClient";
@@ -13,7 +13,7 @@ type MoveDialogProps = {
 };
 
 const moveToRoot = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   source: GroupRepresentation
 ) => {
   await adminClient.groups.del({ id: source.id! });
@@ -37,7 +37,7 @@ const moveToRoot = async (
 };
 
 const moveToGroup = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   source: GroupRepresentation,
   dest: GroupRepresentation
 ) => {

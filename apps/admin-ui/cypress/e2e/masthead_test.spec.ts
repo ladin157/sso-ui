@@ -2,7 +2,7 @@ import ListingPage from "../support/pages/admin_console/ListingPage";
 import LoginPage from "../support/pages/LoginPage";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import Masthead from "../support/pages/admin_console/Masthead";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 
 const loginPage = new LoginPage();
 const masthead = new Masthead();
@@ -19,14 +19,14 @@ const logOutTest = () => {
 const goToAcctMgtTest = () => {
   sidebarPage.waitForPageLoad();
   masthead.accountManagement();
-  cy.get("h1").contains("Welcome to Keycloak account management");
+  cy.get("h1").contains("Welcome to Sso account management");
   cy.get("#landingReferrerLink").click({ force: true });
   masthead.checkIsAdminConsole();
 };
 
 describe("Masthead tests in desktop mode", () => {
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
   });
 
@@ -50,7 +50,7 @@ describe("Masthead tests in desktop mode", () => {
 
 describe("Masthead tests with kebab menu", () => {
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     masthead.setMobileMode(true);
   });

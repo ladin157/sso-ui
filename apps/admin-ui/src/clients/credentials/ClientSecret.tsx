@@ -10,7 +10,7 @@ import {
   SplitItem,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { PasswordInput } from "../../components/password-input/PasswordInput";
 import { CopyToClipboardButton } from "../scopes/CopyToClipboardButton";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";

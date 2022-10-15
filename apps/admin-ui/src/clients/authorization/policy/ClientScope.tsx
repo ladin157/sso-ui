@@ -12,7 +12,7 @@ import {
   Tr,
 } from "@patternfly/react-table";
 
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
 import { HelpItem } from "../../../components/help-enabler/HelpItem";
 import { AddScopeDialog } from "../../scopes/AddScopeDialog";
@@ -145,7 +145,7 @@ export const ClientScope = () => {
                 <Td>
                   <Button
                     variant="link"
-                    className="keycloak__client-authorization__policy-row-remove"
+                    className="sso__client-authorization__policy-row-remove"
                     icon={<MinusCircleIcon />}
                     onClick={() => {
                       setValue("clientScopes", [

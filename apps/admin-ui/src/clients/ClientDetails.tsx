@@ -10,7 +10,7 @@ import {
   Tooltip,
 } from "@patternfly/react-core";
 import { InfoCircleIcon } from "@patternfly/react-icons";
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { cloneDeep, sortBy } from "lodash-es";
 import { useMemo, useState } from "react";
 import { Controller, FormProvider, useForm, useWatch } from "react-hook-form";
@@ -31,7 +31,7 @@ import {
   ViewHeader,
   ViewHeaderBadge,
 } from "../components/view-header/ViewHeader";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { RolesList } from "../realm-roles/RolesList";
@@ -344,7 +344,7 @@ export default function ClientDetails() {
   };
 
   if (!client) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const route = (tab: ClientTab) =>

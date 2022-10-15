@@ -1,4 +1,4 @@
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import Masthead from "../support/pages/admin_console/Masthead";
 import LoginPage from "../support/pages/LoginPage";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
@@ -13,7 +13,7 @@ describe("Policies", () => {
   describe("OTP policies tab", () => {
     const otpPoliciesPage = new OTPPolicies();
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToAuthentication();
       otpPoliciesPage.goToTab();
@@ -30,7 +30,7 @@ describe("Policies", () => {
   describe("Webauthn policies tabs", () => {
     const webauthnPage = new WebAuthnPolicies();
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       sidebarPage.goToAuthentication();
     });

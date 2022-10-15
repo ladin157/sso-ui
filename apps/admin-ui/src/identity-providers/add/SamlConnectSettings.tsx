@@ -4,13 +4,13 @@ import { FormGroup, Title } from "@patternfly/react-core";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { useTranslation } from "react-i18next";
 import { useAdminClient } from "../../context/auth/AdminClient";
-import type IdentityProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation";
+import type IdentityProviderRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderRepresentation";
 
 import { FileUploadForm } from "../../components/json-file-upload/FileUploadForm";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { DescriptorSettings } from "./DescriptorSettings";
 import { DiscoveryEndpointField } from "../component/DiscoveryEndpointField";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import environment from "../../environment";
 import { addTrailingSlash } from "../../util";
 import { getAuthorizationHeaders } from "../../utils/getAuthorizationHeaders";
@@ -91,7 +91,7 @@ export const SamlConnectSettings = () => {
         helperTextInvalid={t("common:required")}
         validated={errors.config?.entityId ? "error" : "default"}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           name="config.entityId"
           data-testid="serviceProviderEntityId"

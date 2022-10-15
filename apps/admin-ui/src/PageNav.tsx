@@ -91,11 +91,11 @@ export const PageNav: FunctionComponent = () => {
 
   return (
     <PageSidebar
-      className="keycloak__page_nav__nav"
+      className="sso__page_nav__nav"
       nav={
         <Nav onSelect={onSelect}>
           <NavList>
-            <NavItem className="keycloak__page_nav__nav_item__realm-selector">
+            <NavItem className="sso__page_nav__nav_item__realm-selector">
               <RealmSelector />
             </NavItem>
           </NavList>

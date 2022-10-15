@@ -1,6 +1,6 @@
 import type { FunctionComponent } from "react";
 
-import type { ConfigPropertyRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigInfoRepresentation";
+import type { ConfigPropertyRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigInfoRepresentation";
 import { StringComponent } from "./StringComponent";
 import { TextComponent } from "./TextComponent";
 import { BooleanComponent } from "./BooleanComponent";

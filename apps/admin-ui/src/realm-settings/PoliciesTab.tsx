@@ -14,21 +14,21 @@ import {
 } from "@patternfly/react-core";
 
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { useTranslation } from "react-i18next";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { prettyPrintJSON } from "../util";
 import { CodeEditor, Language } from "@patternfly/react-code-editor";
 import { Link } from "react-router-dom-v5-compat";
 import { useNavigate } from "react-router-dom-v5-compat";
-import type ClientPolicyRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientPolicyRepresentation";
+import type ClientPolicyRepresentation from "@sso/sso-admin-client/lib/defs/clientPolicyRepresentation";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { useAlerts } from "../components/alert/Alerts";
 
 import { useRealm } from "../context/realm-context/RealmContext";
 import { toAddClientPolicy } from "./routes/AddClientPolicy";
 import { toEditClientPolicy } from "./routes/EditClientPolicy";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 import { Controller, useForm } from "react-hook-form";
 import { toClientPolicies } from "./routes/ClientPolicies";
 
@@ -191,7 +191,7 @@ export const PoliciesTab = () => {
   });
 
   if (!policies) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
   return (
     <>
@@ -229,7 +229,7 @@ export const PoliciesTab = () => {
       </PageSection>
       <Divider />
       {!show ? (
-        <KeycloakDataTable
+        <SsoDataTable
           key={policies.length}
           emptyState={
             <ListEmptyState

@@ -29,7 +29,7 @@ assets
 # Optional eslint cache
 .eslintcache
 
-# Keycloak server
+# Sso server
 server
 
 # Wireit

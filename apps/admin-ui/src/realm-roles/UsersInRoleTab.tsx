@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom-v5-compat";
 import { useHelp } from "../components/help-enabler/HelpHeader";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { emptyFormatter, upperCaseFormatter } from "../util";
@@ -47,7 +47,7 @@ export const UsersInRoleTab = () => {
 
   return (
     <PageSection data-testid="users-page" variant="light">
-      <KeycloakDataTable
+      <SsoDataTable
         isPaginated
         loader={loader}
         ariaLabelKey="roles:roleList"

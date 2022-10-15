@@ -24,9 +24,9 @@ import {
   Tr,
 } from "@patternfly/react-table";
 
-import type PolicyRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyRepresentation";
-import type PolicyProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyProviderRepresentation";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import type PolicyRepresentation from "@sso/sso-admin-client/lib/defs/policyRepresentation";
+import type PolicyProviderRepresentation from "@sso/sso-admin-client/lib/defs/policyProviderRepresentation";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";
 import { PaginatingTableToolbar } from "../../components/table-toolbar/PaginatingTableToolbar";
 import { useAlerts } from "../../components/alert/Alerts";
@@ -172,7 +172,7 @@ export const AuthorizationPermissions = ({ clientId }: PermissionsProps) => {
   });
 
   if (!permissions) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const noData = permissions.length === 0;
@@ -338,7 +338,7 @@ export const AuthorizationPermissions = ({ clientId }: PermissionsProps) => {
                         {permission.isExpanded && (
                           <DescriptionList
                             isHorizontal
-                            className="keycloak_resource_details"
+                            className="sso_resource_details"
                           >
                             <DetailDescriptionLink
                               name="associatedPolicy"

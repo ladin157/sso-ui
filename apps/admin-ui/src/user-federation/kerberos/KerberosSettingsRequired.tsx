@@ -15,7 +15,7 @@ import { useRealm } from "../../context/realm-context/RealmContext";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { isEqual } from "lodash-es";
 import { WizardSectionHeader } from "../../components/wizard-section-header/WizardSectionHeader";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 
 export type KerberosSettingsRequiredProps = {
@@ -74,7 +74,7 @@ export const KerberosSettingsRequired = ({
           helperTextInvalid={form.errors.name?.message}
         >
           {/* These hidden fields are required so data object written back matches data retrieved */}
-          <KeycloakTextInput
+          <SsoTextInput
             hidden
             type="text"
             id="kc-console-providerId"
@@ -83,16 +83,16 @@ export const KerberosSettingsRequired = ({
             ref={form.register}
             aria-label={t("providerId")}
           />
-          <KeycloakTextInput
+          <SsoTextInput
             hidden
             type="text"
             id="kc-console-providerType"
             name="providerType"
-            defaultValue="org.keycloak.storage.UserStorageProvider"
+            defaultValue="com.vinorsoft.sso.storage.UserStorageProvider"
             ref={form.register}
             aria-label={t("providerType")}
           />
-          <KeycloakTextInput
+          <SsoTextInput
             hidden
             type="text"
             id="kc-console-parentId"
@@ -102,7 +102,7 @@ export const KerberosSettingsRequired = ({
             aria-label={t("parentId")}
           />
 
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             id="kc-console-name"
@@ -134,7 +134,7 @@ export const KerberosSettingsRequired = ({
           }
           helperTextInvalid={form.errors.config?.kerberosRealm?.[0].message}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             id="kc-kerberos-realm"
@@ -168,7 +168,7 @@ export const KerberosSettingsRequired = ({
           }
           helperTextInvalid={form.errors.config?.serverPrincipal?.[0].message}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             id="kc-server-principal"
@@ -200,7 +200,7 @@ export const KerberosSettingsRequired = ({
           validated={form.errors.config?.keyTab?.[0] ? "error" : "default"}
           helperTextInvalid={form.errors.config?.keyTab?.[0].message}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             id="kc-key-tab"

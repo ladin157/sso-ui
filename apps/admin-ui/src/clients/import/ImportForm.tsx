@@ -12,12 +12,12 @@ import {
 } from "@patternfly/react-core";
 import { Language } from "@patternfly/react-code-editor";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 
 import { useAlerts } from "../../components/alert/Alerts";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import {
@@ -118,7 +118,7 @@ export default function ImportForm() {
             />
             <ClientDescription hasConfigureAccess />
             <FormGroup label={t("common:type")} fieldId="kc-type">
-              <KeycloakTextInput
+              <SsoTextInput
                 type="text"
                 id="kc-type"
                 name="protocol"

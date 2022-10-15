@@ -18,7 +18,7 @@ import { LdapSettingsConnection } from "./ldap/LdapSettingsConnection";
 import { LdapSettingsSearching } from "./ldap/LdapSettingsSearching";
 
 import { useRealm } from "../context/realm-context/RealmContext";
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
 
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
@@ -88,7 +88,7 @@ const AddLdapFormContent = ({
         ]}
       />
       <Form onSubmit={form.handleSubmit(save)}>
-        <ActionGroup className="keycloak__form_actions">
+        <ActionGroup className="sso__form_actions">
           <Button
             isDisabled={!form.formState.isDirty}
             variant="primary"

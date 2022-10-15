@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 import { useRouteMatch } from "react-router-dom";
 import { useNavigate } from "react-router-dom-v5-compat";
 
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
 
 type SearchUserProps = {
   onSearch: (search: string) => void;
@@ -35,7 +35,7 @@ export const SearchUser = ({ onSearch }: SearchUserProps) => {
       <EmptyStateBody>
         <Form onSubmit={handleSubmit((form) => onSearch(form.search))}>
           <InputGroup>
-            <KeycloakTextInput
+            <SsoTextInput
               type="text"
               id="kc-user-search"
               name="search"

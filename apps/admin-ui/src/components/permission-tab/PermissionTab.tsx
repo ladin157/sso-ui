@@ -21,11 +21,11 @@ import {
   Tr,
 } from "@patternfly/react-table";
 
-import type { ManagementPermissionReference } from "@keycloak/keycloak-admin-client/lib/defs/managementPermissionReference";
+import type { ManagementPermissionReference } from "@sso/sso-admin-client/lib/defs/managementPermissionReference";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { toPermissionDetails } from "../../clients/routes/PermissionDetails";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import useLocaleSort from "../../utils/useLocaleSort";
 import { useConfirmDialog } from "../confirm-dialog/ConfirmDialog";
@@ -121,7 +121,7 @@ export const PermissionsTab = ({ id, type }: PermissionsTabProps) => {
   });
 
   if (!permission) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
@@ -181,7 +181,7 @@ export const PermissionsTab = ({ id, type }: PermissionsTabProps) => {
               </Trans>
             </CardBody>
           </Card>
-          <Card isFlat className="keycloak__permission__permission-table">
+          <Card isFlat className="sso__permission__permission-table">
             <CardBody className="pf-u-p-0">
               <TableComposable
                 aria-label={t("permissionsList")}

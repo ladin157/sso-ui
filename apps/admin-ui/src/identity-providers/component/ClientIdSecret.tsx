@@ -4,7 +4,7 @@ import { FormGroup, ValidatedOptions } from "@patternfly/react-core";
 
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { PasswordInput } from "../../components/password-input/PasswordInput";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 export const ClientIdSecret = ({
   secretRequired = true,
@@ -39,7 +39,7 @@ export const ClientIdSecret = ({
         }
         helperTextInvalid={t("common:required")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           isRequired
           type="text"
           id="kc-client-id"
@@ -75,7 +75,7 @@ export const ClientIdSecret = ({
           />
         )}
         {!create && (
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired={secretRequired}
             type="password"
             id="kc-client-secret"

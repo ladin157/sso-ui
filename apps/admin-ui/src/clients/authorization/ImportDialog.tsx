@@ -12,7 +12,7 @@ import {
   Switch,
 } from "@patternfly/react-core";
 
-import type ResourceServerRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceServerRepresentation";
+import type ResourceServerRepresentation from "@sso/sso-admin-client/lib/defs/resourceServerRepresentation";
 import { JsonFileUpload } from "../../components/json-file-upload/JsonFileUpload";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 

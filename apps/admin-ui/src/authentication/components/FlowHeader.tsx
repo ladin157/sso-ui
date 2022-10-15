@@ -15,11 +15,11 @@ export const FlowHeader = () => {
     <DataListItem aria-labelledby="headerName" id="header">
       <DataListItemRow>
         <DataListDragButton
-          className="keycloak__authentication__header-drag-button"
+          className="sso__authentication__header-drag-button"
           aria-label={t("common:disabled")}
         />
         <DataListItemCells
-          className="keycloak__authentication__header"
+          className="sso__authentication__header"
           dataListCells={[
             <DataListCell key="step" id="headerName">
               {t("steps")}

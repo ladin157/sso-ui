@@ -17,7 +17,7 @@ export const ClickableCard = ({
   };
   return (
     <Card
-      className="keycloak-empty-state-card"
+      className="sso-empty-state-card"
       role="button"
       aria-pressed="false"
       tabIndex={0}

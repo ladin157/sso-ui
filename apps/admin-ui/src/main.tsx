@@ -11,13 +11,13 @@ import { initI18n } from "./i18n";
 import "./index.css";
 
 async function initialize() {
-  const { keycloak, adminClient } = await initAdminClient();
+  const { sso, adminClient } = await initAdminClient();
 
   await initI18n(adminClient);
 
   ReactDOM.render(
     <StrictMode>
-      <App keycloak={keycloak} adminClient={adminClient} />
+      <App sso={sso} adminClient={adminClient} />
     </StrictMode>,
     document.getElementById("app")
   );

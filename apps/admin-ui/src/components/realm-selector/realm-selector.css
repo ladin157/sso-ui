@@ -1,4 +1,4 @@
-.keycloak__realm_selector_dropdown__toggle {
+.sso__realm_selector_dropdown__toggle {
   --pf-c-dropdown__toggle--Color: var(--pf-c-nav__link--m-current--Color);
   --pf-c-dropdown__toggle--BackgroundColor: var(
     --pf-global--BackgroundColor--dark-100
@@ -18,20 +18,20 @@
   width: 100%;
 }
 
-.pf-c-context-selector.keycloak__realm_selector__context_selector {
+.pf-c-context-selector.sso__realm_selector__context_selector {
   --pf-c-context-selector__toggle--Color: var(--pf-c-nav__link--m-current--Color);
 }
 
-.keycloak__realm_selector__dropdown {
+.sso__realm_selector__dropdown {
   width: 100%;
 }
 
-.keycloak__realm_selector__list-item-split {
+.sso__realm_selector__list-item-split {
   width: 100%;
   text-align: left;
 }
 
-.pf-c-nav__item.keycloak__page_nav__nav_item__realm-selector {
+.pf-c-nav__item.sso__page_nav__nav_item__realm-selector {
   margin-top: var(--pf-c-nav__link--PaddingTop);
   padding-right: var(--pf-c-nav__link--PaddingRight);
   margin-bottom: var(--pf-c-nav__link--PaddingBottom);

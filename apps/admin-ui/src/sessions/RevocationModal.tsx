@@ -14,12 +14,12 @@ import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 
 import { emailRegexPattern } from "../util";
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useAlerts } from "../components/alert/Alerts";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
-import type GlobalRequestResult from "@keycloak/keycloak-admin-client/lib/defs/globalRequestResult";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
+import type GlobalRequestResult from "@sso/sso-admin-client/lib/defs/globalRequestResult";
 
 type RevocationModalProps = {
   handleModalToggle: () => void;
@@ -199,7 +199,7 @@ export const RevocationModal = ({
             errors.email ? ValidatedOptions.error : ValidatedOptions.default
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             data-testid="not-before-input"
             ref={register({ required: true, pattern: emailRegexPattern })}
             autoFocus

@@ -10,15 +10,15 @@ import {
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
 
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { BruteForced, UserForm } from "./UserForm";
 import { useAlerts } from "../components/alert/Alerts";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom-v5-compat";
-import { KeycloakTabs } from "../components/keycloak-tabs/KeycloakTabs";
+import { SsoTabs } from "../components/sso-tabs/SsoTabs";
 import { UserGroups } from "./UserGroups";
 import { UserConsents } from "./UserConsents";
 import { useRealm } from "../context/realm-context/RealmContext";
@@ -31,7 +31,7 @@ import { UserAttributes } from "./UserAttributes";
 import { UserCredentials } from "./UserCredentials";
 import { UserSessions } from "./UserSessions";
 import { useAccess } from "../context/access/Access";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 
 const UsersTabs = () => {
   const { t } = useTranslation("users");
@@ -143,7 +143,7 @@ const UsersTabs = () => {
   });
 
   if (id && !user) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
@@ -173,7 +173,7 @@ const UsersTabs = () => {
       <PageSection variant="light" className="pf-u-p-0">
         <FormProvider {...userForm}>
           {id && user && (
-            <KeycloakTabs isBox mountOnEnter>
+            <SsoTabs isBox mountOnEnter>
               <Tab
                 eventKey="settings"
                 data-testid="user-details-tab"
@@ -245,7 +245,7 @@ const UsersTabs = () => {
               >
                 <UserSessions />
               </Tab>
-            </KeycloakTabs>
+            </SsoTabs>
           )}
           {!id && (
             <PageSection variant="light">

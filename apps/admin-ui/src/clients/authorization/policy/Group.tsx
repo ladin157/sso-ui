@@ -12,11 +12,11 @@ import {
   Td,
 } from "@patternfly/react-table";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { HelpItem } from "../../../components/help-enabler/HelpItem";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
 import { GroupPickerDialog } from "../../../components/group/GroupPickerDialog";
-import { KeycloakTextInput } from "../../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../../components/sso-text-input/SsoTextInput";
 
 export type GroupValue = {
   id: string;
@@ -70,7 +70,7 @@ export const Group = () => {
         }
         fieldId="groups"
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           id="groupsClaim"
           name="groupsClaim"
@@ -167,7 +167,7 @@ export const Group = () => {
                   <Td>
                     <Button
                       variant="link"
-                      className="keycloak__client-authorization__policy-row-remove"
+                      className="sso__client-authorization__policy-row-remove"
                       icon={<MinusCircleIcon />}
                       onClick={() => {
                         setValue("groups", [

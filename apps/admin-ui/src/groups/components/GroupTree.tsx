@@ -9,9 +9,9 @@ import {
   TreeViewDataItem,
 } from "@patternfly/react-core";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { TableToolbar } from "../../components/table-toolbar/TableToolbar";
 import useToggle from "../../utils/useToggle";
 import { CheckableTreeView } from "./CheckableTreeView";
@@ -200,7 +200,7 @@ export const GroupTree = ({ toggleView }: GroupTreeProps) => {
           />
         </>
       ) : (
-        <KeycloakSpinner />
+        <SsoSpinner />
       )}
     </>
   );

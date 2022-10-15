@@ -8,8 +8,8 @@ import {
   TextVariants,
 } from "@patternfly/react-core";
 
-import type AccessTokenRepresentation from "@keycloak/keycloak-admin-client/lib/defs/accessTokenRepresentation";
-import { KeycloakTextArea } from "../../components/keycloak-text-area/KeycloakTextArea";
+import type AccessTokenRepresentation from "@sso/sso-admin-client/lib/defs/accessTokenRepresentation";
+import { SsoTextArea } from "../../components/sso-text-area/SsoTextArea";
 import useToggle from "../../utils/useToggle";
 import { prettyPrintJSON } from "../../util";
 
@@ -54,7 +54,7 @@ export const AuthorizationDataModal = ({
           </Button>,
         ]}
       >
-        <KeycloakTextArea readOnly rows={20} value={prettyPrintJSON(data)} />
+        <SsoTextArea readOnly rows={20} value={prettyPrintJSON(data)} />
       </Modal>
     </>
   );

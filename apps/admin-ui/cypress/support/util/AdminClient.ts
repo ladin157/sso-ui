@@ -1,15 +1,15 @@
-import KeycloakAdminClient from "@keycloak/keycloak-admin-client";
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
-import type UserProfileConfig from "@keycloak/keycloak-admin-client/lib/defs/userProfileConfig";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
+import SsoAdminClient from "@sso/sso-admin-client";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
+import type UserProfileConfig from "@sso/sso-admin-client/lib/defs/userProfileConfig";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
 import { merge } from "lodash-es";
 
 class AdminClient {
-  private readonly client = new KeycloakAdminClient({
-    baseUrl: Cypress.env("KEYCLOAK_SERVER"),
+  private readonly client = new SsoAdminClient({
+    baseUrl: Cypress.env("SSO_SERVER"),
     realmName: "master",
   });
 

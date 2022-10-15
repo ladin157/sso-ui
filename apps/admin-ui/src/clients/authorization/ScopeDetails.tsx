@@ -14,7 +14,7 @@ import {
   ValidatedOptions,
 } from "@patternfly/react-core";
 
-import type ScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/scopeRepresentation";
+import type ScopeRepresentation from "@sso/sso-admin-client/lib/defs/scopeRepresentation";
 import type { ScopeDetailsParams } from "../routes/Scope";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
@@ -22,7 +22,7 @@ import { ViewHeader } from "../../components/view-header/ViewHeader";
 import { toAuthorizationTab } from "../routes/AuthenticationTab";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useAlerts } from "../../components/alert/Alerts";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import useToggle from "../../utils/useToggle";
 import { DeleteScopeDialog } from "./DeleteScopeDialog";
 
@@ -140,7 +140,7 @@ export default function ScopeDetails() {
             }
             isRequired
           >
-            <KeycloakTextInput
+            <SsoTextInput
               id="name"
               name="name"
               ref={register({ required: true })}
@@ -159,7 +159,7 @@ export default function ScopeDetails() {
               />
             }
           >
-            <KeycloakTextInput
+            <SsoTextInput
               id="displayName"
               name="displayName"
               ref={register}
@@ -175,7 +175,7 @@ export default function ScopeDetails() {
               />
             }
           >
-            <KeycloakTextInput id="iconUri" name="iconUri" ref={register} />
+            <SsoTextInput id="iconUri" name="iconUri" ref={register} />
           </FormGroup>
           <ActionGroup>
             <div className="pf-u-mt-md">

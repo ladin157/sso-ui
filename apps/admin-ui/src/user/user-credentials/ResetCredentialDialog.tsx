@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { FormProvider, useForm, useWatch } from "react-hook-form";
 import { ModalVariant, Form, AlertVariant } from "@patternfly/react-core";
 
-import type { RequiredActionAlias } from "@keycloak/keycloak-admin-client/lib/defs/requiredActionProviderRepresentation";
+import type { RequiredActionAlias } from "@sso/sso-admin-client/lib/defs/requiredActionProviderRepresentation";
 import { CredentialsResetActionMultiSelect } from "./CredentialsResetActionMultiSelect";
 import { ConfirmDialogModal } from "../../components/confirm-dialog/ConfirmDialog";
 import { useAdminClient } from "../../context/auth/AdminClient";

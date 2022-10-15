@@ -14,9 +14,9 @@ import {
   ValidatedOptions,
 } from "@patternfly/react-core";
 
-import type { AuthenticationProviderRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigRepresentation";
+import type { AuthenticationProviderRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigRepresentation";
 import { HelpItem } from "../../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../../components/sso-text-input/SsoTextInput";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
 
 type AddSubFlowProps = {
@@ -100,7 +100,7 @@ export const AddSubFlowModal = ({
             <HelpItem helpText="authentication-help:name" fieldLabelId="name" />
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="text"
             id="name"
             name="name"
@@ -121,7 +121,7 @@ export const AddSubFlowModal = ({
             />
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="text"
             id="description"
             name="description"

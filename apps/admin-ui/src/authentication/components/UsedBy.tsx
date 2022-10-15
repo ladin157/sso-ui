@@ -11,7 +11,7 @@ import {
 import { CheckCircleIcon } from "@patternfly/react-icons";
 
 import { AuthenticationType, REALM_FLOWS } from "../AuthenticationSection";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import useToggle from "../../utils/useToggle";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { fetchUsedBy } from "../../components/role-mapping/resource";
@@ -24,7 +24,7 @@ type UsedByProps = {
 
 const Label = ({ label }: { label: string }) => (
   <>
-    <CheckCircleIcon className="keycloak_authentication-section__usedby" />{" "}
+    <CheckCircleIcon className="sso_authentication-section__usedby" />{" "}
     {label}
   </>
 );
@@ -81,7 +81,7 @@ const UsedByModal = ({ id, isSpecificClient, onClose }: UsedByModalProps) => {
         </Button>,
       ]}
     >
-      <KeycloakDataTable
+      <SsoDataTable
         loader={loader}
         isPaginated
         ariaLabelKey="authentication:usedBy"
@@ -134,7 +134,7 @@ export const UsedBy = ({ authType: { id, usedBy } }: UsedByProps) => {
           >
             <Button
               variant="link"
-              className="keycloak__used-by__popover-button"
+              className="sso__used-by__popover-button"
             >
               <Label label={t(`used.${usedBy.type}`)} />
             </Button>
@@ -142,7 +142,7 @@ export const UsedBy = ({ authType: { id, usedBy } }: UsedByProps) => {
         ) : (
           <Button
             variant="link"
-            className="keycloak__used-by__popover-button"
+            className="sso__used-by__popover-button"
             onClick={toggle}
           >
             <Label label={t(`used.${usedBy.type}`)} />

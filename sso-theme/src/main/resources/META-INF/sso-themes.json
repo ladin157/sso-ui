@@ -1,0 +1,10 @@
+{
+  "themes": [
+    {
+      "name": "sso.v2",
+      "types": [
+        "admin"
+      ]
+    }
+  ]
+}

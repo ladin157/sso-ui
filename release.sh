@@ -7,7 +7,7 @@ echo "--------------------------------------------------------------------------
 echo "Building:"
 echo ""
 
-mvn --file=./keycloak-theme/pom.xml -Pgpg -DretryFailedDeploymentCount=10 -DautoReleaseAfterClose=true clean deploy
+mvn --file=./sso-theme/pom.xml -Pgpg -DretryFailedDeploymentCount=10 -DautoReleaseAfterClose=true clean deploy
 
 echo "------------------------------------------------------------------------------------------------------------"
 echo "Create tag:"

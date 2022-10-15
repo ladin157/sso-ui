@@ -11,8 +11,8 @@ import {
   Switch,
 } from "@patternfly/react-core";
 
-import type ResourceServerRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceServerRepresentation";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import type ResourceServerRepresentation from "@sso/sso-admin-client/lib/defs/resourceServerRepresentation";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
@@ -71,7 +71,7 @@ export const AuthorizationSettings = ({ clientId }: { clientId: string }) => {
   };
 
   if (!resource) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (

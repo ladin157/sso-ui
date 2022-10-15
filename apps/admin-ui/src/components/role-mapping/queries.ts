@@ -1,15 +1,15 @@
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
-import type MappingsRepresentation from "@keycloak/keycloak-admin-client/lib/defs/mappingsRepresentation";
-import type { ClientScopes } from "@keycloak/keycloak-admin-client/lib/resources/clientScopes";
-import type { Groups } from "@keycloak/keycloak-admin-client/lib/resources/groups";
-import type { Roles } from "@keycloak/keycloak-admin-client/lib/resources/roles";
-import type { Users } from "@keycloak/keycloak-admin-client/lib/resources/users";
-import type { Clients } from "@keycloak/keycloak-admin-client/lib/resources/clients";
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
+import type MappingsRepresentation from "@sso/sso-admin-client/lib/defs/mappingsRepresentation";
+import type { ClientScopes } from "@sso/sso-admin-client/lib/resources/clientScopes";
+import type { Groups } from "@sso/sso-admin-client/lib/resources/groups";
+import type { Roles } from "@sso/sso-admin-client/lib/resources/roles";
+import type { Users } from "@sso/sso-admin-client/lib/resources/users";
+import type { Clients } from "@sso/sso-admin-client/lib/resources/clients";
+import type SsoAdminClient from "@sso/sso-admin-client";
 
 import { Row } from "./RoleMapping";
 
-export type ResourcesKey = keyof KeycloakAdminClient;
+export type ResourcesKey = keyof SsoAdminClient;
 
 type DeleteFunctions =
   | keyof Pick<Groups, "delClientRoleMappings" | "delRealmRoleMappings">
@@ -97,7 +97,7 @@ type queryType =
   | ListEffectiveFunction;
 
 const castAdminClient = (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   resource: ResourcesKey
 ) =>
   adminClient[resource] as unknown as {
@@ -105,7 +105,7 @@ const castAdminClient = (
   };
 
 const applyQuery = (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   type: ResourcesKey,
   query: queryType,
   ...params: object[]
@@ -113,7 +113,7 @@ const applyQuery = (
   castAdminClient(adminClient, type)[query](...params);
 
 export const deleteMapping = (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   type: ResourcesKey,
   id: string,
   rows: Row[]
@@ -137,7 +137,7 @@ export const deleteMapping = (
   });
 
 export const getMapping = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   type: ResourcesKey,
   id: string
 ): Promise<MappingsRepresentation> => {
@@ -167,7 +167,7 @@ export const getMapping = async (
 };
 
 export const getEffectiveRoles = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   type: ResourcesKey,
   id: string
 ): Promise<Row[]> => {
@@ -187,7 +187,7 @@ export const getEffectiveRoles = async (
 };
 
 export const getAvailableRoles = async (
-  adminClient: KeycloakAdminClient,
+  adminClient: SsoAdminClient,
   type: ResourcesKey,
   params: Record<string, string | number>
 ): Promise<Row[]> => {

@@ -10,7 +10,7 @@ import {
   ModalVariant,
 } from "@patternfly/react-core";
 
-import type AuthenticationFlowRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticationFlowRepresentation";
+import type AuthenticationFlowRepresentation from "@sso/sso-admin-client/lib/defs/authenticationFlowRepresentation";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useAlerts } from "../components/alert/Alerts";
 import { NameDescription } from "./form/NameDescription";

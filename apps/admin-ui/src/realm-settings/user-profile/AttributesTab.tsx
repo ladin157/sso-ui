@@ -13,7 +13,7 @@ import {
 } from "@patternfly/react-core";
 import { FilterIcon } from "@patternfly/react-icons";
 
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { DraggableTable } from "../../authentication/components/DraggableTable";
 import { Link } from "react-router-dom-v5-compat";
 import { useNavigate } from "react-router-dom-v5-compat";
@@ -22,7 +22,7 @@ import { useRealm } from "../../context/realm-context/RealmContext";
 import { useUserProfile } from "./UserProfileContext";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";
 import { toAttribute } from "../routes/Attribute";
-import type { UserProfileAttribute } from "@keycloak/keycloak-admin-client/lib/defs/userProfileConfig";
+import type { UserProfileAttribute } from "@sso/sso-admin-client/lib/defs/userProfileConfig";
 import useToggle from "../../utils/useToggle";
 
 const RESTRICTED_ATTRIBUTES = ["username", "email"];
@@ -98,7 +98,7 @@ export const AttributesTab = () => {
   );
 
   if (!config?.attributes) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (

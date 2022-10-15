@@ -4,11 +4,11 @@ import { Controller, useFormContext } from "react-hook-form";
 import { Button, Chip, ChipGroup, FormGroup } from "@patternfly/react-core";
 
 import { HelpItem } from "../help-enabler/HelpItem";
-import { KeycloakTextInput } from "../keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../sso-text-input/SsoTextInput";
 import type { ComponentProps } from "./components";
 import { AddScopeDialog } from "../../clients/scopes/AddScopeDialog";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
 import { useParams } from "react-router";
 import type { EditClientPolicyConditionParams } from "../../realm-settings/routes/EditCondition";
 import useLocaleSort, { mapByKey } from "../../utils/useLocaleSort";
@@ -82,7 +82,7 @@ export const MultivaluedScopesComponent = ({
                 />
               )}
               {value.length === 0 && !conditionName && (
-                <KeycloakTextInput
+                <SsoTextInput
                   type="text"
                   id="kc-scopes"
                   value={value}

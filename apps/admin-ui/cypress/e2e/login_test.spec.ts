@@ -1,6 +1,6 @@
 import LoginPage from "../support/pages/LoginPage";
 import Masthead from "../support/pages/admin_console/Masthead";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 
 const username = "admin";
 const password = "admin";
@@ -10,7 +10,7 @@ const masthead = new Masthead();
 
 describe("Logging In", () => {
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
   });
 
   it("displays errors on wrong credentials", () => {
@@ -24,6 +24,6 @@ describe("Logging In", () => {
 
     masthead.checkIsAdminConsole();
 
-    cy.getCookie("KEYCLOAK_SESSION_LEGACY").should("exist");
+    cy.getCookie("SSO_SESSION_LEGACY").should("exist");
   });
 });

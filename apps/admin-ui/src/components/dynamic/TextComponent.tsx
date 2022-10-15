@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { FormGroup } from "@patternfly/react-core";
 
 import { HelpItem } from "../help-enabler/HelpItem";
-import { KeycloakTextArea } from "../keycloak-text-area/KeycloakTextArea";
+import { SsoTextArea } from "../sso-text-area/SsoTextArea";
 import type { ComponentProps } from "./components";
 import { convertToName } from "./DynamicComponents";
 
@@ -25,7 +25,7 @@ export const TextComponent = ({
       }
       fieldId={name!}
     >
-      <KeycloakTextArea
+      <SsoTextArea
         id={name!}
         data-testid={name}
         isDisabled={isDisabled}

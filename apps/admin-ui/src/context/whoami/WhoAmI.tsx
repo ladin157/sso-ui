@@ -1,5 +1,5 @@
-import type WhoAmIRepresentation from "@keycloak/keycloak-admin-client/lib/defs/whoAmIRepresentation";
-import type { AccessType } from "@keycloak/keycloak-admin-client/lib/defs/whoAmIRepresentation";
+import type WhoAmIRepresentation from "@sso/sso-admin-client/lib/defs/whoAmIRepresentation";
+import type { AccessType } from "@sso/sso-admin-client/lib/defs/whoAmIRepresentation";
 import { FunctionComponent, useState } from "react";
 
 import environment from "../../environment";

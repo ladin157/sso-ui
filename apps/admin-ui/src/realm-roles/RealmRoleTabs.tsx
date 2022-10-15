@@ -15,7 +15,7 @@ import { omit } from "lodash-es";
 
 import { useAlerts } from "../components/alert/Alerts";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
 import {
   AttributesForm,
   AttributeForm,
@@ -24,15 +24,15 @@ import {
   arrayToKeyValue,
   keyValueToArray,
 } from "../components/key-value-form/key-value-convert";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { RealmRoleForm } from "./RealmRoleForm";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { AddRoleMappingModal } from "../components/role-mapping/AddRoleMappingModal";
-import { KeycloakTabs } from "../components/keycloak-tabs/KeycloakTabs";
+import { SsoTabs } from "../components/sso-tabs/SsoTabs";
 import { UsersInRoleTab } from "./UsersInRoleTab";
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { toRealmRole } from "./routes/RealmRole";
 import {
   ClientRoleParams,
@@ -325,7 +325,7 @@ export default function RealmRoleTabs() {
   const isDefaultRole = (name: string) => realm?.defaultRole!.name === name;
 
   if (!realm) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
   if (!role) {
     return (
@@ -367,7 +367,7 @@ export default function RealmRoleTabs() {
       />
       <PageSection variant="light" className="pf-u-p-0">
         {id && (
-          <KeycloakTabs isBox mountOnEnter>
+          <SsoTabs isBox mountOnEnter>
             <Tab
               eventKey="details"
               title={<TabTitleText>{t("common:details")}</TabTitleText>}
@@ -421,7 +421,7 @@ export default function RealmRoleTabs() {
             >
               <PermissionsTab id={role.id} type="roles" />
             </Tab>
-          </KeycloakTabs>
+          </SsoTabs>
         )}
       </PageSection>
     </>

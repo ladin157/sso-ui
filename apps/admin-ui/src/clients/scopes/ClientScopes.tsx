@@ -10,7 +10,7 @@ import {
   KebabToggle,
   ToolbarItem,
 } from "@patternfly/react-core";
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
 
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
@@ -25,7 +25,7 @@ import {
   removeClientScope,
 } from "../../components/client-scope/ClientScopeTypes";
 import { useAlerts } from "../../components/alert/Alerts";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import {
   nameFilter,
   SearchDropdown,
@@ -286,7 +286,7 @@ export const ClientScopes = ({
         />
       )}
 
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         loader={loader}
         ariaLabelKey="clients:clientScopeList"

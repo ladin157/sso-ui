@@ -15,7 +15,7 @@ import {
   Switch,
 } from "@patternfly/react-core";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import {
   addTrailingSlash,
   convertAttributeNameToForm,
@@ -27,7 +27,7 @@ import { useRealm } from "../context/realm-context/RealmContext";
 import { FormAccess } from "../components/form-access/FormAccess";
 import { HelpItem } from "../components/help-enabler/HelpItem";
 import { FormattedLink } from "../components/external-link/FormattedLink";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
 import { KeyValueInput } from "../components/key-value-form/KeyValueInput";
 
 type RealmSettingsGeneralTabProps = {
@@ -89,7 +89,7 @@ export const RealmSettingsGeneralTab = ({
           />
         </FormGroup>
         <FormGroup label={t("displayName")} fieldId="kc-display-name">
-          <KeycloakTextInput
+          <SsoTextInput
             type="text"
             id="kc-display-name"
             name="displayName"
@@ -97,7 +97,7 @@ export const RealmSettingsGeneralTab = ({
           />
         </FormGroup>
         <FormGroup label={t("htmlDisplayName")} fieldId="kc-html-display-name">
-          <KeycloakTextInput
+          <SsoTextInput
             type="text"
             id="kc-html-display-name"
             name="displayNameHtml"
@@ -114,7 +114,7 @@ export const RealmSettingsGeneralTab = ({
             />
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="text"
             id="kc-frontend-url"
             name={convertAttributeNameToForm("attributes.frontendUrl")}

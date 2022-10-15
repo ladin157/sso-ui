@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AlertVariant, Switch } from "@patternfly/react-core";
 
-import type RequiredActionProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/requiredActionProviderRepresentation";
-import type RequiredActionProviderSimpleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/requiredActionProviderSimpleRepresentation";
+import type RequiredActionProviderRepresentation from "@sso/sso-admin-client/lib/defs/requiredActionProviderRepresentation";
+import type RequiredActionProviderSimpleRepresentation from "@sso/sso-admin-client/lib/defs/requiredActionProviderSimpleRepresentation";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { DraggableTable } from "./components/DraggableTable";
 import { useAlerts } from "../components/alert/Alerts";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 import { toKey } from "../util";
 
 type DataType = RequiredActionProviderRepresentation &
@@ -112,7 +112,7 @@ export const RequiredActions = () => {
   };
 
   if (!actions) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (

@@ -8,7 +8,7 @@ import {
 } from "@patternfly/react-core";
 import { PlusIcon } from "@patternfly/react-icons";
 
-import type { AuthenticationProviderRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigRepresentation";
+import type { AuthenticationProviderRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigRepresentation";
 import type { ExpandableExecution } from "../execution-model";
 import { AddStepModal, FlowType } from "./modals/AddStepModal";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";

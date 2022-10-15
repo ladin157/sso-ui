@@ -18,10 +18,10 @@ import {
   Tr,
 } from "@patternfly/react-table";
 
-import type ScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/scopeRepresentation";
-import type PolicyRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyRepresentation";
+import type ScopeRepresentation from "@sso/sso-admin-client/lib/defs/scopeRepresentation";
+import type PolicyRepresentation from "@sso/sso-admin-client/lib/defs/policyRepresentation";
 
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { PaginatingTableToolbar } from "../../components/table-toolbar/PaginatingTableToolbar";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
@@ -120,7 +120,7 @@ export const AuthorizationScopes = ({ clientId }: ScopesProps) => {
   );
 
   if (!scopes) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const noData = scopes.length === 0;
@@ -250,7 +250,7 @@ export const AuthorizationScopes = ({ clientId }: ScopesProps) => {
                         {scope.isExpanded && (
                           <DescriptionList
                             isHorizontal
-                            className="keycloak_resource_details"
+                            className="sso_resource_details"
                           >
                             <DetailDescriptionLink
                               name="resources"

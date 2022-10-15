@@ -1,6 +1,6 @@
 {
   "clientType": "''OpenID connect'' permite a los clientes verificar la identidad del usuario final basado en la autenticación realizada por un servidor de autorización. ''SAML'' habilita la autenticación y autorización de escenarios basados en web incluyendo cross-domain y single sign-on (SSO) y utiliza tokens de seguridad que contienen afirmaciones para pasar información.",
-  "serviceAccount": "Permitir autenticar este cliente contra Keycloak y recibir un token de acceso dedicado para este cliente.",
+  "serviceAccount": "Permitir autenticar este cliente contra Sso y recibir un token de acceso dedicado para este cliente.",
   "rootURL": "URL raíz añadida a las URLs relativas",
   "validRedirectURIs": "Patrón de URI válida para la cual un navegador puede solicitar la redirección tras un inicio o cierre de sesión completado. Se permiten comodines simples p.ej. ''http://example.com/*''. También se pueden indicar rutas relativas p.ej. ''/my/relative/path/*''. Las rutas relativas generarán una URI de redirección usando el host y puerto de la petición. Para SAML, se deben fijar patrones de URI válidos si quieres confiar en la URL del servicio del consumidor indicada en la petición de inicio de sesión.",
   "nameIdFormat": "El formato de NameID que se usará para el título",
@@ -20,8 +20,8 @@
   "loginTheme": "Selecciona el tema para las páginas de inicio de sesión, OTP, permisos, registro y recordatorio de contraseña.",
   "encryptAssertions": "¿Deberían cifrarse las afirmaciones SAML con la clave pública del cliente usando AES?",
   "clientSignature": "¿Firmará el cliente sus peticiones y respuestas SAML? ¿Y deberían ser validadas?",
-  "client-authenticator-type": "Cliente autenticador usado para autenticar este cliente contra el servidor Keycloak",
-  "nodeReRegistrationTimeout": "Indica el máximo intervalo de tiempo para que los nodos del cluster registrados se vuelvan a registrar. Si el nodo del cluster no envía una petición de re-registro a Keycloak dentro de este intervalo, será desregistrado de Keycloak",
+  "client-authenticator-type": "Cliente autenticador usado para autenticar este cliente contra el servidor Sso",
+  "nodeReRegistrationTimeout": "Indica el máximo intervalo de tiempo para que los nodos del cluster registrados se vuelvan a registrar. Si el nodo del cluster no envía una petición de re-registro a Sso dentro de este intervalo, será desregistrado de Sso",
   "idpInitiatedSsoUrlName": "Nombre del fragmento de la URL para referenciar al cliente cuando quieres un SSO iniciado por el IDP. Dejando esto vacío deshabilita los SSO iniciados por el IDP. La URL referenciada desde el navegador será: {server-root}/realms/{realm}/protocol/saml/clients/{client-url-name}",
   "idpInitiatedSsoRelayState": "Estado de retransmisión que quieres enviar con una petición SAML cuando se inicia un SSO iniciado por el IDP",
   "masterSamlProcessingUrl": "Si está configurada, esta URL se usará para cada enlace al proveedor del servicio del consumidor de aserciones y servicios de desconexión únicos. Puede ser sobreescrito de forma individual para cada enlace y servicio en el punto final de configuración fina de SAML.",

@@ -9,7 +9,7 @@ import {
   PageSection,
   Radio,
 } from "@patternfly/react-core";
-import type { AuthenticationProviderRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigRepresentation";
+import type { AuthenticationProviderRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigRepresentation";
 
 import { PaginatingTableToolbar } from "../../../components/table-toolbar/PaginatingTableToolbar";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";

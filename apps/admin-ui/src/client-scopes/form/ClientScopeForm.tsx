@@ -14,15 +14,15 @@ import {
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useAlerts } from "../../components/alert/Alerts";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { convertFormValuesToObject } from "../../util";
 import { MapperList } from "../details/MapperList";
 import { ScopeForm } from "../details/ScopeForm";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";
 import { RoleMapping, Row } from "../../components/role-mapping/RoleMapping";
-import type { RoleMappingPayload } from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
-import type { ProtocolMapperTypeRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
-import type ProtocolMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/protocolMapperRepresentation";
+import type { RoleMappingPayload } from "@sso/sso-admin-client/lib/defs/roleRepresentation";
+import type { ProtocolMapperTypeRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
+import type ProtocolMapperRepresentation from "@sso/sso-admin-client/lib/defs/protocolMapperRepresentation";
 import {
   AllClientScopes,
   changeScope,
@@ -205,7 +205,7 @@ export default function ClientScopeForm() {
   };
 
   if (id && !clientScope) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const clientRoute = (tab: ClientScopeTab) =>

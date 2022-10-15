@@ -9,7 +9,7 @@ import {
   PageSection,
 } from "@patternfly/react-core";
 
-import type IdentityProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation";
+import type IdentityProviderRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderRepresentation";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
 import { useAdminClient } from "../../context/auth/AdminClient";
@@ -29,8 +29,8 @@ export default function AddOpenIdConnect() {
   const { t } = useTranslation("identity-providers");
   const navigate = useNavigate();
   const { url } = useRouteMatch();
-  const isKeycloak = url.includes("keycloak-oidc");
-  const id = `${isKeycloak ? "keycloak-" : ""}oidc`;
+  const isSso = url.includes("sso-oidc");
+  const id = `${isSso ? "sso-" : ""}oidc`;
 
   const form = useForm<IdentityProviderRepresentation>({
     defaultValues: { alias: id },
@@ -69,7 +69,7 @@ export default function AddOpenIdConnect() {
     <>
       <ViewHeader
         titleKey={t(
-          isKeycloak ? "addKeycloakOpenIdProvider" : "addOpenIdProvider"
+          isSso ? "addSsoOpenIdProvider" : "addOpenIdProvider"
         )}
       />
       <PageSection variant="light">

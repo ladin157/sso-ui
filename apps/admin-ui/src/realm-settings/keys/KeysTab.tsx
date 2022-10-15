@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Tab, TabTitleText } from "@patternfly/react-core";
 
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { KEY_PROVIDER_TYPE } from "../../util";
@@ -12,7 +12,7 @@ import {
   RoutableTabs,
 } from "../../components/routable-tabs/RoutableTabs";
 import { KeySubTab, toKeysTab } from "../routes/KeysTab";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { KeysListTab } from "./KeysListTab";
 import { KeysProvidersTab } from "./KeysProvidersTab";
 
@@ -54,7 +54,7 @@ export const KeysTab = () => {
   );
 
   if (!realmComponents) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const keysRoute = (tab: KeySubTab) =>

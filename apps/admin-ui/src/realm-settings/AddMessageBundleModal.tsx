@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { useForm, UseFormMethods } from "react-hook-form";
 import type { KeyValueType } from "../components/key-value-form/key-value-convert";
 
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
 
 type AddMessageBundleModalProps = {
   id?: string;
@@ -75,7 +75,7 @@ export const AddMessageBundleModal = ({
           }
           isRequired
         >
-          <KeycloakTextInput
+          <SsoTextInput
             data-testid="key-input"
             ref={register({ required: true })}
             autoFocus
@@ -97,7 +97,7 @@ export const AddMessageBundleModal = ({
           }
           isRequired
         >
-          <KeycloakTextInput
+          <SsoTextInput
             data-testid="value-input"
             ref={register({ required: true })}
             type="text"

@@ -14,7 +14,7 @@
   "storeTokens": "Aktiver/deaktiver hvis tokens må bli lagret etter at brukere har blitt autentisert.",
   "storedTokensReadable": "Aktiver/deaktiver hvis nye brukere kan lese lagrede tokens. Dette tildeles broker.read-token rollen.",
   "trustEmail": "Hvis aktivert vil ikke e-post levert av denne leverandøren bli verifisert selv om verifisering er aktivert for sikkerhetsdomenet.",
-  "firstBrokerLoginFlowAlias": "Alias for autentiseringsflyt, som trigges etter første innlogging med denne identitetsleverandøren. Begrepet 'Første innlogging' betyr at det ennå ikke eksisterer en Keycloak-konto koblet til den autentiserte kontoen til identitetsleverandøren.",
+  "firstBrokerLoginFlowAlias": "Alias for autentiseringsflyt, som trigges etter første innlogging med denne identitetsleverandøren. Begrepet 'Første innlogging' betyr at det ennå ikke eksisterer en Sso-konto koblet til den autentiserte kontoen til identitetsleverandøren.",
   "useEntityDescriptor": "Importer metadata fra et eksternt IDP SAML entity descriptor.",
   "samlEntityDescriptor": "Lar deg laste inn ekstern IDP metadata fra en konfigurasjonsfil eller ved å laste det ned fra en URL.",
   "ssoServiceUrl": "URL som må brukes for å sende autentiseringsforespørsler (SAML AuthnRequest).",

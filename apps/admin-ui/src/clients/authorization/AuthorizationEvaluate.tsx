@@ -13,16 +13,16 @@ import {
   ExpandableSection,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
-import type EvaluationResultRepresentation from "@keycloak/keycloak-admin-client/lib/defs/evaluationResultRepresentation";
-import type ResourceEvaluation from "@keycloak/keycloak-admin-client/lib/defs/resourceEvaluation";
-import type ResourceRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceRepresentation";
-import type ScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/scopeRepresentation";
-import type PolicyEvaluationResponse from "@keycloak/keycloak-admin-client/lib/defs/policyEvaluationResponse";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
+import type EvaluationResultRepresentation from "@sso/sso-admin-client/lib/defs/evaluationResultRepresentation";
+import type ResourceEvaluation from "@sso/sso-admin-client/lib/defs/resourceEvaluation";
+import type ResourceRepresentation from "@sso/sso-admin-client/lib/defs/resourceRepresentation";
+import type ScopeRepresentation from "@sso/sso-admin-client/lib/defs/scopeRepresentation";
+import type PolicyEvaluationResponse from "@sso/sso-admin-client/lib/defs/policyEvaluationResponse";
 
 import type { KeyValueType } from "../../components/key-value-form/key-value-convert";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { FormPanel } from "../../components/scroll-form/FormPanel";
@@ -311,7 +311,7 @@ export const AuthorizationEvaluate = ({ client }: Props) => {
                   validated={form.errors.alias ? "error" : "default"}
                   helperTextInvalid={t("common:required")}
                 >
-                  <KeycloakTextInput
+                  <SsoTextInput
                     type="text"
                     id="alias"
                     name="alias"

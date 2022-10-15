@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom-v5-compat";
 import { ScrollForm } from "../components/scroll-form/ScrollForm";
-import type UserProfileConfig from "@keycloak/keycloak-admin-client/lib/defs/userProfileConfig";
+import type UserProfileConfig from "@sso/sso-admin-client/lib/defs/userProfileConfig";
 import { AttributeGeneralSettings } from "./user-profile/attribute/AttributeGeneralSettings";
 import { AttributePermission } from "./user-profile/attribute/AttributePermission";
 import { AttributeValidations } from "./user-profile/attribute/AttributeValidations";
@@ -21,7 +21,7 @@ import { AttributeAnnotations } from "./user-profile/attribute/AttributeAnnotati
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { useAlerts } from "../components/alert/Alerts";
 import { UserProfileProvider } from "./user-profile/UserProfileContext";
-import type { UserProfileAttribute } from "@keycloak/keycloak-admin-client/lib/defs/userProfileConfig";
+import type { UserProfileAttribute } from "@sso/sso-admin-client/lib/defs/userProfileConfig";
 import type { AttributeParams } from "./routes/Attribute";
 import type { KeyValueType } from "../components/key-value-form/key-value-convert";
 import { convertToFormValues } from "../util";
@@ -77,7 +77,7 @@ const CreateAttributeFormContent = ({
         ]}
       />
       <Form onSubmit={form.handleSubmit(save)}>
-        <ActionGroup className="keycloak__form_actions">
+        <ActionGroup className="sso__form_actions">
           <Button
             variant="primary"
             type="submit"

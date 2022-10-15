@@ -5,7 +5,7 @@ import {
 } from "../support/pages/admin_console/ListingPage";
 import CreateClientPage from "../support/pages/admin_console/manage/clients/CreateClientPage";
 import adminClient from "../support/util/AdminClient";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import RoleMappingTab from "../support/pages/admin_console/manage/RoleMappingTab";
 import createRealmRolePage from "../support/pages/admin_console/manage/realm_roles/CreateRealmRolePage";
 import AssociatedRolesPage from "../support/pages/admin_console/manage/realm_roles/AssociatedRolesPage";
@@ -68,7 +68,7 @@ describe("Clients test", () => {
     });
 
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       commonPage.sidebar().goToClients();
       cy.intercept("/admin/realms/master/clients/*").as("fetchClient");
@@ -216,7 +216,7 @@ describe("Clients test", () => {
       commonPage.tableToolbarUtils().clickSearchButton();
     });
 
-    //fails, issue https://github.com/keycloak/keycloak-admin-ui/issues/1874
+    //fails, issue https://github.com/sso/sso-admin-ui/issues/1874
     it("Should show initial items after filtering", () => {
       commonPage
         .tableToolbarUtils()
@@ -232,7 +232,7 @@ describe("Clients test", () => {
 
   describe("Client creation", () => {
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
     });
 
@@ -439,7 +439,7 @@ describe("Clients test", () => {
     let client: string;
 
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       commonPage.sidebar().goToClients();
 
@@ -652,7 +652,7 @@ describe("Clients test", () => {
     let client: string;
 
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
     });
 
@@ -709,7 +709,7 @@ describe("Clients test", () => {
     const serviceAccountName = "service-account-client";
 
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       adminClient.createClient({
         protocol: "openid-connect",
@@ -833,7 +833,7 @@ describe("Clients test", () => {
   describe("Mapping tab", () => {
     const mappingClient = "mapping-client";
     beforeEach(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       commonPage.sidebar().goToClients();
       commonPage.tableToolbarUtils().searchItem(mappingClient);
@@ -870,7 +870,7 @@ describe("Clients test", () => {
     const keysName = "keys-client";
 
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       adminClient.createClient({
         protocol: "openid-connect",
@@ -912,7 +912,7 @@ describe("Clients test", () => {
     const clientName = "master-realm";
 
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       commonPage.sidebar().goToClients();
       commonPage.tableToolbarUtils().searchItem(clientName);
@@ -943,7 +943,7 @@ describe("Clients test", () => {
     const clientId = "bearer-only";
 
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
       adminClient.createClient({
         clientId,

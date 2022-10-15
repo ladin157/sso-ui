@@ -12,10 +12,10 @@ import { useTranslation } from "react-i18next";
 import { HelpItem } from "../../../components/help-enabler/HelpItem";
 import { Controller, useFormContext, useWatch } from "react-hook-form";
 import { FormAccess } from "../../../components/form-access/FormAccess";
-import { KeycloakTextInput } from "../../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../../components/sso-text-input/SsoTextInput";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
-import type UserProfileConfig from "@keycloak/keycloak-admin-client/lib/defs/userProfileConfig";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
+import type UserProfileConfig from "@sso/sso-admin-client/lib/defs/userProfileConfig";
 import type { AttributeParams } from "../../routes/Attribute";
 import { useParams } from "react-router-dom";
 import { isEqual } from "lodash-es";
@@ -78,7 +78,7 @@ export const AttributeGeneralSettings = () => {
         validated={form.errors.name ? "error" : "default"}
         helperTextInvalid={form.errors.name?.message}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           isRequired
           type="text"
           id="kc-attribute-name"
@@ -105,7 +105,7 @@ export const AttributeGeneralSettings = () => {
         }
         fieldId="kc-attribute-display-name"
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           id="kc-attribute-display-name"
           name="displayName"

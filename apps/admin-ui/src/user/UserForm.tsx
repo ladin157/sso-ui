@@ -16,18 +16,18 @@ import { Controller, useFormContext } from "react-hook-form";
 import { useNavigate } from "react-router-dom-v5-compat";
 
 import { FormAccess } from "../components/form-access/FormAccess";
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 import { HelpItem } from "../components/help-enabler/HelpItem";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { useAlerts } from "../components/alert/Alerts";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
 import { emailRegexPattern } from "../util";
 import useFormatDate from "../utils/useFormatDate";
 import { GroupPickerDialog } from "../components/group/GroupPickerDialog";
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
-import type RequiredActionProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/requiredActionProviderRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
+import type RequiredActionProviderRepresentation from "@sso/sso-admin-client/lib/defs/requiredActionProviderRepresentation";
 import { useAccess } from "../context/access/Access";
 
 export type BruteForced = {
@@ -170,7 +170,7 @@ export const UserForm = ({
       {user?.id && (
         <>
           <FormGroup label={t("common:id")} fieldId="kc-id" isRequired>
-            <KeycloakTextInput
+            <SsoTextInput
               id={user.id}
               aria-label={t("userID")}
               value={user.id}
@@ -179,7 +179,7 @@ export const UserForm = ({
             />
           </FormGroup>
           <FormGroup label={t("createdAt")} fieldId="kc-created-at" isRequired>
-            <KeycloakTextInput
+            <SsoTextInput
               value={formatDate(new Date(user.createdTimestamp!))}
               type="text"
               id="kc-created-at"
@@ -198,7 +198,7 @@ export const UserForm = ({
           validated={errors.username ? "error" : "default"}
           helperTextInvalid={t("common:required")}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             ref={register()}
             type="text"
             id="kc-username"
@@ -218,7 +218,7 @@ export const UserForm = ({
         validated={errors.email ? "error" : "default"}
         helperTextInvalid={t("users:emailInvalid")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register({
             pattern: emailRegexPattern,
           })}
@@ -264,7 +264,7 @@ export const UserForm = ({
         validated={errors.firstName ? "error" : "default"}
         helperTextInvalid={t("common:required")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           data-testid="firstName-input"
           type="text"
@@ -278,7 +278,7 @@ export const UserForm = ({
         fieldId="kc-name"
         validated={errors.lastName ? "error" : "default"}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           data-testid="lastName-input"
           type="text"

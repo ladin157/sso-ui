@@ -5,7 +5,7 @@ import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { UseFormMethods, Controller } from "react-hook-form";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { WizardSectionHeader } from "../../components/wizard-section-header/WizardSectionHeader";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 export type LdapSettingsSynchronizationProps = {
   form: UseFormMethods;
@@ -102,7 +102,7 @@ export const LdapSettingsSynchronization = ({
           }
           fieldId="kc-batch-size"
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="number"
             min={0}
             id="kc-batch-size"
@@ -153,7 +153,7 @@ export const LdapSettingsSynchronization = ({
             }
             fieldId="kc-full-sync-period"
           >
-            <KeycloakTextInput
+            <SsoTextInput
               type="number"
               min={-1}
               defaultValue={604800}
@@ -206,7 +206,7 @@ export const LdapSettingsSynchronization = ({
             fieldId="kc-changed-users-sync-period"
             hasNoPaddingTop
           >
-            <KeycloakTextInput
+            <SsoTextInput
               type="number"
               min={-1}
               defaultValue={86400}

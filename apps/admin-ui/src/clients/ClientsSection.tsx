@@ -9,8 +9,8 @@ import {
   ToolbarItem,
 } from "@patternfly/react-core";
 import { cellWidth, IRowData, TableText } from "@patternfly/react-table";
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type { ClientQuery } from "@keycloak/keycloak-admin-client/lib/resources/clients";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type { ClientQuery } from "@sso/sso-admin-client/lib/resources/clients";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
@@ -20,8 +20,8 @@ import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { formattedLinkTableCell } from "../components/external-link/FormattedLink";
 import {
   Action,
-  KeycloakDataTable,
-} from "../components/table-toolbar/KeycloakDataTable";
+  SsoDataTable,
+} from "../components/table-toolbar/SsoDataTable";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
@@ -162,7 +162,7 @@ export default function ClientsSection() {
             {...route("list")}
           >
             <DeleteConfirm />
-            <KeycloakDataTable
+            <SsoDataTable
               key={key}
               loader={loader}
               isPaginated

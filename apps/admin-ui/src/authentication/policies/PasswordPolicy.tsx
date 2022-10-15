@@ -21,8 +21,8 @@ import {
 } from "@patternfly/react-core";
 import { PlusCircleIcon } from "@patternfly/react-icons";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
-import type PasswordPolicyTypeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/passwordPolicyTypeRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
+import type PasswordPolicyTypeRepresentation from "@sso/sso-admin-client/lib/defs/passwordPolicyTypeRepresentation";
 import { useServerInfo } from "../../context/server-info/ServerInfoProvider";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { useAdminClient } from "../../context/auth/AdminClient";
@@ -134,7 +134,7 @@ export const PasswordPolicy = ({
           <PageSection variant="light">
             <FormProvider {...form}>
               <FormAccess
-                className="keycloak__policies_authentication__form"
+                className="sso__policies_authentication__form"
                 role="manage-realm"
                 isHorizontal
                 onSubmit={handleSubmit(save)}

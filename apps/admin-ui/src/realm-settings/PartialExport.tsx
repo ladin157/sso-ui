@@ -97,7 +97,7 @@ export const PartialExportDialog = ({
       </TextContent>
       <Form
         isHorizontal
-        className="keycloak__realm-settings__partial-import_form"
+        className="sso__realm-settings__partial-import_form"
       >
         <FormGroup
           label={t("includeGroupsAndRoles")}

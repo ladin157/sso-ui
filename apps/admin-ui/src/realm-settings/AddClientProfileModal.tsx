@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Button, Label, Modal, ModalVariant } from "@patternfly/react-core";
 import { useTranslation } from "react-i18next";
 import { useFetch, useAdminClient } from "../context/auth/AdminClient";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
-import type ClientProfileRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientProfileRepresentation";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
+import type ClientProfileRepresentation from "@sso/sso-admin-client/lib/defs/clientProfileRepresentation";
 
 type ClientProfile = ClientProfileRepresentation & {
   global: boolean;
@@ -54,7 +54,7 @@ export const AddClientProfileModal = (props: AddClientProfileModalProps) => {
     [];
 
   if (!tableProfiles) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const AliasRenderer = ({ name, global }: ClientProfile) => (
@@ -95,7 +95,7 @@ export const AddClientProfileModal = (props: AddClientProfileModalProps) => {
         </Button>,
       ]}
     >
-      <KeycloakDataTable
+      <SsoDataTable
         loader={loader}
         ariaLabelKey="realm-settings:profilesList"
         searchPlaceholderKey="realm-settings:searchProfile"

@@ -1,4 +1,4 @@
-import type PasswordPolicyTypeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/passwordPolicyTypeRepresentation";
+import type PasswordPolicyTypeRepresentation from "@sso/sso-admin-client/lib/defs/passwordPolicyTypeRepresentation";
 
 export type SubmittedValues = {
   [index: string]: string;

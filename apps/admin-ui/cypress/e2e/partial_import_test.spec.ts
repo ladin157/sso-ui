@@ -2,7 +2,7 @@ import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
 import PartialImportModal from "../support/pages/admin_console/configure/realm_settings/PartialImportModal";
 import RealmSettings from "../support/pages/admin_console/configure/realm_settings/RealmSettings";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import adminClient from "../support/util/AdminClient";
 
 describe("Partial import test", () => {
@@ -25,7 +25,7 @@ describe("Partial import test", () => {
         adminClient.createRealm(TEST_REALM_2),
       ])
     );
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToRealm(TEST_REALM);
   });

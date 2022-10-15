@@ -5,15 +5,15 @@ import { Link } from "react-router-dom-v5-compat";
 import { Dropdown, DropdownItem, DropdownToggle } from "@patternfly/react-core";
 import { CaretDownIcon } from "@patternfly/react-icons";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
-import type ProtocolMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/protocolMapperRepresentation";
-import type { ProtocolMapperTypeRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
+import type ProtocolMapperRepresentation from "@sso/sso-admin-client/lib/defs/protocolMapperRepresentation";
+import type { ProtocolMapperTypeRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
 import { useServerInfo } from "../../context/server-info/ServerInfoProvider";
 
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
 import { AddMapperDialog } from "../add/MapperDialog";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 
 type MapperListProps = {
   model: ClientScopeRepresentation | ClientRepresentation;
@@ -95,7 +95,7 @@ export const MapperList = ({
         toggleDialog={() => setAddMapperDialogOpen(!addMapperDialogOpen)}
       />
 
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         loader={loader}
         ariaLabelKey="client-scopes:clientScopeList"

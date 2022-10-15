@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { FormGroup } from "@patternfly/react-core";
 
 import { HelpItem } from "../../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../../components/sso-text-input/SsoTextInput";
 
 export const Regex = () => {
   const { t } = useTranslation("clients");
@@ -27,7 +27,7 @@ export const Regex = () => {
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           id="targetClaim"
           name="targetClaim"
@@ -49,7 +49,7 @@ export const Regex = () => {
         validated={errors.pattern ? "error" : "default"}
         helperTextInvalid={t("common:required")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register({ required: true })}
           type="text"
           id="pattern"

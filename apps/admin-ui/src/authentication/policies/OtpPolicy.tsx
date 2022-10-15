@@ -16,12 +16,12 @@ import {
   Switch,
 } from "@patternfly/react-core";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import useToggle from "../../utils/useToggle";
 import { TimeSelector } from "../../components/time-selector/TimeSelector";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { useAlerts } from "../../components/alert/Alerts";
@@ -86,7 +86,7 @@ export const OtpPolicy = ({ realm, realmUpdated }: OtpPolicyProps) => {
         role="manage-realm"
         isHorizontal
         onSubmit={handleSubmit(save)}
-        className="keycloak__otp_policies_authentication__form"
+        className="sso__otp_policies_authentication__form"
       >
         <FormGroup
           label={t("otpType")}
@@ -115,7 +115,7 @@ export const OtpPolicy = ({ realm, realmUpdated }: OtpPolicyProps) => {
                     name="otpPolicyType"
                     onChange={() => onChange(type)}
                     label={t(`policyType.${type}`)}
-                    className="keycloak__otp_policies_authentication__policy-type"
+                    className="sso__otp_policies_authentication__policy-type"
                   />
                 ))}
               </>
@@ -189,7 +189,7 @@ export const OtpPolicy = ({ realm, realmUpdated }: OtpPolicyProps) => {
                     name="otpPolicyDigits"
                     onChange={() => onChange(type)}
                     label={type}
-                    className="keycloak__otp_policies_authentication__number-of-digits"
+                    className="sso__otp_policies_authentication__number-of-digits"
                   />
                 ))}
               </>
@@ -312,7 +312,7 @@ export const OtpPolicy = ({ realm, realmUpdated }: OtpPolicyProps) => {
             />
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             id="supportedActions"
             name="otpSupportedApplications"
             ref={register({

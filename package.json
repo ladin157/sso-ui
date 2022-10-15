@@ -1,7 +1,7 @@
 {
-  "name": "keycloak-ui",
+  "name": "sso-ui",
   "workspaces": [
-    "libs/keycloak-js",
+    "libs/sso-js",
     "apps/admin-ui"
   ],
   "scripts": {

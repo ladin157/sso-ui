@@ -1,5 +1,5 @@
 import CommonPage from "../../../../CommonPage";
-import type ScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/scopeRepresentation";
+import type ScopeRepresentation from "@sso/sso-admin-client/lib/defs/scopeRepresentation";
 
 export default class CreateAuthorizationScopePage extends CommonPage {
   fillScopeForm(scope: ScopeRepresentation) {

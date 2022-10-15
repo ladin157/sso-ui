@@ -3,7 +3,7 @@ import RealmSettings from "../support/pages/admin_console/configure/realm_settin
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
 import adminClient from "../support/util/AdminClient";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 
 describe("Partial realm export", () => {
   const REALM_NAME = "Partial-export-test-realm";
@@ -17,7 +17,7 @@ describe("Partial realm export", () => {
   const realmSettings = new RealmSettings();
 
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToRealm(REALM_NAME).goToRealmSettings();
     realmSettings.clickActionMenu();

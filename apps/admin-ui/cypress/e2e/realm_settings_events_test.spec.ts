@@ -3,7 +3,7 @@ import LoginPage from "../support/pages/LoginPage";
 import RealmSettingsPage from "../support/pages/admin_console/manage/realm_settings/RealmSettingsPage";
 import Masthead from "../support/pages/admin_console/Masthead";
 import ModalUtils from "../support/util/ModalUtils";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import ListingPage from "../support/pages/admin_console/ListingPage";
 import adminClient from "../support/util/AdminClient";
 
@@ -18,7 +18,7 @@ describe("Realm settings events tab tests", () => {
   const listingPage = new ListingPage();
 
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToRealm(realmName);
   });
@@ -409,7 +409,7 @@ describe("Realm settings events tab tests", () => {
 
 describe("Realm settings events tab tests", () => {
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToRealmSettings();
     cy.findByTestId("rs-realm-events-tab").click();

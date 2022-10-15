@@ -1,4 +1,4 @@
-import type { UserProfileGroup } from "@keycloak/keycloak-admin-client/lib/defs/userProfileConfig";
+import type { UserProfileGroup } from "@sso/sso-admin-client/lib/defs/userProfileConfig";
 import {
   ActionGroup,
   Button,
@@ -15,7 +15,7 @@ import { Link, useNavigate } from "react-router-dom-v5-compat";
 import { KeyValueInput } from "../../components/key-value-form/KeyValueInput";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import type { EditAttributesGroupParams } from "../routes/EditAttributesGroup";
@@ -129,7 +129,7 @@ export default function AttributesGroupForm() {
               />
             }
           >
-            <KeycloakTextInput
+            <SsoTextInput
               ref={form.register({ required: true })}
               type="text"
               id="kc-name"
@@ -150,7 +150,7 @@ export default function AttributesGroupForm() {
               />
             }
           >
-            <KeycloakTextInput
+            <SsoTextInput
               ref={form.register()}
               type="text"
               id="kc-display-header"
@@ -167,7 +167,7 @@ export default function AttributesGroupForm() {
               />
             }
           >
-            <KeycloakTextInput
+            <SsoTextInput
               ref={form.register()}
               type="text"
               id="kc-display-description"

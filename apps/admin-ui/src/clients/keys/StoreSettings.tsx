@@ -2,10 +2,10 @@ import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
 import { FormGroup } from "@patternfly/react-core";
 
-import type KeyStoreConfig from "@keycloak/keycloak-admin-client/lib/defs/keystoreConfig";
+import type KeyStoreConfig from "@sso/sso-admin-client/lib/defs/keystoreConfig";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { PasswordInput } from "../../components/password-input/PasswordInput";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 export const StoreSettings = ({
   hidePassword = false,
@@ -28,7 +28,7 @@ export const StoreSettings = ({
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           data-testid="keyAlias"
           type="text"
           id="keyAlias"

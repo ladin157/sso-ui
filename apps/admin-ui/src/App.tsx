@@ -3,8 +3,8 @@ import { Page } from "@patternfly/react-core";
 import { HashRouter as Router, Switch } from "react-router-dom";
 import { CompatRouter, CompatRoute } from "react-router-dom-v5-compat";
 import { ErrorBoundary } from "react-error-boundary";
-import type Keycloak from "keycloak-js";
-import type KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import type Sso from "sso-js";
+import type SsoAdminClient from "@sso/sso-admin-client";
 
 import { Header } from "./PageHeader";
 import { PageNav } from "./PageNav";
@@ -16,7 +16,7 @@ import { AlertProvider } from "./components/alert/Alerts";
 import { AccessContextProvider, useAccess } from "./context/access/Access";
 import { routes, RouteDef } from "./route-config";
 import { PageBreadCrumbs } from "./components/bread-crumb/PageBreadCrumbs";
-import { KeycloakSpinner } from "./components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "./components/sso-spinner/SsoSpinner";
 import { ForbiddenSection } from "./ForbiddenSection";
 import { SubGroups } from "./groups/SubGroupsContext";
 import { RealmsProvider } from "./context/RealmsContext";
@@ -28,18 +28,18 @@ import { WhoAmIContextProvider } from "./context/whoami/WhoAmI";
 export const mainPageContentId = "kc-main-content-page-container";
 
 export type AdminClientProps = {
-  keycloak: Keycloak;
-  adminClient: KeycloakAdminClient;
+  sso: Sso;
+  adminClient: SsoAdminClient;
 };
 
 const AppContexts: FunctionComponent<AdminClientProps> = ({
   children,
-  keycloak,
+  sso,
   adminClient,
 }) => (
   <Router>
     <CompatRouter>
-      <AdminClientContext.Provider value={{ keycloak, adminClient }}>
+      <AdminClientContext.Provider value={{ sso, adminClient }}>
         <WhoAmIContextProvider>
           <RealmsProvider>
             <RealmContextProvider>
@@ -70,7 +70,7 @@ const SecuredRoute = ({ route }: SecuredRouteProps) => {
 
   if (accessAllowed)
     return (
-      <Suspense fallback={<KeycloakSpinner />}>
+      <Suspense fallback={<SsoSpinner />}>
         <route.component />
       </Suspense>
     );
@@ -78,9 +78,9 @@ const SecuredRoute = ({ route }: SecuredRouteProps) => {
   return <ForbiddenSection permissionNeeded={route.access} />;
 };
 
-export const App = ({ keycloak, adminClient }: AdminClientProps) => {
+export const App = ({ sso, adminClient }: AdminClientProps) => {
   return (
-    <AppContexts keycloak={keycloak} adminClient={adminClient}>
+    <AppContexts sso={sso} adminClient={adminClient}>
       <Page
         header={<Header />}
         isManagedSidebar

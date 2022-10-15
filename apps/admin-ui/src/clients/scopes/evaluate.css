@@ -1,8 +1,8 @@
-.keycloak__scopes_evaluate__clipboard-copy input {
+.sso__scopes_evaluate__clipboard-copy input {
   display: none;
 }
 
-.keycloak__scopes_evaluate__tabs {
+.sso__scopes_evaluate__tabs {
   padding-top: var(--pf-global--spacer--2xl);
 }
 

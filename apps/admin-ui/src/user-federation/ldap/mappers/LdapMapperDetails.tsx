@@ -14,7 +14,7 @@ import {
   ValidatedOptions,
 } from "@patternfly/react-core";
 import { convertFormValuesToObject, convertToFormValues } from "../../../util";
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
 import { ViewHeader } from "../../../components/view-header/ViewHeader";
 import { useParams } from "react-router-dom";
@@ -25,11 +25,11 @@ import { useTranslation } from "react-i18next";
 import { HelpItem } from "../../../components/help-enabler/HelpItem";
 import { FormAccess } from "../../../components/form-access/FormAccess";
 
-import type ComponentTypeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentTypeRepresentation";
+import type ComponentTypeRepresentation from "@sso/sso-admin-client/lib/defs/componentTypeRepresentation";
 import { DynamicComponents } from "../../../components/dynamic/DynamicComponents";
 import { useRealm } from "../../../context/realm-context/RealmContext";
-import { KeycloakSpinner } from "../../../components/keycloak-spinner/KeycloakSpinner";
-import { KeycloakTextInput } from "../../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoSpinner } from "../../../components/sso-spinner/SsoSpinner";
+import { SsoTextInput } from "../../../components/sso-text-input/SsoTextInput";
 import { toUserFederationLdap } from "../../routes/UserFederationLdap";
 import { useConfirmDialog } from "../../../components/confirm-dialog/ConfirmDialog";
 
@@ -51,7 +51,7 @@ export default function LdapMapperDetails() {
     async () => {
       const components = await adminClient.components.listSubComponents({
         id,
-        type: "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
+        type: "com.vinorsoft.sso.storage.ldap.mappers.LDAPStorageMapper",
       });
       if (mapperId && mapperId !== "new") {
         const fetchedMapper = await adminClient.components.findOne({
@@ -144,7 +144,7 @@ export default function LdapMapperDetails() {
   const isNew = mapperId === "new";
 
   if (!components) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
@@ -166,7 +166,7 @@ export default function LdapMapperDetails() {
         <FormAccess role="manage-realm" isHorizontal>
           {!isNew && (
             <FormGroup label={t("common:id")} fieldId="kc-ldap-mapper-id">
-              <KeycloakTextInput
+              <SsoTextInput
                 isDisabled
                 type="text"
                 id="kc-ldap-mapper-id"
@@ -187,7 +187,7 @@ export default function LdapMapperDetails() {
             fieldId="kc-ldap-mapper-name"
             isRequired
           >
-            <KeycloakTextInput
+            <SsoTextInput
               isDisabled={!isNew}
               isRequired
               type="text"
@@ -201,7 +201,7 @@ export default function LdapMapperDetails() {
                   : ValidatedOptions.default
               }
             />
-            <KeycloakTextInput
+            <SsoTextInput
               hidden
               defaultValue={isNew ? id : mapping ? mapping.parentId : ""}
               type="text"
@@ -210,9 +210,9 @@ export default function LdapMapperDetails() {
               name="parentId"
               ref={form.register}
             />
-            <KeycloakTextInput
+            <SsoTextInput
               hidden
-              defaultValue="org.keycloak.storage.ldap.mappers.LDAPStorageMapper"
+              defaultValue="com.vinorsoft.sso.storage.ldap.mappers.LDAPStorageMapper"
               type="text"
               id="kc-ldap-provider-type"
               data-testid="ldap-mapper-provider-type"
@@ -232,7 +232,7 @@ export default function LdapMapperDetails() {
               fieldId="kc-ldap-mapper-type"
               isRequired
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 isDisabled={!isNew}
                 isRequired
                 type="text"

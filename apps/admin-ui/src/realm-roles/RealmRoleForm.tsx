@@ -10,8 +10,8 @@ import type { UseFormMethods } from "react-hook-form";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { FormAccess } from "../components/form-access/FormAccess";
 import type { AttributeForm } from "../components/key-value-form/AttributeForm";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
-import { KeycloakTextArea } from "../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
+import { SsoTextArea } from "../components/sso-text-area/SsoTextArea";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useNavigate } from "react-router-dom-v5-compat";
 
@@ -49,7 +49,7 @@ export const RealmRoleForm = ({
             validated={errors.name ? "error" : "default"}
             helperTextInvalid={t("common:required")}
           >
-            <KeycloakTextInput
+            <SsoTextInput
               ref={register({
                 required: !editMode,
                 validate: (value: string) =>
@@ -71,7 +71,7 @@ export const RealmRoleForm = ({
             }
             helperTextInvalid={errors.description?.message}
           >
-            <KeycloakTextArea
+            <SsoTextArea
               name="description"
               aria-label="description"
               isDisabled={getValues().name?.includes("default-roles")}

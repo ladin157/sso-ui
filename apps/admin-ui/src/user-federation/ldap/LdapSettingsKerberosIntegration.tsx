@@ -5,7 +5,7 @@ import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { UseFormMethods, Controller, useWatch } from "react-hook-form";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { WizardSectionHeader } from "../../components/wizard-section-header/WizardSectionHeader";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 export type LdapSettingsKerberosIntegrationProps = {
   form: UseFormMethods;
@@ -85,7 +85,7 @@ export const LdapSettingsKerberosIntegration = ({
               }
               helperTextInvalid={form.errors.config?.kerberosRealm?.[0].message}
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 isRequired
                 type="text"
                 id="kc-kerberos-realm"
@@ -120,7 +120,7 @@ export const LdapSettingsKerberosIntegration = ({
                 form.errors.config?.serverPrincipal?.[0].message
               }
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 isRequired
                 type="text"
                 id="kc-server-principal"
@@ -151,7 +151,7 @@ export const LdapSettingsKerberosIntegration = ({
               validated={form.errors.config?.keyTab?.[0] ? "error" : "default"}
               helperTextInvalid={form.errors.config?.keyTab?.[0].message}
             >
-              <KeycloakTextInput
+              <SsoTextInput
                 isRequired
                 type="text"
                 id="kc-key-tab"

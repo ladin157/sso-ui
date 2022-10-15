@@ -16,16 +16,16 @@ import { FormAccess } from "../components/form-access/FormAccess";
 import { FormPanel } from "../components/scroll-form/FormPanel";
 import { HelpItem } from "../components/help-enabler/HelpItem";
 import { useServerInfo } from "../context/server-info/ServerInfoProvider";
-import type ClientPolicyRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientPolicyRepresentation";
+import type ClientPolicyRepresentation from "@sso/sso-admin-client/lib/defs/clientPolicyRepresentation";
 import { camelCase } from "lodash-es";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { useAlerts } from "../components/alert/Alerts";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom-v5-compat";
-import type ComponentTypeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentTypeRepresentation";
+import type ComponentTypeRepresentation from "@sso/sso-admin-client/lib/defs/componentTypeRepresentation";
 import { useRealm } from "../context/realm-context/RealmContext";
-import type { ConfigPropertyRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigInfoRepresentation";
-import type ClientPolicyConditionRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientPolicyConditionRepresentation";
+import type { ConfigPropertyRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigInfoRepresentation";
+import type ClientPolicyConditionRepresentation from "@sso/sso-admin-client/lib/defs/clientPolicyConditionRepresentation";
 import {
   EditClientPolicyParams,
   toEditClientPolicy,
@@ -68,7 +68,7 @@ export default function NewClientPolicyCondition() {
 
   const conditionTypes =
     serverInfo.componentTypes?.[
-      "org.keycloak.services.clientpolicy.condition.ClientPolicyConditionProvider"
+      "com.vinorsoft.sso.services.clientpolicy.condition.ClientPolicyConditionProvider"
     ];
 
   const { adminClient } = useAdminClient();

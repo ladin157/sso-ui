@@ -22,9 +22,9 @@ import {
   DomainIcon,
 } from "@patternfly/react-icons";
 
-import type AuthenticationExecutionInfoRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticationExecutionInfoRepresentation";
-import type { AuthenticationProviderRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigRepresentation";
-import type AuthenticationFlowRepresentation from "@keycloak/keycloak-admin-client/lib/defs/authenticationFlowRepresentation";
+import type AuthenticationExecutionInfoRepresentation from "@sso/sso-admin-client/lib/defs/authenticationExecutionInfoRepresentation";
+import type { AuthenticationProviderRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigRepresentation";
+import type AuthenticationFlowRepresentation from "@sso/sso-admin-client/lib/defs/authenticationFlowRepresentation";
 import type { FlowParams } from "./routes/Flow";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
@@ -308,7 +308,7 @@ export default function FlowDetails() {
             ? {
                 text: (
                   <Label
-                    className="keycloak_authentication-section__usedby_label"
+                    className="sso_authentication-section__usedby_label"
                     icon={<CheckCircleIcon />}
                   >
                     {t("buildIn")}

@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-mvn --file=./keycloak-theme/pom.xml help:evaluate -Dexpression=project.version -q -DforceStdout
+mvn --file=./sso-theme/pom.xml help:evaluate -Dexpression=project.version -q -DforceStdout

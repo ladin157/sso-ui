@@ -12,13 +12,13 @@ import {
   PageSection,
 } from "@patternfly/react-core";
 
-import type PolicyRepresentation from "@keycloak/keycloak-admin-client/lib/defs/policyRepresentation";
+import type PolicyRepresentation from "@sso/sso-admin-client/lib/defs/policyRepresentation";
 import {
   PolicyDetailsParams,
   toPolicyDetails,
 } from "../../routes/PolicyDetails";
 import { ViewHeader } from "../../../components/view-header/ViewHeader";
-import { KeycloakSpinner } from "../../../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../../../components/sso-spinner/SsoSpinner";
 import { useConfirmDialog } from "../../../components/confirm-dialog/ConfirmDialog";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
 import { FormAccess } from "../../../components/form-access/FormAccess";
@@ -161,7 +161,7 @@ export default function PolicyDetails() {
   });
 
   if (policyId && !policy) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const ComponentType = isValidComponentType(policyType)

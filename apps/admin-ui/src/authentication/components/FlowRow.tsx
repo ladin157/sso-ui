@@ -14,7 +14,7 @@ import {
 } from "@patternfly/react-core";
 import { TrashIcon } from "@patternfly/react-icons";
 
-import type { AuthenticationProviderRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/authenticatorConfigRepresentation";
+import type { AuthenticationProviderRepresentation } from "@sso/sso-admin-client/lib/defs/authenticatorConfigRepresentation";
 import type { ExpandableExecution } from "../execution-model";
 import type { Flow } from "./modals/AddSubFlowModal";
 import { FlowTitle } from "./FlowTitle";
@@ -53,13 +53,13 @@ export const FlowRow = ({
   return (
     <>
       <DataListItem
-        className="keycloak__authentication__flow-item"
+        className="sso__authentication__flow-item"
         id={execution.id}
         isExpanded={!execution.isCollapsed}
         aria-labelledby={`title-id-${execution.id}`}
       >
         <DataListItemRow
-          className="keycloak__authentication__flow-row"
+          className="sso__authentication__flow-row"
           aria-level={execution.level! + 1}
           role="heading"
           aria-labelledby={execution.id}

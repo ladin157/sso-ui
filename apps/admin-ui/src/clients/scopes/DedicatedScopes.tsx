@@ -9,10 +9,10 @@ import {
   TabTitleText,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
-import type { ProtocolMapperTypeRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
-import type ProtocolMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/protocolMapperRepresentation";
-import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
+import type { ProtocolMapperTypeRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
+import type ProtocolMapperRepresentation from "@sso/sso-admin-client/lib/defs/protocolMapperRepresentation";
+import { SsoSpinner } from "../../components/sso-spinner/SsoSpinner";
 import { MapperList } from "../../client-scopes/details/MapperList";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
 import { useAdminClient, useFetch } from "../../context/auth/AdminClient";
@@ -49,7 +49,7 @@ export default function DedicatedScopes() {
     });
 
   if (!client) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const addMappers = async (

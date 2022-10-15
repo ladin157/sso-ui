@@ -9,11 +9,11 @@ import {
   ValidatedOptions,
 } from "@patternfly/react-core";
 
-import type { IdentityProviderMapperTypeRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/identityProviderMapperTypeRepresentation";
+import type { IdentityProviderMapperTypeRepresentation } from "@sso/sso-admin-client/lib/defs/identityProviderMapperTypeRepresentation";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import type IdentityProviderMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderMapperRepresentation";
+import type IdentityProviderMapperRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderMapperRepresentation";
 import type { IdPMapperRepresentationWithAttributes } from "./AddMapper";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 type AddMapperFormProps = {
   mapperTypes: IdentityProviderMapperRepresentation[];
@@ -58,7 +58,7 @@ export const AddMapperForm = ({
         }
         helperTextInvalid={t("common:required")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register({ required: true })}
           type="text"
           datatest-id="name-input"

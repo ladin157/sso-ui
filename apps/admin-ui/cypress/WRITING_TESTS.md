@@ -26,13 +26,13 @@ Consistent naming (e.g goToTab methods, somewhere named goToTab, other goToXTab)
 
 ### Test structure
 
-We have `keycloakBefore` that will navigate to the main page, control request errors and wait for the load to finish.
+We have `ssoBefore` that will navigate to the main page, control request errors and wait for the load to finish.
 You can then have multiple test or create a new `describe` block to setup some data for your test.
 
 ```typescript
 describe("Realm roles test", () => {
   before(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
   });
 

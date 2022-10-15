@@ -2,11 +2,11 @@ import { Controller, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { FormGroup, Switch, ValidatedOptions } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { HelpItem } from "../components/help-enabler/HelpItem";
 import { FormAccess } from "../components/form-access/FormAccess";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
-import { KeycloakTextArea } from "../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
+import { SsoTextArea } from "../components/sso-text-area/SsoTextArea";
 
 type ClientDescriptionProps = {
   protocol?: string;
@@ -36,7 +36,7 @@ export const ClientDescription = ({
         }
         isRequired
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register({ required: true })}
           type="text"
           id="kc-client-id"
@@ -53,7 +53,7 @@ export const ClientDescription = ({
         label={t("common:name")}
         fieldId="kc-name"
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register()}
           type="text"
           id="kc-name"
@@ -74,7 +74,7 @@ export const ClientDescription = ({
         }
         helperTextInvalid={errors.description?.message}
       >
-        <KeycloakTextArea
+        <SsoTextArea
           ref={register({
             maxLength: {
               value: 255,

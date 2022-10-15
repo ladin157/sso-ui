@@ -9,11 +9,11 @@ import {
   Switch,
 } from "@patternfly/react-core";
 
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { useServerInfo } from "../../context/server-info/ServerInfoProvider";
-import { KeycloakTextArea } from "../../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextArea } from "../../components/sso-text-area/SsoTextArea";
 import { convertAttributeNameToForm } from "../../util";
 
 export const LoginSettingsPanel = ({ access }: { access?: boolean }) => {
@@ -139,7 +139,7 @@ export const LoginSettingsPanel = ({ access }: { access?: boolean }) => {
         }
         fieldId="kc-consent-screen-text"
       >
-        <KeycloakTextArea
+        <SsoTextArea
           id="kc-consent-screen-text"
           name={convertAttributeNameToForm("attributes.consent.screen.text")}
           ref={register}

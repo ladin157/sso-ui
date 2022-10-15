@@ -18,7 +18,7 @@ import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog"
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import { TimeSelector } from "../../components/time-selector/TimeSelector";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { AddHostDialog } from ".././advanced/AddHostDialog";
@@ -127,7 +127,7 @@ export const ClusteringPanel = ({
           onToggle={setExpanded}
           isExpanded={expanded}
         >
-          <KeycloakDataTable
+          <SsoDataTable
             key={key}
             ariaLabelKey="registeredClusterNodes"
             loader={() =>

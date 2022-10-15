@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { FormGroup } from "@patternfly/react-core";
 
 import { HelpItem } from "../../components/help-enabler/HelpItem";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { convertAttributeNameToForm } from "../../util";
 
 export const ApplicationUrls = () => {
@@ -22,7 +22,7 @@ export const ApplicationUrls = () => {
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           id="logoUrl"
           name={convertAttributeNameToForm("attributes.logoUri")}
@@ -40,7 +40,7 @@ export const ApplicationUrls = () => {
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           id="policyUrl"
           name={convertAttributeNameToForm("attributes.policyUri")}
@@ -58,7 +58,7 @@ export const ApplicationUrls = () => {
           />
         }
       >
-        <KeycloakTextInput
+        <SsoTextInput
           type="text"
           id="termsOfServiceUrl"
           name={convertAttributeNameToForm("attributes.tosUri")}

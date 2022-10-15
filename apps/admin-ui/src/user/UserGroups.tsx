@@ -7,8 +7,8 @@ import {
 } from "@patternfly/react-core";
 import { QuestionCircleIcon } from "@patternfly/react-icons";
 import { cellWidth } from "@patternfly/react-table";
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 import { intersectionBy, sortBy } from "lodash-es";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -18,7 +18,7 @@ import { GroupPath } from "../components/group/GroupPath";
 import { GroupPickerDialog } from "../components/group/GroupPickerDialog";
 import { useHelp } from "../components/help-enabler/HelpHeader";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { emptyFormatter } from "../util";
 import { useAccess } from "../context/access/Access";
@@ -267,10 +267,10 @@ export const UserGroups = ({ user }: UserGroupsProps) => {
           }}
         />
       )}
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         loader={loader}
-        className="keycloak_user-section_groups-table"
+        className="sso_user-section_groups-table"
         isPaginated
         ariaLabelKey="roles:roleList"
         searchPlaceholderKey="groups:searchGroup"

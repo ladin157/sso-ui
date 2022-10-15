@@ -11,7 +11,7 @@ import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { UseFormMethods, Controller } from "react-hook-form";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { WizardSectionHeader } from "../../components/wizard-section-header/WizardSectionHeader";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 export type LdapSettingsSearchingProps = {
   form: UseFormMethods;
@@ -101,7 +101,7 @@ export const LdapSettingsSearching = ({
           validated={form.errors.config?.usersDn?.[0] ? "error" : "default"}
           helperTextInvalid={form.errors.config?.usersDn?.[0].message}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             defaultValue=""
@@ -134,7 +134,7 @@ export const LdapSettingsSearching = ({
             form.errors.config?.usernameLDAPAttribute?.[0].message
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             defaultValue="cn"
@@ -169,7 +169,7 @@ export const LdapSettingsSearching = ({
           }
           helperTextInvalid={form.errors.config?.rdnLDAPAttribute?.[0].message}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             defaultValue="cn"
@@ -202,7 +202,7 @@ export const LdapSettingsSearching = ({
           }
           helperTextInvalid={form.errors.config?.uuidLDAPAttribute?.[0].message}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             defaultValue="objectGUID"
@@ -235,7 +235,7 @@ export const LdapSettingsSearching = ({
           }
           helperTextInvalid={form.errors.config?.userObjectClasses?.[0].message}
         >
-          <KeycloakTextInput
+          <SsoTextInput
             isRequired
             type="text"
             defaultValue="person, organizationalPerson, user"
@@ -271,7 +271,7 @@ export const LdapSettingsSearching = ({
             form.errors.config?.customUserSearchFilter?.[0].message
           }
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="text"
             id="kc-user-ldap-filter"
             data-testid="user-ldap-filter"
@@ -339,7 +339,7 @@ export const LdapSettingsSearching = ({
           }
           fieldId="kc-read-timeout"
         >
-          <KeycloakTextInput
+          <SsoTextInput
             type="number"
             min={0}
             id="kc-read-timeout"

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import KcAdminClient from "@keycloak/keycloak-admin-client";
+import KcAdminClient from "@sso/sso-admin-client";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

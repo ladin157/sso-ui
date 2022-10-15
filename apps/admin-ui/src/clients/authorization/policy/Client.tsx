@@ -7,8 +7,8 @@ import {
   SelectVariant,
 } from "@patternfly/react-core";
 
-import type { ClientQuery } from "@keycloak/keycloak-admin-client/lib/resources/clients";
-import type ClientRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientRepresentation";
+import type { ClientQuery } from "@sso/sso-admin-client/lib/resources/clients";
+import type ClientRepresentation from "@sso/sso-admin-client/lib/defs/clientRepresentation";
 import { HelpItem } from "../../../components/help-enabler/HelpItem";
 import { useAdminClient, useFetch } from "../../../context/auth/AdminClient";
 import { useTranslation } from "react-i18next";

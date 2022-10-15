@@ -15,7 +15,7 @@ import {
   TextVariants,
 } from "@patternfly/react-core";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { FormAccess } from "../components/form-access/FormAccess";
 import { HelpItem } from "../components/help-enabler/HelpItem";
 import { FormPanel } from "../components/scroll-form/FormPanel";
@@ -48,7 +48,7 @@ export const RealmSettingsTokensTab = ({
     useState(false);
 
   const allComponentTypes =
-    serverInfo.componentTypes?.["org.keycloak.keys.KeyProvider"] ?? [];
+    serverInfo.componentTypes?.["com.vinorsoft.sso.keys.KeyProvider"] ?? [];
 
   const esOptions = ["ES256", "ES384", "ES512"];
 

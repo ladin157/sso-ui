@@ -1,4 +1,4 @@
-.keycloak__user-section__email-verified {
+.sso__user-section__email-verified {
   color: var(--pf-global--danger-color--100);
 }
 
@@ -120,7 +120,7 @@ article.pf-c-card.pf-m-flat.kc-available-idps > div > div > h1 {
   text-align: center;
 }
 
-.keycloak__user-credentials__reset-form {
+.sso__user-credentials__reset-form {
   --pf-c-form--m-horizontal__group-label--md--GridColumnWidth: 13rem;
 }
 

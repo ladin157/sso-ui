@@ -10,11 +10,11 @@ import {
   ToolbarItem,
 } from "@patternfly/react-core";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { fetchAdminUI } from "../context/auth/admin-ui-endpoint";
 import { useRealm } from "../context/realm-context/RealmContext";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
 import { GroupsModal } from "./GroupsModal";
 import { getLastId } from "./groupIdUtils";
@@ -153,7 +153,7 @@ export const GroupTable = ({ toggleView }: GroupTableProps) => {
           setSelectedRows([]);
         }}
       />
-      <KeycloakDataTable
+      <SsoDataTable
         key={`${id}${key}`}
         onSelect={(rows) => setSelectedRows([...rows])}
         canSelectAll

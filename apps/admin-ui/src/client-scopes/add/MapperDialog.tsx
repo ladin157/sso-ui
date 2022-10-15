@@ -15,12 +15,12 @@ import {
   TextVariants,
 } from "@patternfly/react-core";
 
-import type ProtocolMapperRepresentation from "@keycloak/keycloak-admin-client/lib/defs/protocolMapperRepresentation";
-import type { ProtocolMapperTypeRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
+import type ProtocolMapperRepresentation from "@sso/sso-admin-client/lib/defs/protocolMapperRepresentation";
+import type { ProtocolMapperTypeRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
 
 import { useServerInfo } from "../../context/server-info/ServerInfoProvider";
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import useLocaleSort, { mapByKey } from "../../utils/useLocaleSort";
 
 type Row = {
@@ -183,7 +183,7 @@ export const AddMapperDialog = (props: AddMapperDialogProps) => {
         </DataList>
       )}
       {isBuiltIn && (
-        <KeycloakDataTable
+        <SsoDataTable
           loader={rows}
           onSelect={setSelectedRows}
           canSelectAll

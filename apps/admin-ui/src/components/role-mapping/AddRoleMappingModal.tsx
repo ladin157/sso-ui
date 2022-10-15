@@ -11,7 +11,7 @@ import {
 } from "@patternfly/react-core";
 import { FilterIcon } from "@patternfly/react-icons";
 
-import { KeycloakDataTable } from "../table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../table-toolbar/SsoDataTable";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import useLocaleSort from "../../utils/useLocaleSort";
 import { ResourcesKey, Row, ServiceRole } from "./RoleMapping";
@@ -124,7 +124,7 @@ export const AddRoleMappingModal = ({
         </Button>,
       ]}
     >
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         onSelect={(rows) => setSelectedRows([...rows])}
         searchPlaceholderKey="clients:searchByRoleName"

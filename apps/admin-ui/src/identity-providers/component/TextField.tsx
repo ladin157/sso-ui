@@ -1,13 +1,13 @@
 import { useFormContext } from "react-hook-form";
 
 import { FieldProps, FormGroupField } from "./FormGroupField";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 export const TextField = ({ label, field, isReadOnly = false }: FieldProps) => {
   const { register } = useFormContext();
   return (
     <FormGroupField label={label}>
-      <KeycloakTextInput
+      <SsoTextInput
         type="text"
         id={label}
         data-testid={label}

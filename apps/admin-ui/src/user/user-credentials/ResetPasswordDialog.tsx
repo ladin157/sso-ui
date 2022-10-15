@@ -9,7 +9,7 @@ import {
   ValidatedOptions,
 } from "@patternfly/react-core";
 
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { PasswordInput } from "../../components/password-input/PasswordInput";
 import {
@@ -139,7 +139,7 @@ export const ResetPasswordDialog = ({
         <Form
           id="userCredentials-form"
           isHorizontal
-          className="keycloak__user-credentials__reset-form"
+          className="sso__user-credentials__reset-form"
         >
           <FormGroup
             name="password"

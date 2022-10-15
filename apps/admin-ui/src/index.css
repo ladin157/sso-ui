@@ -1,8 +1,8 @@
-img.keycloak__pageheader_brand {
+img.sso__pageheader_brand {
   height: 35px;
 }
 
-.keycloak__form {
+.sso__form {
   max-width: 1024px;
 }
 
@@ -23,7 +23,7 @@ input[type="checkbox"] {
     var(--pf-c-select__toggle--before--BorderLeftColor);
 }
 
-.keycloak__form_actions {
+.sso__form_actions {
   position: fixed;
   bottom: 0px;
   background-color: var(--pf-c-page__main-section--m-light--BackgroundColor);
@@ -35,7 +35,7 @@ input[type="checkbox"] {
   margin-left: calc(-1 * var(--pf-global--spacer--lg));
 }
 
-.keycloak-empty-state-card:hover {
+.sso-empty-state-card:hover {
   cursor: pointer;
 }
 
@@ -56,7 +56,7 @@ td.pf-c-table__check > input[type="checkbox"] {
   min-width: 170px;
 }
 
-.keycloak__section_intro__help {
+.sso__section_intro__help {
   padding: var(--pf-global--spacer--md) 0 var(--pf-global--spacer--lg);
   color: var(--pf-global--primary-color--100);
   width: fit-content;

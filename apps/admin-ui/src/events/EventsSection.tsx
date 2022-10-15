@@ -24,9 +24,9 @@ import {
 } from "@patternfly/react-core";
 import { CheckCircleIcon, WarningTriangleIcon } from "@patternfly/react-icons";
 import { cellWidth, expandable } from "@patternfly/react-table";
-import type EventRepresentation from "@keycloak/keycloak-admin-client/lib/defs/eventRepresentation";
-import type EventType from "@keycloak/keycloak-admin-client/lib/defs/eventTypes";
-import type { RealmEventsConfigRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/realmEventsConfigRepresentation";
+import type EventRepresentation from "@sso/sso-admin-client/lib/defs/eventRepresentation";
+import type EventType from "@sso/sso-admin-client/lib/defs/eventTypes";
+import type { RealmEventsConfigRepresentation } from "@sso/sso-admin-client/lib/defs/realmEventsConfigRepresentation";
 import { pickBy } from "lodash-es";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -34,9 +34,9 @@ import { Trans, useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom-v5-compat";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { ViewHeader } from "../components/view-header/ViewHeader";
-import { KeycloakTextInput } from "../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../components/sso-text-input/SsoTextInput";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { toRealmSettings } from "../realm-settings/routes/RealmSettings";
@@ -82,7 +82,7 @@ const StatusRow = (event: EventRepresentation) =>
   );
 
 const DetailCell = (event: EventRepresentation) => (
-  <DescriptionList isHorizontal className="keycloak_eventsection_details">
+  <DescriptionList isHorizontal className="sso_eventsection_details">
     {Object.entries(event.details!).map(([key, value]) => (
       <DescriptionListGroup key={key}>
         <DescriptionListTerm>{key}</DescriptionListTerm>
@@ -220,7 +220,7 @@ export default function EventsSection() {
               <DropdownToggle
                 data-testid="userEventsSearchSelectorToggle"
                 onToggle={(isOpen) => setSearchDropdownOpen(isOpen)}
-                className="keycloak__events_search_selector_dropdown__toggle"
+                className="sso__events_search_selector_dropdown__toggle"
               >
                 {t("searchForUserEvent")}
               </DropdownToggle>
@@ -229,15 +229,15 @@ export default function EventsSection() {
           >
             <Form
               isHorizontal
-              className="keycloak__events_search__form"
+              className="sso__events_search__form"
               data-testid="searchForm"
             >
               <FormGroup
                 label={t("userId")}
                 fieldId="kc-userId"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   ref={register()}
                   type="text"
                   id="kc-userId"
@@ -248,7 +248,7 @@ export default function EventsSection() {
               <FormGroup
                 label={t("eventType")}
                 fieldId="kc-eventType"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
                 <Controller
                   name="type"
@@ -261,7 +261,7 @@ export default function EventsSection() {
                     value: EventType[];
                   }) => (
                     <Select
-                      className="keycloak__events_search__type_select"
+                      className="sso__events_search__type_select"
                       name="eventType"
                       data-testid="event-type-searchField"
                       chipGroupProps={{
@@ -313,9 +313,9 @@ export default function EventsSection() {
               <FormGroup
                 label={t("client")}
                 fieldId="kc-client"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
-                <KeycloakTextInput
+                <SsoTextInput
                   ref={register()}
                   type="text"
                   id="kc-client"
@@ -326,7 +326,7 @@ export default function EventsSection() {
               <FormGroup
                 label={t("dateFrom")}
                 fieldId="kc-dateFrom"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
                 <Controller
                   name="dateFrom"
@@ -344,7 +344,7 @@ export default function EventsSection() {
               <FormGroup
                 label={t("dateTo")}
                 fieldId="kc-dateTo"
-                className="keycloak__events_search__form_label"
+                className="sso__events_search__form_label"
               >
                 <Controller
                   name="dateTo"
@@ -388,7 +388,7 @@ export default function EventsSection() {
         </FlexItem>
         <FlexItem>
           {Object.entries(activeFilters).length > 0 && (
-            <div className="keycloak__searchChips pf-u-ml-md">
+            <div className="sso__searchChips pf-u-ml-md">
               {Object.entries(activeFilters).map((filter) => {
                 const [key, value] = filter as [
                   keyof UserEventSearchForm,
@@ -458,8 +458,8 @@ export default function EventsSection() {
             title={<TabTitleText>{t("userEvents")}</TabTitleText>}
             {...route("user-events")}
           >
-            <div className="keycloak__events_table">
-              <KeycloakDataTable
+            <div className="sso__events_table">
+              <SsoDataTable
                 key={key}
                 loader={loader}
                 detailColumns={[

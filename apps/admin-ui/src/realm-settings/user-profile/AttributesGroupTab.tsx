@@ -1,4 +1,4 @@
-import type { UserProfileGroup } from "@keycloak/keycloak-admin-client/lib/defs/userProfileConfig";
+import type { UserProfileGroup } from "@sso/sso-admin-client/lib/defs/userProfileConfig";
 import {
   Button,
   ButtonVariant,
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom-v5-compat";
 import { useNavigate } from "react-router-dom-v5-compat";
 import { useConfirmDialog } from "../../components/confirm-dialog/ConfirmDialog";
 import { ListEmptyState } from "../../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../../components/table-toolbar/SsoDataTable";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import { toEditAttributesGroup } from "../routes/EditAttributesGroup";
 import { toNewAttributesGroup } from "../routes/NewAttributesGroup";
@@ -65,7 +65,7 @@ export const AttributesGroupTab = () => {
   return (
     <PageSection variant="light" className="pf-u-p-0">
       <DeleteConfirm />
-      <KeycloakDataTable
+      <SsoDataTable
         key={key}
         loader={loader}
         ariaLabelKey="attributes-group:tableTitle"

@@ -18,8 +18,8 @@ import { useTranslation } from "react-i18next";
 import { SearchIcon } from "@patternfly/react-icons";
 import { TableComposable, Th, Thead, Tr } from "@patternfly/react-table";
 
-import type EvaluationResultRepresentation from "@keycloak/keycloak-admin-client/lib/defs/evaluationResultRepresentation";
-import type PolicyEvaluationResponse from "@keycloak/keycloak-admin-client/lib/defs/policyEvaluationResponse";
+import type EvaluationResultRepresentation from "@sso/sso-admin-client/lib/defs/evaluationResultRepresentation";
+import type PolicyEvaluationResponse from "@sso/sso-admin-client/lib/defs/policyEvaluationResponse";
 import { AuthorizationEvaluateResource } from "../AuthorizationEvaluateResource";
 import { ListEmptyState } from "../../../components/list-empty-state/ListEmptyState";
 import { AuthorizationDataModal } from "../AuthorizationDataModal";

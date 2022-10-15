@@ -19,9 +19,9 @@ import "./commands";
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-// Set Keycloak server to development path if not set.
-if (!Cypress.env("KEYCLOAK_SERVER")) {
-  Cypress.env("KEYCLOAK_SERVER", "http://localhost:8180");
+// Set Sso server to development path if not set.
+if (!Cypress.env("SSO_SERVER")) {
+  Cypress.env("SSO_SERVER", "http://localhost:8180");
 }
 
 // Always preserve session related cookies.
@@ -30,5 +30,5 @@ Cypress.Cookies.defaults({
 });
 
 function isSessionCookie({ name }: Cypress.Cookie) {
-  return name.startsWith("KEYCLOAK_") || name.startsWith("AUTH_SESSION_");
+  return name.startsWith("SSO_") || name.startsWith("AUTH_SESSION_");
 }

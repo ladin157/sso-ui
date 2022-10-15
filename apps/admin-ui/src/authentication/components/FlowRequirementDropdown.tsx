@@ -26,7 +26,7 @@ export const FlowRequirementDropdown = ({
     <>
       {flow.requirementChoices && flow.requirementChoices.length > 1 && (
         <Select
-          className="keycloak__authentication__requirement-dropdown"
+          className="sso__authentication__requirement-dropdown"
           variant={SelectVariant.single}
           onToggle={setOpen}
           onSelect={(_event, value) => {

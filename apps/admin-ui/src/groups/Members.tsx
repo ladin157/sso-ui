@@ -13,9 +13,9 @@ import {
   ToolbarItem,
 } from "@patternfly/react-core";
 
-import type GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import type GroupRepresentation from "@sso/sso-admin-client/lib/defs/groupRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useAlerts } from "../components/alert/Alerts";
@@ -120,7 +120,7 @@ export const Members = () => {
           }}
         />
       )}
-      <KeycloakDataTable
+      <SsoDataTable
         data-testid="members-table"
         key={`${id}${key}${includeSubGroup}`}
         loader={loader}

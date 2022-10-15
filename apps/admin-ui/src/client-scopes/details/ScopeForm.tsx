@@ -14,7 +14,7 @@ import {
   Button,
 } from "@patternfly/react-core";
 
-import type ClientScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/clientScopeRepresentation";
+import type ClientScopeRepresentation from "@sso/sso-admin-client/lib/defs/clientScopeRepresentation";
 import {
   clientScopeTypesSelectOptions,
   allClientScopeTypes,
@@ -27,8 +27,8 @@ import { useRealm } from "../../context/realm-context/RealmContext";
 import { getProtocolName } from "../../clients/utils";
 import { toClientScopes } from "../routes/ClientScopes";
 import { FormAccess } from "../../components/form-access/FormAccess";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
-import { KeycloakTextArea } from "../../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
+import { SsoTextArea } from "../../components/sso-text-area/SsoTextArea";
 
 type ScopeFormProps = {
   clientScope: ClientScopeRepresentation;
@@ -82,7 +82,7 @@ export const ScopeForm = ({ clientScope, save }: ScopeFormProps) => {
         }
         helperTextInvalid={t("common:required")}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register({
             required: true,
             validate: (value: string) =>
@@ -110,7 +110,7 @@ export const ScopeForm = ({ clientScope, save }: ScopeFormProps) => {
         }
         helperTextInvalid={t("common:maxLength", { length: 255 })}
       >
-        <KeycloakTextInput
+        <SsoTextInput
           ref={register({
             maxLength: 255,
           })}
@@ -239,7 +239,7 @@ export const ScopeForm = ({ clientScope, save }: ScopeFormProps) => {
           }
           fieldId="kc-consent-screen-text"
         >
-          <KeycloakTextArea
+          <SsoTextArea
             ref={register}
             type="text"
             id="kc-consent-screen-text"
@@ -289,7 +289,7 @@ export const ScopeForm = ({ clientScope, save }: ScopeFormProps) => {
           defaultValue=""
           control={control}
           render={({ onChange, value }) => (
-            <KeycloakTextInput
+            <SsoTextInput
               id="kc-gui-order"
               type="number"
               value={value}

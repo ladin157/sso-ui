@@ -3,7 +3,7 @@ import { FormGroup } from "@patternfly/react-core";
 
 import { HelpItem } from "../../components/help-enabler/HelpItem";
 import { FormattedLink } from "../../components/external-link/FormattedLink";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useFormContext } from "react-hook-form";
 
 type HelpLinkTextInputProps = {
@@ -34,7 +34,7 @@ export const HelpLinkTextInput = ({
         />
       }
     >
-      <KeycloakTextInput
+      <SsoTextInput
         type="text"
         id={name}
         name={fieldName}

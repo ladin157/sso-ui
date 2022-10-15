@@ -11,7 +11,7 @@ export const FlowTitle = ({ id, title }: FlowTitleProps) => {
   return (
     <Card
       data-testid={title}
-      className="keycloak__authentication__title"
+      className="sso__authentication__title"
       isFlat
     >
       <CardBody data-id={id} id={`title-id-${id}`}>

@@ -9,7 +9,7 @@ import {
 import { KerberosSettingsRequired } from "./kerberos/KerberosSettingsRequired";
 import { SettingsCache } from "./shared/SettingsCache";
 import { useRealm } from "../context/realm-context/RealmContext";
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
 
 import { FormProvider, useForm } from "react-hook-form";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";

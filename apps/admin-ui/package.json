@@ -16,36 +16,36 @@
     "dev": {
       "command": "vite --host",
       "dependencies": [
-        "../../libs/keycloak-js:build"
+        "../../libs/sso-js:build"
       ]
     },
     "preview": {
       "command": "vite preview",
       "dependencies": [
-        "../../libs/keycloak-js:build"
+        "../../libs/sso-js:build"
       ]
     },
     "build": {
       "command": "vite build",
       "dependencies": [
-        "../../libs/keycloak-js:build"
+        "../../libs/sso-js:build"
       ]
     },
     "lint": {
       "command": "eslint . --ext js,jsx,mjs,ts,tsx",
       "dependencies": [
-        "../../libs/keycloak-js:build"
+        "../../libs/sso-js:build"
       ]
     },
     "test": {
       "command": "vitest",
       "dependencies": [
-        "../../libs/keycloak-js:build"
+        "../../libs/sso-js:build"
       ]
     }
   },
   "dependencies": {
-    "@keycloak/keycloak-admin-client": "^19.0.2",
+    "@sso/sso-admin-client": "^19.0.2",
     "@patternfly/patternfly": "^4.215.1",
     "@patternfly/react-code-editor": "^4.80.0",
     "@patternfly/react-core": "^4.239.0",
@@ -56,7 +56,7 @@
     "flat": "^5.0.2",
     "i18next": "^21.9.2",
     "i18next-http-backend": "^1.4.4",
-    "keycloak-js": "999.0.0-dev",
+    "sso-js": "999.0.0-dev",
     "lodash-es": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

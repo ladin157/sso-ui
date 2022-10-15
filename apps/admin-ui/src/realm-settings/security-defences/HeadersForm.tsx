@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
 import { ActionGroup, Button } from "@patternfly/react-core";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { HelpLinkTextInput } from "./HelpLinkTextInput";
 import { convertToFormValues } from "../../util";
@@ -32,7 +32,7 @@ export const HeadersForm = ({ realm, save }: HeadersFormProps) => {
       <FormAccess
         isHorizontal
         role="manage-realm"
-        className="keycloak__security-defences__form"
+        className="sso__security-defences__form"
         onSubmit={handleSubmit(save)}
       >
         <HelpLinkTextInput

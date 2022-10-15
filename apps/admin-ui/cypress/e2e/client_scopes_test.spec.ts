@@ -7,7 +7,7 @@ import ListingPage, {
 } from "../support/pages/admin_console/ListingPage";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import CreateClientScopePage from "../support/pages/admin_console/manage/client_scopes/CreateClientScopePage";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import RoleMappingTab from "../support/pages/admin_console/manage/RoleMappingTab";
 import ModalUtils from "../support/util/ModalUtils";
 import adminClient from "../support/util/AdminClient";
@@ -56,7 +56,7 @@ describe("Client Scopes test", () => {
 
   describe("Client Scope filter list items", () => {
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
     });
 
@@ -99,7 +99,7 @@ describe("Client Scopes test", () => {
         .itemExist(FilterAssignedType.None, false);
     });
 
-    //TODO https://github.com/keycloak/keycloak-admin-ui/issues/1959
+    //TODO https://github.com/sso/sso-admin-ui/issues/1959
     it("should filter items by Protocol All", () => {
       listingPage
         .selectFilter(Filter.Protocol)
@@ -109,7 +109,7 @@ describe("Client Scopes test", () => {
         .itemExist(openIDConnectItemText, true); //using FilterProtocol.OpenID will fail, text does not match.
     });
 
-    //TODO https://github.com/keycloak/keycloak-admin-ui/issues/1959
+    //TODO https://github.com/sso/sso-admin-ui/issues/1959
     it("should filter items by Protocol SAML", () => {
       listingPage
         .selectFilter(Filter.Protocol)
@@ -118,7 +118,7 @@ describe("Client Scopes test", () => {
         .itemExist(openIDConnectItemText, false); //using FilterProtocol.OpenID will fail, text does not match.
     });
 
-    //TODO https://github.com/keycloak/keycloak-admin-ui/issues/1959
+    //TODO https://github.com/sso/sso-admin-ui/issues/1959
     it("should filter items by Protocol OpenID", () => {
       listingPage
         .selectFilter(Filter.Protocol)
@@ -136,7 +136,7 @@ describe("Client Scopes test", () => {
   describe("Client Scope modify list items", () => {
     const itemName = clientScopeName + 0;
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
     });
 
@@ -192,7 +192,7 @@ describe("Client Scopes test", () => {
         .checkDropdownItemIsDisabled("Delete");
     });
 
-    //TODO: blocked by https://github.com/keycloak/keycloak-admin-ui/issues/1952
+    //TODO: blocked by https://github.com/sso/sso-admin-ui/issues/1952
     //it("should export item from item bar", () => {
 
     //});
@@ -200,7 +200,7 @@ describe("Client Scopes test", () => {
 
   describe("Client Scope delete list items ", () => {
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
     });
 
@@ -208,7 +208,7 @@ describe("Client Scopes test", () => {
       sidebarPage.goToClientScopes();
     });
 
-    //TODO: Partially blocked by https://github.com/keycloak/keycloak-admin-ui/issues/1854
+    //TODO: Partially blocked by https://github.com/sso/sso-admin-ui/issues/1854
     it("should delete item from item bar", () => {
       listingPage
         .checkInSearchBarChangeTypeToButtonIsDisabled()
@@ -223,7 +223,7 @@ describe("Client Scopes test", () => {
       //listingPage.checkInSearchBarChangeTypeToButtonIsDisabled();
     });
 
-    //TODO: Partially blocked by https://github.com/keycloak/keycloak-admin-ui/issues/1854
+    //TODO: Partially blocked by https://github.com/sso/sso-admin-ui/issues/1854
     it("should delete selected item from search bar", () => {
       listingPage
         .checkInSearchBarChangeTypeToButtonIsDisabled()
@@ -239,7 +239,7 @@ describe("Client Scopes test", () => {
       //listingPage.checkInSearchBarChangeTypeToButtonIsDisabled();
     });
 
-    //TODO: Partially blocked by https://github.com/keycloak/keycloak-admin-ui/issues/1854
+    //TODO: Partially blocked by https://github.com/sso/sso-admin-ui/issues/1854
     it("should delete multiple selected items from search bar", () => {
       listingPage
         .checkInSearchBarChangeTypeToButtonIsDisabled()
@@ -260,7 +260,7 @@ describe("Client Scopes test", () => {
 
   describe("Client Scope creation", () => {
     before(() => {
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
     });
 

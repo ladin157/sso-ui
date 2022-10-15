@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import type { ServerInfoRepresentation } from "@keycloak/keycloak-admin-client/lib/defs/serverInfoRepesentation";
+import type { ServerInfoRepresentation } from "@sso/sso-admin-client/lib/defs/serverInfoRepesentation";
 
 import { sortProviders } from "../../util";
 import { useAdminClient, useFetch } from "../auth/AdminClient";

@@ -9,13 +9,13 @@ import {
   PageSection,
   Switch,
 } from "@patternfly/react-core";
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 
 import { useAlerts } from "../../components/alert/Alerts";
 import { FormAccess } from "../../components/form-access/FormAccess";
 import { JsonFileUpload } from "../../components/json-file-upload/JsonFileUpload";
 import { ViewHeader } from "../../components/view-header/ViewHeader";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 import { useAdminClient } from "../../context/auth/AdminClient";
 import { useRealms } from "../../context/RealmsContext";
 import { useWhoAmI } from "../../context/whoami/WhoAmI";
@@ -83,7 +83,7 @@ export default function NewRealmForm() {
             validated={errors.realm ? "error" : "default"}
             helperTextInvalid={t("common:required")}
           >
-            <KeycloakTextInput
+            <SsoTextInput
               isRequired
               type="text"
               id="kc-realm-name"

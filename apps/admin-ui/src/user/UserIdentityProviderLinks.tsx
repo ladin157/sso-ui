@@ -10,14 +10,14 @@ import {
   TextContent,
 } from "@patternfly/react-core";
 import { FormPanel } from "../components/scroll-form/FormPanel";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { cellWidth } from "@patternfly/react-table";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom-v5-compat";
 import { useAdminClient } from "../context/auth/AdminClient";
 import { emptyFormatter, upperCaseFormatter } from "../util";
-import type IdentityProviderRepresentation from "@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation";
-import type FederatedIdentityRepresentation from "@keycloak/keycloak-admin-client/lib/defs/federatedIdentityRepresentation";
+import type IdentityProviderRepresentation from "@sso/sso-admin-client/lib/defs/identityProviderRepresentation";
+import type FederatedIdentityRepresentation from "@sso/sso-admin-client/lib/defs/federatedIdentityRepresentation";
 import { useRealm } from "../context/realm-context/RealmContext";
 import { useServerInfo } from "../context/server-info/ServerInfoProvider";
 import { capitalize } from "lodash-es";
@@ -193,7 +193,7 @@ export const UserIdentityProviderLinks = () => {
               {t("linkedIdPsText")}
             </Text>
           </TextContent>
-          <KeycloakDataTable
+          <SsoDataTable
             loader={linkedIdPsLoader}
             key={key}
             isPaginated={false}
@@ -246,7 +246,7 @@ export const UserIdentityProviderLinks = () => {
               {t("availableIdPsText")}
             </Text>
           </TextContent>
-          <KeycloakDataTable
+          <SsoDataTable
             loader={availableIdPsLoader}
             key={key}
             isPaginated={false}

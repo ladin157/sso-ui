@@ -70,7 +70,7 @@ export const SearchDropdown = ({
 
   return (
     <Dropdown
-      className="keycloak__client-scopes__searchtype"
+      className="sso__client-scopes__searchtype"
       toggle={
         <DropdownToggle id="toggle-id" onToggle={setSearchToggle}>
           <FilterIcon /> {t(`clientScopeSearch.${searchType}`)}
@@ -106,7 +106,7 @@ export const SearchToolbar = ({
           </ToolbarItem>
           <ToolbarItem>
             <Select
-              className="keycloak__client-scopes__searchtype"
+              className="sso__client-scopes__searchtype"
               onToggle={setOpen}
               isOpen={open}
               selections={[
@@ -138,7 +138,7 @@ export const SearchToolbar = ({
           </ToolbarItem>
           <ToolbarItem>
             <Select
-              className="keycloak__client-scopes__searchtype"
+              className="sso__client-scopes__searchtype"
               onToggle={setOpen}
               isOpen={open}
               selections={[t(`protocolTypes.${protocol}`)]}

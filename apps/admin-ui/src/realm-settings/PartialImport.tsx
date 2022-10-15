@@ -31,18 +31,18 @@ import {
 
 import { useAlerts } from "../components/alert/Alerts";
 import { JsonFileUpload } from "../components/json-file-upload/JsonFileUpload";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 
 import { useAdminClient } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
 
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import type {
   PartialImportRealmRepresentation,
   PartialImportResponse,
   PartialImportResult,
-} from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
+} from "@sso/sso-admin-client/lib/defs/realmRepresentation";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
 
 export type PartialImportProps = {
   open: boolean;
@@ -470,7 +470,7 @@ export const PartialImportDialog = (props: PartialImportProps) => {
         ]}
       >
         <Alert variant="success" isInline title={importCompleteMessage()} />
-        <KeycloakDataTable
+        <SsoDataTable
           loader={loader}
           isPaginated
           ariaLabelKey="realm-settings:partialImport"

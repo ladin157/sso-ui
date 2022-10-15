@@ -5,7 +5,7 @@ import type { ExpandableScopeRepresentation } from "./Scopes";
 import { useAlerts } from "../../components/alert/Alerts";
 import { ConfirmDialogModal } from "../../components/confirm-dialog/ConfirmDialog";
 import { useAdminClient } from "../../context/auth/AdminClient";
-import type ScopeRepresentation from "@keycloak/keycloak-admin-client/lib/defs/scopeRepresentation";
+import type ScopeRepresentation from "@sso/sso-admin-client/lib/defs/scopeRepresentation";
 
 type DeleteScopeDialogProps = {
   clientId: string;

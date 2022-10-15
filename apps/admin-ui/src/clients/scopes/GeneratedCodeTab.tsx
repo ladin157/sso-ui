@@ -7,9 +7,9 @@ import {
   Title,
 } from "@patternfly/react-core";
 
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
 import { CopyToClipboardButton } from "./CopyToClipboardButton";
-import { KeycloakTextArea } from "../../components/keycloak-text-area/KeycloakTextArea";
+import { SsoTextArea } from "../../components/sso-text-area/SsoTextArea";
 
 type GeneratedCodeTabProps = {
   user?: UserRepresentation;
@@ -33,7 +33,7 @@ export const GeneratedCodeTab = ({
         </CodeBlockAction>
       }
     >
-      <KeycloakTextArea id={`text-area-${label}`} rows={20} value={text} />
+      <SsoTextArea id={`text-area-${label}`} rows={20} value={text} />
     </CodeBlock>
   ) : (
     <EmptyState variant="large">

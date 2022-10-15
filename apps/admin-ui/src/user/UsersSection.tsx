@@ -31,13 +31,13 @@ import {
 } from "@patternfly/react-icons";
 import type { IRowData } from "@patternfly/react-table";
 
-import type ComponentRepresentation from "@keycloak/keycloak-admin-client/lib/defs/componentRepresentation";
-import type UserRepresentation from "@keycloak/keycloak-admin-client/lib/defs/userRepresentation";
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type ComponentRepresentation from "@sso/sso-admin-client/lib/defs/componentRepresentation";
+import type UserRepresentation from "@sso/sso-admin-client/lib/defs/userRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { useAlerts } from "../components/alert/Alerts";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { ViewHeader } from "../components/view-header/ViewHeader";
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
 import { useRealm } from "../context/realm-context/RealmContext";
@@ -45,7 +45,7 @@ import { emptyFormatter } from "../util";
 import { toUser } from "./routes/User";
 import { toAddUser } from "./routes/AddUser";
 import helpUrls from "../help-urls";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 import { PermissionsTab } from "../components/permission-tab/PermissionTab";
 import { toUsers, UserTab } from "./routes/Users";
 import {
@@ -79,7 +79,7 @@ export default function UsersSection() {
   useFetch(
     async () => {
       const testParams = {
-        type: "org.keycloak.storage.UserStorageProvider",
+        type: "com.vinorsoft.sso.storage.UserStorageProvider",
       };
 
       try {
@@ -201,7 +201,7 @@ export default function UsersSection() {
             key={`email-verified-${user.id}`}
             content={<>{t("notVerified")}</>}
           >
-            <ExclamationCircleIcon className="keycloak__user-section__email-verified" />
+            <ExclamationCircleIcon className="sso__user-section__email-verified" />
           </Tooltip>
         )}{" "}
         {emptyFormatter()(user.email)}
@@ -212,7 +212,7 @@ export default function UsersSection() {
   const goToCreate = () => navigate(toAddUser({ realm: realmName }));
 
   if (!userStorage || !realm) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   //should *only* list users when no user federation is configured
@@ -311,7 +311,7 @@ export default function UsersSection() {
             title={<TabTitleText>{t("userList")}</TabTitleText>}
             {...route("list")}
           >
-            <KeycloakDataTable
+            <SsoDataTable
               key={key}
               loader={loader}
               isPaginated

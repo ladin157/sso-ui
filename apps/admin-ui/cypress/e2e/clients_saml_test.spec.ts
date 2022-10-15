@@ -4,7 +4,7 @@ import ListingPage from "../support/pages/admin_console/ListingPage";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import ModalUtils from "../support/util/ModalUtils";
 import adminClient from "../support/util/AdminClient";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 
 const loginPage = new LoginPage();
 const masthead = new Masthead();
@@ -22,7 +22,7 @@ describe("Clients SAML tests", () => {
         clientId: samlClientName,
         publicClient: false,
       });
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
     });
 
@@ -62,7 +62,7 @@ describe("Clients SAML tests", () => {
         clientId,
         protocol: "saml",
       });
-      keycloakBefore();
+      ssoBefore();
       loginPage.logIn();
     });
 

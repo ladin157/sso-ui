@@ -18,9 +18,9 @@ import {
 import { MinusCircleIcon, PlusCircleIcon } from "@patternfly/react-icons";
 import { camelCase } from "lodash-es";
 
-import type ResourceRepresentation from "@keycloak/keycloak-admin-client/lib/defs/resourceRepresentation";
+import type ResourceRepresentation from "@sso/sso-admin-client/lib/defs/resourceRepresentation";
 import { defaultContextAttributes } from "../utils";
-import { KeycloakTextInput } from "../../components/keycloak-text-input/KeycloakTextInput";
+import { SsoTextInput } from "../../components/sso-text-input/SsoTextInput";
 
 import "./key-based-attribute-input.css";
 
@@ -134,7 +134,7 @@ const ValueInput = ({
           )}
         />
       ) : (
-        <KeycloakTextInput
+        <SsoTextInput
           id={`${getMessageBundleKey(attribute.key)}-value`}
           className="value-input"
           name={`${name}[${rowIndex}].value`}

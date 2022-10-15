@@ -414,7 +414,7 @@ export default class ProviderPage {
   }
 
   clickExistingCard(cardName: string) {
-    cy.findByTestId("keycloak-card-title").contains(cardName).click();
+    cy.findByTestId("sso-card-title").contains(cardName).click();
     cy.wait(1000);
     return this;
   }

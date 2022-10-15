@@ -4,11 +4,11 @@ import { Button, InputGroup } from "@patternfly/react-core";
 import { EyeIcon, EyeSlashIcon } from "@patternfly/react-icons";
 
 import {
-  KeycloakTextInput,
-  KeycloakTextInputProps,
-} from "../keycloak-text-input/KeycloakTextInput";
+  SsoTextInput,
+  SsoTextInputProps,
+} from "../sso-text-input/SsoTextInput";
 
-type PasswordInputProps = KeycloakTextInputProps & {
+type PasswordInputProps = SsoTextInputProps & {
   hasReveal?: boolean;
 };
 
@@ -21,7 +21,7 @@ const PasswordInputBase = ({
   const [hidePassword, setHidePassword] = useState(true);
   return (
     <InputGroup>
-      <KeycloakTextInput
+      <SsoTextInput
         {...rest}
         type={hidePassword ? "password" : "text"}
         ref={innerRef}

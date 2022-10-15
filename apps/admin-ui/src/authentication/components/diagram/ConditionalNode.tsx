@@ -11,7 +11,7 @@ const ConditionalNodeInner = ({ data, selected }: ConditionalNodeProps) => {
     <>
       <Handle position={Position.Right} type="source" />
       <div
-        className={`react-flow__node-default keycloak__authentication__conditional_node ${
+        className={`react-flow__node-default sso__authentication__conditional_node ${
           selected ? "selected" : ""
         }`}
       >

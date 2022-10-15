@@ -1,6 +1,6 @@
-import KeycloakAdminClient from "@keycloak/keycloak-admin-client";
+import SsoAdminClient from "@sso/sso-admin-client";
 import axios from "axios";
-import Keycloak from "keycloak-js";
+import Sso from "sso-js";
 import { DependencyList, useEffect } from "react";
 import { useErrorHandler } from "react-error-boundary";
 
@@ -9,8 +9,8 @@ import { createNamedContext } from "../../utils/createNamedContext";
 import useRequiredContext from "../../utils/useRequiredContext";
 
 export type AdminClientProps = {
-  keycloak: Keycloak;
-  adminClient: KeycloakAdminClient;
+  sso: Sso;
+  adminClient: SsoAdminClient;
 };
 
 export const AdminClientContext = createNamedContext<
@@ -72,7 +72,7 @@ export function useFetch<T>(
 }
 
 export async function initAdminClient() {
-  const keycloak = new Keycloak({
+  const sso = new Sso({
     url: environment.authServerUrl,
     realm: environment.loginRealm,
     clientId: environment.isRunningAsTheme
@@ -80,23 +80,23 @@ export async function initAdminClient() {
       : "security-admin-console-v2",
   });
 
-  await keycloak.init({ onLoad: "check-sso", pkceMethod: "S256" });
+  await sso.init({ onLoad: "check-sso", pkceMethod: "S256" });
 
-  const adminClient = new KeycloakAdminClient();
+  const adminClient = new SsoAdminClient();
 
   adminClient.setConfig({ realmName: environment.loginRealm });
   adminClient.baseUrl = environment.authUrl;
   adminClient.registerTokenProvider({
     async getAccessToken() {
       try {
-        await keycloak.updateToken(5);
+        await sso.updateToken(5);
       } catch (error) {
-        keycloak.login();
+        sso.login();
       }
 
-      return keycloak.token;
+      return sso.token;
     },
   });
 
-  return { keycloak, adminClient };
+  return { sso, adminClient };
 }

@@ -5,7 +5,7 @@ import ListingPage from "../support/pages/admin_console/ListingPage";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import createRealmRolePage from "../support/pages/admin_console/manage/realm_roles/CreateRealmRolePage";
 import AssociatedRolesPage from "../support/pages/admin_console/manage/realm_roles/AssociatedRolesPage";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import adminClient from "../support/util/AdminClient";
 import ClientRolesTab from "../support/pages/admin_console/manage/clients/ClientRolesTab";
 import KeyValueInput from "../support/pages/admin_console/manage/KeyValueInput";
@@ -21,7 +21,7 @@ const rolesTab = new ClientRolesTab();
 
 describe("Realm roles test", () => {
   before(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
   });
 

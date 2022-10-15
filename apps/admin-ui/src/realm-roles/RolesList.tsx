@@ -5,15 +5,15 @@ import { useTranslation } from "react-i18next";
 import { AlertVariant, Button, ButtonVariant } from "@patternfly/react-core";
 
 import { useAdminClient, useFetch } from "../context/auth/AdminClient";
-import type RoleRepresentation from "@keycloak/keycloak-admin-client/lib/defs/roleRepresentation";
+import type RoleRepresentation from "@sso/sso-admin-client/lib/defs/roleRepresentation";
 import { ListEmptyState } from "../components/list-empty-state/ListEmptyState";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
-import { KeycloakDataTable } from "../components/table-toolbar/KeycloakDataTable";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
+import { SsoDataTable } from "../components/table-toolbar/SsoDataTable";
 import { useAlerts } from "../components/alert/Alerts";
 import { useConfirmDialog } from "../components/confirm-dialog/ConfirmDialog";
 import { emptyFormatter, upperCaseFormatter } from "../util";
 import { useRealm } from "../context/realm-context/RealmContext";
-import type RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
+import type RealmRepresentation from "@sso/sso-admin-client/lib/defs/realmRepresentation";
 import { HelpItem } from "../components/help-enabler/HelpItem";
 import { ClientParams, ClientRoute } from "../clients/routes/Client";
 import { toClientRole } from "./routes/ClientRole";
@@ -119,13 +119,13 @@ export const RolesList = ({
   const goToCreate = () => navigate(`${url}/add-role`);
 
   if (!realm) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   return (
     <>
       <DeleteConfirm />
-      <KeycloakDataTable
+      <SsoDataTable
         key={selectedRole ? selectedRole.id : "roleList"}
         loader={loader!}
         ariaLabelKey="roles:roleList"

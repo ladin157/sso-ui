@@ -32,7 +32,7 @@ import { useServerInfo } from "../context/server-info/ServerInfoProvider";
 import { toUpperCase } from "../util";
 import { HelpItem } from "../components/help-enabler/HelpItem";
 import environment from "../environment";
-import { KeycloakSpinner } from "../components/keycloak-spinner/KeycloakSpinner";
+import { SsoSpinner } from "../components/sso-spinner/SsoSpinner";
 import useLocaleSort from "../utils/useLocaleSort";
 import {
   routableTab,
@@ -51,8 +51,8 @@ const EmptyDashboard = () => {
       <EmptyState variant="large">
         <Brand
           src={environment.resourceUrl + "/icon.svg"}
-          alt="Keycloak icon"
-          className="keycloak__dashboard_icon"
+          alt="Sso icon"
+          className="sso__dashboard_icon"
         />
         <Title headingLevel="h4" size="3xl">
           {t("welcome")}
@@ -112,7 +112,7 @@ const Dashboard = () => {
   );
 
   if (Object.keys(serverInfo).length === 0) {
-    return <KeycloakSpinner />;
+    return <SsoSpinner />;
   }
 
   const route = (tab: DashboardTab) =>
@@ -158,7 +158,7 @@ const Dashboard = () => {
             <PageSection variant="light">
               <Grid hasGutter>
                 <GridItem lg={2} sm={12}>
-                  <Card className="keycloak__dashboard_card">
+                  <Card className="sso__dashboard_card">
                     <CardTitle>{t("serverInfo")}</CardTitle>
                     <CardBody>
                       <DescriptionList>
@@ -181,7 +181,7 @@ const Dashboard = () => {
                   </Card>
                 </GridItem>
                 <GridItem lg={10} sm={12}>
-                  <Card className="keycloak__dashboard_card">
+                  <Card className="sso__dashboard_card">
                     <CardTitle>{t("profile")}</CardTitle>
                     <CardBody>
                       <DescriptionList>

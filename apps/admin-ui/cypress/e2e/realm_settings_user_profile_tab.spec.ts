@@ -4,7 +4,7 @@ import Masthead from "../support/pages/admin_console/Masthead";
 import SidebarPage from "../support/pages/admin_console/SidebarPage";
 import LoginPage from "../support/pages/LoginPage";
 import adminClient from "../support/util/AdminClient";
-import { keycloakBefore } from "../support/util/keycloak_hooks";
+import { ssoBefore } from "../support/util/sso_hooks";
 import ModalUtils from "../support/util/ModalUtils";
 
 const loginPage = new LoginPage();
@@ -35,7 +35,7 @@ describe("User profile tabs", () => {
   after(() => adminClient.deleteRealm(realmName));
 
   beforeEach(() => {
-    keycloakBefore();
+    ssoBefore();
     loginPage.logIn();
     sidebarPage.goToRealm(realmName);
     sidebarPage.goToRealmSettings();
